@@ -59,9 +59,6 @@ function Header() {
                             </LinkContainer>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse className='navbar-container' id="basic-navbar-nav">
-                            {/*<motion.div variants={reveal}>*/}
-                            {/*    <SearchBox/>*/}
-                            {/*</motion.div>*/}
                                 <Nav
 
                                 >
@@ -70,7 +67,7 @@ function Header() {
                                             <NavDropdown title={userInfo.name} id='username'>
                                                 <LinkContainer to='/profile'>
                                                     <NavDropdown.Item>
-                                                        Профиль
+                                                        Профиль123
                                                     </NavDropdown.Item>
                                                 </LinkContainer>
                                                 <NavDropdown.Item onClick={logoutHandler}>
