@@ -405,7 +405,7 @@ function ProductScreen() {
                                         Цена: ₽ {product.price}
                                     </ListGroup.Item>
 
-                                    <ListGroup.Item>
+                                    <ListGroup.Item className='description-group-item'>
                                         - {product.description1}
                                         <br/>
                                         <br/>

@@ -14,9 +14,9 @@ function Paginate({pages, page, keyword = '', isAdmin=false}) {
 
     const goToPage = (x) => {
         if (!isAdmin) {
-            navigate(`/?keyword=${keyword}&page=${x + 1}`)
+            navigate(`/#/?keyword=${keyword}&page=${x + 1}`)
         } else {
-            navigate(`/admin/productlist/?keyword=${keyword}&page=${x + 1}`)
+            navigate(`/#/admin/productlist/?keyword=${keyword}&page=${x + 1}`)
         }
         navigate(0)
     }

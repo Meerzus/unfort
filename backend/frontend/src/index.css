@@ -800,6 +800,10 @@ li[class='active page-item active'] .page-link {
     min-height: 10vh !important;
 }
 
+.description-group-item {
+    word-wrap: break-word;
+}
+
 @media (max-width: 1400px) {
     .search-box {
         display: flex;
