@@ -1,7 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="" />
+    <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/banner.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/pants1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/pants2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/pants3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/images/pants4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/cartActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/orderActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/productActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/actions/userActions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Alike.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Banner.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CheckoutSteps.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Filter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FormContainer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Loader.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Message.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Paginate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Rating.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SearchBox.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Size.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/cartConstants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/orderConstants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/productConstants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/userConstants.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/icons/unfort-logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/productPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/products.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/cartReducers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/orderReducers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/productReducers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reducers/userReducers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/AboutScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/CartScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ContractScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/DeliveryScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/HomeScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/LoginScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/OrderListScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/OrderScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PaymentScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PlaceOrderScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/PrivacyScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ProductEditScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ProductListScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ProductScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ProfileScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/RegisterScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ReturnScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/ShippingScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/SupportScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/UserEditScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/UserListScreen.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/animation.js" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +102,9 @@
         <entry key="FLASK_APP" value="app" />
       </map>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -210,6 +290,8 @@
       <workItem from="1686376962015" duration="2840000" />
       <workItem from="1686407579010" duration="177000" />
       <workItem from="1686410619225" duration="43000" />
+      <workItem from="1686571511335" duration="1305000" />
+      <workItem from="1686575801787" duration="494000" />
     </task>
     <servers />
   </component>
