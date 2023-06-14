@@ -7,13 +7,19 @@ import {addToCart, removeFromCart} from "../actions/cartActions";
 import Size from "../components/Size";
 // import {useState} from "@types/react";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 
 function CartScreen(location, history) {
     const { id } = useParams();
     const productId = id
-    let q = window.location.search ? window.location.search.split('?') : 1
-    const qty = window.location.search ? Number(q[1].split('=')[1]) : 1
-    const size = window.location.search ? q[2].split('=')[1] : 1
+    let q = window.location.hash ? window.location.hash.split('?') : 1
+    const qty = window.location.hash ? Number(q[1].split('=')[1]) : 1
+    const size = window.location.hash ? q[2].split('=')[1] : 1
+
+    console.log(qty)
+    console.log(size)
 
     const dispatch = useDispatch()
 
@@ -68,7 +74,19 @@ function CartScreen(location, history) {
         <Container>
             <Row>
                 <Col md={8}>
-                    <h1>Корзина</h1>
+                    <motion.h1
+                        variants={reveal}
+                        initial='hiddenVariantY'
+                        animate='revealedVariantY'
+                        transition={{
+                            ease: 'easeIn',
+                            type: 'spring',
+                            staggerChildren: .25,
+                            duration: 1,
+                            delayChildren: animationStart,
+                            delay: animationStart
+                        }}
+                    >Корзина</motion.h1>
                     {
                         cartItems.length !== 0 && (
                             <ListGroup variant='flush'>
@@ -78,7 +96,20 @@ function CartScreen(location, history) {
                                         <Col md={3}></Col>
                                         <Col md={2}></Col>
                                         <Col md={3}>
-                                            <h6 className='text-center'>Количество</h6>
+                                            <motion.h6
+                                                className='text-center'
+                                                variants={reveal}
+                                                initial='hiddenVariantY'
+                                                animate='revealedVariantY'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + .75
+                                                }}
+                                            >Количество</motion.h6>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
@@ -86,11 +117,24 @@ function CartScreen(location, history) {
                         )
                     }
                     {cartItems.length === 0 && (
-                        <div style={{height: 55 + 'px'}}>
-                            <Message>
+                        <motion.div
+                            style={{height: 55 + 'px'}}
+                            variants={reveal}
+                            initial='hiddenVariantX'
+                            animate='revealedVariantX'
+                            transition={{
+                                ease: 'easeIn',
+                                type: 'spring',
+                                staggerChildren: .25,
+                                duration: 1,
+                                delayChildren: animationStart,
+                                delay: animationStart - .5
+                            }}
+                        >
+                            <Message variants={reveal}>
                                 Корзина пуста. <Link className="back-to-homepage" to='/'>Вернуться к товарам.</Link>
                             </Message>
-                        </div>
+                        </motion.div>
 
                     )}
                     {cartItems.length !== 0 && (
@@ -99,27 +143,117 @@ function CartScreen(location, history) {
                                 <ListGroup.Item key={item.size}>
                                     <Row>
                                         <Col md={2}>
-                                            <Image className='mb-3' src={item.image} alt={item.name} fluid rounded/>
+                                            <motion.div
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart
+                                                }}
+                                            >
+                                                <Image className='mb-3' src={item.image} alt={item.name} fluid rounded/>
+                                            </motion.div>
                                         </Col>
                                         <Col md={3}>
-                                            <Link className='cart-item-title' to={`/product/${item.product}`}>{item.name}</Link> <h6 className='mt-0'>{item.size}</h6>
+                                            <motion.div
+                                                variants={reveal}
+                                                initial='hiddenVariantY'
+                                                animate='revealedVariantY'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + .25
+                                                }}
+                                            >
+                                                <Link
+                                                    className='cart-item-title'
+                                                    to={`/product/${item.product}`}
+                                                >{item.name}</Link>
+                                            </motion.div>
+
+                                            <motion.h6
+                                                className='mt-0'
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + .25
+                                                }}
+                                            >{item.size}</motion.h6>
+                                            {/*{console.log(cartItems)}*/}
                                         </Col>
+
                                         <Col md={2} className='fs-6 fw-bold text-center mb-1'>
-                                            ₽{item.price}
+                                            <motion.div
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + .5
+                                                }}
+                                            >
+                                                ₽{item.price}
+                                            </motion.div>
                                         </Col>
                                         <Col md={3}>
-                                            <Form.Control className="qty-form" as="select" value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value), item.size))}>
-                                                {
-                                                    [...Array(item.countInStock !== 0 ? item.countInStock : ((item.size === "S" && item.sizeInStockS) || (item.size === "M" && item.sizeInStockM) || (item.size === "L" && item.sizeInStockL) || (item.size === "XL" && item.sizeInStockXL))).keys()].map((x) => (
-                                                        <option key={x+1} value={x+1}>{x+1}</option>
-                                                    ))
-                                                }
-                                            </Form.Control>
+                                            <motion.div
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + .75
+                                                }}
+                                            >
+                                                <Form.Control className="qty-form" as="select" value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value), item.size))}>
+                                                    {
+                                                        [...Array(item.countInStock !== 0 ? item.countInStock : ((item.size === "S" && item.sizeInStockS) || (item.size === "M" && item.sizeInStockM) || (item.size === "L" && item.sizeInStockL) || (item.size === "XL" && item.sizeInStockXL))).keys()].map((x) => (
+                                                            <option key={x+1} value={x+1}>{x+1}</option>
+                                                        ))
+                                                    }
+                                                </Form.Control>
+                                            </motion.div>
                                         </Col>
                                         <Col md={1}>
-                                            <Button className='mt-3' type='button' variant='light' onClick={() => removeFromCartHandler(item.product, item.size)}>
-                                                <i className='fas fa-trash'></i>
-                                            </Button>
+                                            <motion.div
+                                                variants={reveal}
+                                                initial='hiddenVariantY'
+                                                animate='revealedVariantY'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + 1
+                                                }}
+                                            >
+                                                <Button className='mt-3' type='button' variant='light' onClick={() => removeFromCartHandler(item.product, item.size)}>
+                                                    <i className='fas fa-trash'></i>
+                                                </Button>
+                                            </motion.div>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
@@ -132,36 +266,85 @@ function CartScreen(location, history) {
                         cartItems.length !== 0 && (
                             <Card className='border-0'>
                                 <ListGroup variant='flush'>
-                                    <ListGroup.Item>
-                                        <h2 style={{textAlign: "center"}} className='mb-3'>Детали заказа</h2>
-                                        <div className="cart-sub-total mb-3">
+                                    <ListGroup.Item className='pt-0'>
+                                        <motion.h1
+                                            style={{textAlign: "center"}}
+                                            className='mb-3'
+                                            variants={reveal}
+                                            initial='hiddenVariantY'
+                                            animate='revealedVariantY'
+                                            transition={{
+                                                ease: 'easeIn',
+                                                type: 'spring',
+                                                staggerChildren: .25,
+                                                duration: 1,
+                                                delayChildren: animationStart,
+                                                delay: animationStart + 1.25
+                                            }}
+                                        >Детали заказа</motion.h1>
+                                        <motion.div
+                                            className="cart-sub-total mb-3"
+                                            variants={reveal}
+                                            initial='hiddenVariantX'
+                                            animate='revealedVariantX'
+                                            transition={{
+                                                ease: 'easeIn',
+                                                type: 'spring',
+                                                staggerChildren: .25,
+                                                duration: 1,
+                                                delayChildren: animationStart,
+                                                delay: animationStart + 1.25
+                                            }}
+                                        >
                                             <span>
                                                 {cartItems.reduce((acc, item) => acc + item.qty, 0)} {cartQty(cartItems.reduce((acc, item) => acc + item.qty, 0))}
                                             </span>
                                             ₽{(cartItems.reduce((acc, item) => acc + item.qty * item.price, 0))}
-                                        </div>
-                                        {/*<div className="mb-3">Купон:</div>*/}
-                                        {/*<div className="input-group">*/}
-                                        {/*    <input id='coupon' type="text" className="form-control" placeholder="Используйте купон" aria-label="Используйте купон" aria-describedby="button-addon2" onKeyPress={cupon} maxLength={5}/>*/}
-                                        {/*    <button className="btn btn-outline-secondary bg-black" type="button" id="button-addon2" onClick={cupon}>Применить</button>*/}
-                                        {/*</div>*/}
-                                        {/*<div className='ur-sale mb-3'>Ваша скидка: {sale}%</div>*/}
-                                        <div className="cart-total mb-3">
+                                        </motion.div>
+
+                                        <motion.div
+                                            className="cart-total mb-3"
+                                            variants={reveal}
+                                            initial='hiddenVariantX'
+                                            animate='revealedVariantX'
+                                            transition={{
+                                                ease: 'easeIn',
+                                                type: 'spring',
+                                                staggerChildren: .25,
+                                                duration: 1,
+                                                delayChildren: animationStart,
+                                                delay: animationStart + 1.5
+                                            }}
+                                        >
                                             <b>Итого:</b>
                                             ₽{(cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)) - (cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)) * (sale/100)}
-                                        </div>
+                                        </motion.div>
                                     </ListGroup.Item>
                                 </ListGroup>
 
                                 <ListGroup.Item>
-                                    <Button
-                                        type='button'
-                                        className='size-btn btn btn-dark checkout-btn'
-                                        disabled={cartItems.length === 0}
-                                        onClick={checkOutHandler}
+                                    <motion.div
+                                        variants={reveal}
+                                        initial='hiddenVariantX'
+                                        animate='revealedVariantX'
+                                        transition={{
+                                            ease: 'easeIn',
+                                            type: 'spring',
+                                            staggerChildren: .25,
+                                            duration: 1,
+                                            delayChildren: animationStart,
+                                            delay: animationStart + 1.75
+                                        }}
                                     >
-                                        Перейти к оплате
-                                    </Button>
+                                        <Button
+                                            type='button'
+                                            className='size-btn btn btn-dark checkout-btn'
+                                            disabled={cartItems.length === 0}
+                                            onClick={checkOutHandler}
+                                        >
+                                            Перейти к оплате
+                                        </Button>
+                                    </motion.div>
                                 </ListGroup.Item>
                             </Card>
                         )

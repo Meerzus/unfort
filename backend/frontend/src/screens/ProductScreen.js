@@ -438,6 +438,7 @@ function ProductScreen() {
                                             <Row>
                                                 <Col>
                                                     <Size product={product} setSize={setSize} size={size} qtySize={qtySize} setQtySize={setQtySize}/>
+                                                    {console.log(product)}
                                                     <div className='product-size'>
                                                         <Button
                                                             variant='dark'
