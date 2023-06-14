@@ -14,12 +14,14 @@ import {animationStart, reveal} from "../utils/animation";
 function CartScreen(location, history) {
     const { id } = useParams();
     const productId = id
-    let q = window.location.hash ? window.location.hash.split('?') : 1
-    const qty = window.location.hash ? Number(q[1].split('=')[1]) : 1
-    const size = window.location.hash ? q[2].split('=')[1] : 1
+    let q = window.location.hash ? window?.location?.hash.split('?') : 1
+    const qty = window.location.hash === '#/cart' ? 1 : Number(q[1].split('=')[1])
+    const size = window.location.hash === '#/cart' ? '' : q[2].split('=')[1]
+    // const qty = 1
+    // const size = 1
 
-    console.log(qty)
-    console.log(size)
+    // console.log(window.location.hash === '#/cart' ? 123 : window.location.hash)
+    // console.log(size)
 
     const dispatch = useDispatch()
 
@@ -67,6 +69,20 @@ function CartScreen(location, history) {
             navigate('/login')
         } else {
             navigate('/shipping')
+        }
+    }
+
+    const qtyHandler = (item) => {
+        if (item.size === 'S') {
+            return item.sizeInStockS
+        } else if (item.size === 'M') {
+            return item.sizeInStockM
+        } else if (item.size === 'L') {
+            return item.sizeInStockL
+        } else if (item.size === 'XL') {
+            return item.sizeInStockXL
+        } else if (item.size === '') {
+            return item.countInStock
         }
     }
 
@@ -193,7 +209,6 @@ function CartScreen(location, history) {
                                                     delay: animationStart + .25
                                                 }}
                                             >{item.size}</motion.h6>
-                                            {/*{console.log(cartItems)}*/}
                                         </Col>
 
                                         <Col md={2} className='fs-6 fw-bold text-center mb-1'>
@@ -229,7 +244,10 @@ function CartScreen(location, history) {
                                             >
                                                 <Form.Control className="qty-form" as="select" value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value), item.size))}>
                                                     {
-                                                        [...Array(item.countInStock !== 0 ? item.countInStock : ((item.size === "S" && item.sizeInStockS) || (item.size === "M" && item.sizeInStockM) || (item.size === "L" && item.sizeInStockL) || (item.size === "XL" && item.sizeInStockXL))).keys()].map((x) => (
+                                                        // [...Array(item.countInStock !== 0 ? item.countInStock : ((item.size === "S" && item.sizeInStockS) || (item.size === "M" && item.sizeInStockM) || (item.size === "L" && item.sizeInStockL) || (item.size === "XL" && item.sizeInStockXL))).keys()].map((x) => (
+                                                        //     <option key={x+1} value={x+1}>{x+1}</option>
+                                                        // ))
+                                                        [...Array(qtyHandler(item)).keys()].map((x) => (
                                                             <option key={x+1} value={x+1}>{x+1}</option>
                                                         ))
                                                     }
