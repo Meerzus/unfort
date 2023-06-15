@@ -8,6 +8,9 @@ import FormContainer from "../components/FormContainer";
 import {login} from "../actions/userActions";
 import {USER_LOGOUT} from "../constants/userConstants";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 
 function LoginScreen({location, history}) {
     const [email, setEmail] = useState('')
@@ -39,58 +42,118 @@ function LoginScreen({location, history}) {
 
     return (
         <FormContainer>
-            <h1 className='text-sm-center'>Вход</h1>
+            <motion.h1
+                className='text-sm-center'
+                variants={reveal}
+                initial='hiddenVariantY'
+                animate='revealedVariantY'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .25,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart
+                }}
+            >Вход</motion.h1>
 
             {loading && <Loader/>}
 
             {error &&
-                <div style={{height: 55 + 'px'}}>
+                <motion.div
+                    style={{height: 55 + 'px'}}
+                    variants={reveal}
+                    initial='hiddenVariantX'
+                    animate='revealedVariantX'
+                    transition={{
+                        ease: 'easeIn',
+                        type: 'spring',
+                        staggerChildren: .25,
+                        duration: 1,
+                        delayChildren: animationStart,
+                        delay: animationStart
+                    }}
+                >
                     <Message variant='danger'>
                         Введен неверный Логин/Пароль! <Link className='try-again text-sm-center' onClick={tryAgain}>Попробовать
                         снова</Link>
                     </Message>
-                </div>
+                </motion.div>
             }
             {
                 (!error && !loading) &&
-                <Form onSubmit={submitHandler}>
-                    <Form.Group className='mb-3' controlId='email'>
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control
-                            type='email'
-                            placeholder='Введите Email'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        >
+                <motion.div
+                    variants={reveal}
+                    initial='hiddenVariantX'
+                    animate='revealedVariantX'
+                    transition={{
+                        ease: 'easeIn',
+                        type: 'spring',
+                        staggerChildren: .1,
+                        duration: 1,
+                        delayChildren: animationStart + .25,
+                        delay: animationStart
+                    }}
+                >
+                    <Form onSubmit={submitHandler}>
+                        <Form.Group className='mb-3' controlId='email'>
+                            <motion.div variants={reveal}>
+                                <Form.Label>Email</Form.Label>
+                            </motion.div>
+                            <motion.div variants={reveal}>
+                                <Form.Control
+                                    type='email'
+                                    placeholder='Введите Email'
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                ></Form.Control>
+                            </motion.div>
+                        </Form.Group>
 
-                        </Form.Control>
-                    </Form.Group>
+                        <Form.Group className='mb-3' controlId='password'>
+                            <motion.div variants={reveal}>
+                                <Form.Label>Пароль</Form.Label>
+                            </motion.div>
+                            <motion.div variants={reveal}>
+                                <Form.Control
+                                    type='password'
+                                    placeholder='Введите пароль'
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                ></Form.Control>
+                            </motion.div>
+                        </Form.Group>
 
-                    <Form.Group className='mb-3' controlId='password'>
-                        <Form.Label>Пароль</Form.Label>
-                        <Form.Control
-                            type='password'
-                            placeholder='Введите пароль'
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        >
-
-                        </Form.Control>
-                    </Form.Group>
-
-                    <Button className='size-btn btn btn-dark mb-3' type='submit' style={{width: 100 + '%'}}>Войти</Button>
-                </Form>
+                        <motion.div variants={reveal}>
+                            <Button className='size-btn btn btn-dark mb-3' type='submit' style={{width: 100 + '%'}}>Войти</Button>
+                        </motion.div>
+                    </Form>
+                </motion.div>
             }
 
             {
                 (!error && !loading) &&
                 <Row className='py-3 text-sm-center'>
                     <Col>
-                        Нет аккаунта? <Link
-                            className='create-acc'
-                            to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-                            Создать
-                        </Link>
+                        <motion.div
+                            variants={reveal}
+                            initial='hiddenVariantX'
+                            animate='revealedVariantX'
+                            transition={{
+                                ease: 'easeIn',
+                                type: 'spring',
+                                staggerChildren: .1,
+                                duration: 1,
+                                delayChildren: animationStart,
+                                delay: animationStart + .75
+                            }}
+                        >
+                            Нет аккаунта? <Link
+                                className='create-acc'
+                                to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+                                Создать
+                            </Link>
+                        </motion.div>
                     </Col>
                 </Row>
             }
