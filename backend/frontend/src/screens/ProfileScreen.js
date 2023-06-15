@@ -9,6 +9,9 @@ import {getUserDetails, updateUserProfile} from "../actions/userActions";
 import {USER_UPDATE_PROFILE_RESET} from "../constants/userConstants";
 import {listMyOrders} from "../actions/orderActions";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 
 function ProfileScreen({history}) {
     const [name, setName] = useState('')
@@ -71,65 +74,119 @@ function ProfileScreen({history}) {
         <Container>
             <Row>
                 <Col md={3}>
-                    <h2 className='text-center'>User Profile</h2>
+                    <motion.h2
+                        className='text-center'
+                        variants={reveal}
+                        initial='hiddenVariantY'
+                        animate='revealedVariantY'
+                        transition={{
+                            ease: 'easeIn',
+                            type: 'spring',
+                            staggerChildren: .25,
+                            duration: 1,
+                            delayChildren: animationStart,
+                            delay: animationStart
+                        }}
+                    >User Profile</motion.h2>
                     {message && <Message variant='danger'>{message}</Message>}
                     {loading && <Loader/>}
                     {error && <Message variant='danger'>{error}</Message>}
                     {
                         (!error && !loading) &&
-                        <Form onSubmit={submitHandler}>
-                            <Form.Group className='mb-3' controlId='name'>
-                                <Form.Label>Имя</Form.Label>
-                                <Form.Control
-                                    required
-                                    type='name'
-                                    placeholder='Введите Имя'
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                        <motion.div
+                            variants={reveal}
+                            initial='hiddenVariantX'
+                            animate='revealedVariantX'
+                            transition={{
+                                ease: 'easeIn',
+                                type: 'spring',
+                                staggerChildren: .1,
+                                duration: 1,
+                                delayChildren: animationStart,
+                                delay: animationStart
+                            }}
+                        >
+                            <Form onSubmit={submitHandler}>
+                                <Form.Group className='mb-3' controlId='name'>
+                                    <motion.div variants={reveal}>
+                                        <Form.Label>Имя</Form.Label>
+                                    </motion.div>
+                                    <motion.div variants={reveal}>
+                                        <Form.Control
+                                            required
+                                            type='name'
+                                            placeholder='Введите Имя'
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
+                                        ></Form.Control>
+                                    </motion.div>
+                                </Form.Group>
 
-                            <Form.Group className='mb-3' controlId='email'>
-                                <Form.Label>Email</Form.Label>
-                                <Form.Control
-                                    required
-                                    type='email'
-                                    placeholder='Введите Email'
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                                <Form.Group className='mb-3' controlId='email'>
+                                    <motion.div variants={reveal}>
+                                        <Form.Label>Email</Form.Label>
+                                    </motion.div>
+                                    <motion.div variants={reveal}>
+                                        <Form.Control
+                                            required
+                                            type='email'
+                                            placeholder='Введите Email'
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        ></Form.Control>
+                                    </motion.div>
+                                </Form.Group>
 
-                            <Form.Group className='mb-3' controlId='password'>
-                                <Form.Label>change</Form.Label>
-                                <Form.Control
-                                    type='password'
-                                    placeholder='Введите пароль'
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                                <Form.Group className='mb-3' controlId='password'>
+                                    <motion.div variants={reveal}>
+                                        <Form.Label>Изменить пароль</Form.Label>
+                                    </motion.div>
+                                    <motion.div variants={reveal}>
+                                        <Form.Control
+                                            type='password'
+                                            placeholder='Введите пароль'
+                                            value={password}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        ></Form.Control>
+                                    </motion.div>
+                                </Form.Group>
 
-                            <Form.Group className='mb-3' controlId='passwordConfirm'>
-                                <Form.Label>Подтверждение пароля</Form.Label>
-                                <Form.Control
-                                    type='password'
-                                    placeholder='Подтвердите пароль'
-                                    value={confirmPassword}
-                                    onChange={(e) => setConfirmPassword(e.target.value)}
-                                >
-                                </Form.Control>
-                            </Form.Group>
+                                <Form.Group className='mb-3' controlId='passwordConfirm'>
+                                    <motion.div variants={reveal}>
+                                        <Form.Label>Подтверждение пароля</Form.Label>
+                                    </motion.div>
+                                    <motion.div variants={reveal}>
+                                        <Form.Control
+                                            type='password'
+                                            placeholder='Подтвердите пароль'
+                                            value={confirmPassword}
+                                            onChange={(e) => setConfirmPassword(e.target.value)}
+                                        ></Form.Control>
+                                    </motion.div>
+                                </Form.Group>
 
-                            <Button className='size-btn btn btn-dark mb-3' type='submit' style={{width: 100 + '%'}}>Update</Button>
-                        </Form>
+                                <motion.div variants={reveal}>
+                                    <Button className='size-btn btn btn-dark mb-3' type='submit' style={{width: 100 + '%'}}>Update</Button>
+                                </motion.div>
+                            </Form>
+                        </motion.div>
                     }
                 </Col>
                 <Col md={9}>
-                    <h2 className='text-center'>My Orders</h2>
+                    <motion.h2
+                        className='text-center'
+                        variants={reveal}
+                        initial='hiddenVariantY'
+                        animate='revealedVariantY'
+                        transition={{
+                            ease: 'easeIn',
+                            type: 'spring',
+                            staggerChildren: .25,
+                            duration: 1,
+                            delayChildren: animationStart,
+                            delay: animationStart
+                        }}
+                    >My Orders</motion.h2>
                     {
                         loadingOrders ? (
                             <Loader/>
@@ -138,42 +195,58 @@ function ProfileScreen({history}) {
                                 {errorOrders}
                             </Message>
                         ) : (
-                            <Table striped responsive className='table-sm text-center'>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Date</th>
-                                        <th>Total</th>
-                                        <th>Paid</th>
-                                        <th>Delivered</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {orders.map(order => {
-                                        return (
-                                            <tr key={order._id}>
-                                                <td>{order._id}</td>
-                                                <td>{order.createdAt.substring(0, 10)}</td>
-                                                <td><strong>₽ </strong>{order.totalPrice}</td>
-                                                <td>{order.isPaid ? order.paidAt.substring(0, 10) : (
-                                                    <i className='fa-solid fa-xmark fa-l' style={{color: 'red'}}></i>
-                                                )}</td>
-                                                <td width={50}>
-                                                    <LinkContainer to={`/order/${order._id}`}>
-                                                        <Button  variant='dark' className='size-btn btn-sm'>
-                                                            <i className="fa-solid fa-info fa-xl"></i>
-                                                        </Button>
-                                                    </LinkContainer>
-                                                </td>
-                                            </tr>
-                                        )
-                                    })}
-                                </tbody>
-                            </Table>
+                            <motion.div
+                                // className='order-table'
+                                variants={reveal}
+                                initial='hiddenVariantX'
+                                animate='revealedVariantX'
+                                transition={{
+                                    ease: 'easeIn',
+                                    type: 'spring',
+                                    staggerChildren: .01,
+                                    duration: 1,
+                                    delayChildren: animationStart,
+                                    delay: animationStart
+                                }}
+                            >
+                                <Table striped responsive className='table-sm text-center overflow-hidden'>
+                                    <thead>
+                                        <tr>
+                                            <motion.th variants={reveal}>ID</motion.th>
+                                            <motion.th variants={reveal}>Date</motion.th>
+                                            <motion.th variants={reveal}>Total</motion.th>
+                                            <motion.th variants={reveal}>Paid</motion.th>
+                                            <motion.th variants={reveal}>Delivered</motion.th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {orders.map(order => {
+                                            return (
+                                                <tr key={order._id}>
+                                                    <motion.td variants={reveal}>{order._id}</motion.td>
+                                                    <motion.td variants={reveal}>{order.createdAt.substring(0, 10)}</motion.td>
+                                                    <motion.td variants={reveal}><strong>₽ </strong>{order.totalPrice}</motion.td>
+                                                    <motion.td variants={reveal}>{order.isPaid ? order.paidAt.substring(0, 10) : (
+                                                        <i className='fa-solid fa-xmark fa-l' style={{color: 'red'}}></i>
+                                                    )}</motion.td>
+                                                    <motion.td width={50} variants={reveal}>
+                                                        <LinkContainer to={`/order/${order._id}`}>
+                                                            <Button  variant='dark' className='size-btn btn-sm'>
+                                                                <i className="fa-solid fa-info fa-xl"></i>
+                                                            </Button>
+                                                        </LinkContainer>
+                                                    </motion.td>
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </Table>
+                            </motion.div>
                         )
                     }
                 </Col>
             </Row>
+            <br/>
         </Container>
     );
 }

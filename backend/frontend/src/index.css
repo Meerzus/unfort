@@ -35,12 +35,12 @@ a {
 }
 
 ::-webkit-scrollbar {
-    width: .25rem;
-    background-color: #fff;
+    width: .25rem !important;
+    background-color: #fff !important;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #000;
+    background-color: #000 !important;
 }
 
 body {
@@ -742,6 +742,12 @@ li[class='active page-item active'] .page-link {
 
 .description-group-item {
     word-wrap: break-word;
+}
+
+.order-table tbody {
+    background-color: red !important;
+    color: red !important;
+    overflow-x: auto !important;
 }
 
 @media (max-width: 1400px) {

@@ -35,14 +35,14 @@ function Header() {
             <motion.div
                 initial={{opacity: 1}}
                 animate={{opacity: 1}}
-                transition={{delay: animationStart, duration: 1}}
+                transition={{delay: animationStart - .5, duration: 1}}
             >
                 <motion.div variants={reveal} initial='hiddenVariantY' animate='revealedVariantY' transition={{
                     ease: 'easeIn',
                     type: 'spring',
-                    staggerChildren: .2,
+                    staggerChildren: .1,
                     duration: 1,
-                    delayChildren: animationStart + .25
+                    delayChildren: animationStart - .25
                 }}>
                     <header>
                         <Navbar bg="black" variant="dark" expand="lg">
@@ -59,9 +59,6 @@ function Header() {
                             </LinkContainer>
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse className='navbar-container' id="basic-navbar-nav">
-                            {/*<motion.div variants={reveal}>*/}
-                            {/*    <SearchBox/>*/}
-                            {/*</motion.div>*/}
                                 <Nav
 
                                 >

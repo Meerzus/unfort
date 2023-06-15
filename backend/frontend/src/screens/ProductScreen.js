@@ -345,7 +345,7 @@ function ProductScreen() {
                             transition={{
                                 ease: 'easeIn',
                                 type: 'spring',
-                                staggerChildren: .25,
+                                staggerChildren: .1,
                                 duration: 1,
                                 delayChildren: animationStart,
                                 delay: animationStart

@@ -97,10 +97,10 @@ function CartScreen(location, history) {
                         transition={{
                             ease: 'easeIn',
                             type: 'spring',
-                            staggerChildren: .25,
+                            staggerChildren: .1,
                             duration: 1,
                             delayChildren: animationStart,
-                            delay: animationStart
+                            delay: animationStart - .9
                         }}
                     >Корзина</motion.h1>
                     {
@@ -120,10 +120,10 @@ function CartScreen(location, history) {
                                                 transition={{
                                                     ease: 'easeIn',
                                                     type: 'spring',
-                                                    staggerChildren: .25,
+                                                    staggerChildren: .1,
                                                     duration: 1,
                                                     delayChildren: animationStart,
-                                                    delay: animationStart + .75
+                                                    delay: animationStart - .4
                                                 }}
                                             >Количество</motion.h6>
                                         </Col>
@@ -141,10 +141,10 @@ function CartScreen(location, history) {
                             transition={{
                                 ease: 'easeIn',
                                 type: 'spring',
-                                staggerChildren: .25,
+                                staggerChildren: .1,
                                 duration: 1,
                                 delayChildren: animationStart,
-                                delay: animationStart - .5
+                                delay: animationStart - .9
                             }}
                         >
                             <Message variants={reveal}>
@@ -166,10 +166,10 @@ function CartScreen(location, history) {
                                                 transition={{
                                                     ease: 'easeIn',
                                                     type: 'spring',
-                                                    staggerChildren: .25,
+                                                    staggerChildren: .1,
                                                     duration: 1,
                                                     delayChildren: animationStart,
-                                                    delay: animationStart
+                                                    delay: animationStart - .8
                                                 }}
                                             >
                                                 <Image className='mb-3' src={item.image} alt={item.name} fluid rounded/>
@@ -183,10 +183,10 @@ function CartScreen(location, history) {
                                                 transition={{
                                                     ease: 'easeIn',
                                                     type: 'spring',
-                                                    staggerChildren: .25,
+                                                    staggerChildren: .1,
                                                     duration: 1,
                                                     delayChildren: animationStart,
-                                                    delay: animationStart + .25
+                                                    delay: animationStart - .7
                                                 }}
                                             >
                                                 <Link
@@ -203,10 +203,10 @@ function CartScreen(location, history) {
                                                 transition={{
                                                     ease: 'easeIn',
                                                     type: 'spring',
-                                                    staggerChildren: .25,
+                                                    staggerChildren: .1,
                                                     duration: 1,
                                                     delayChildren: animationStart,
-                                                    delay: animationStart + .25
+                                                    delay: animationStart - .6
                                                 }}
                                             >{item.size}</motion.h6>
                                         </Col>
@@ -219,10 +219,10 @@ function CartScreen(location, history) {
                                                 transition={{
                                                     ease: 'easeIn',
                                                     type: 'spring',
-                                                    staggerChildren: .25,
+                                                    staggerChildren: .1,
                                                     duration: 1,
                                                     delayChildren: animationStart,
-                                                    delay: animationStart + .5
+                                                    delay: animationStart - .5
                                                 }}
                                             >
                                                 ₽{item.price}
@@ -236,17 +236,14 @@ function CartScreen(location, history) {
                                                 transition={{
                                                     ease: 'easeIn',
                                                     type: 'spring',
-                                                    staggerChildren: .25,
+                                                    staggerChildren: .1,
                                                     duration: 1,
                                                     delayChildren: animationStart,
-                                                    delay: animationStart + .75
+                                                    delay: animationStart - .4
                                                 }}
                                             >
                                                 <Form.Control className="qty-form" as="select" value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value), item.size))}>
                                                     {
-                                                        // [...Array(item.countInStock !== 0 ? item.countInStock : ((item.size === "S" && item.sizeInStockS) || (item.size === "M" && item.sizeInStockM) || (item.size === "L" && item.sizeInStockL) || (item.size === "XL" && item.sizeInStockXL))).keys()].map((x) => (
-                                                        //     <option key={x+1} value={x+1}>{x+1}</option>
-                                                        // ))
                                                         [...Array(qtyHandler(item)).keys()].map((x) => (
                                                             <option key={x+1} value={x+1}>{x+1}</option>
                                                         ))
@@ -262,10 +259,10 @@ function CartScreen(location, history) {
                                                 transition={{
                                                     ease: 'easeIn',
                                                     type: 'spring',
-                                                    staggerChildren: .25,
+                                                    staggerChildren: .1,
                                                     duration: 1,
                                                     delayChildren: animationStart,
-                                                    delay: animationStart + 1
+                                                    delay: animationStart - .3
                                                 }}
                                             >
                                                 <Button className='mt-3' type='button' variant='light' onClick={() => removeFromCartHandler(item.product, item.size)}>
@@ -294,10 +291,10 @@ function CartScreen(location, history) {
                                             transition={{
                                                 ease: 'easeIn',
                                                 type: 'spring',
-                                                staggerChildren: .25,
+                                                staggerChildren: .1,
                                                 duration: 1,
                                                 delayChildren: animationStart,
-                                                delay: animationStart + 1.25
+                                                delay: animationStart - .2
                                             }}
                                         >Детали заказа</motion.h1>
                                         <motion.div
@@ -308,10 +305,10 @@ function CartScreen(location, history) {
                                             transition={{
                                                 ease: 'easeIn',
                                                 type: 'spring',
-                                                staggerChildren: .25,
+                                                staggerChildren: .1,
                                                 duration: 1,
                                                 delayChildren: animationStart,
-                                                delay: animationStart + 1.25
+                                                delay: animationStart - .1
                                             }}
                                         >
                                             <span>
@@ -328,10 +325,10 @@ function CartScreen(location, history) {
                                             transition={{
                                                 ease: 'easeIn',
                                                 type: 'spring',
-                                                staggerChildren: .25,
+                                                staggerChildren: .1,
                                                 duration: 1,
                                                 delayChildren: animationStart,
-                                                delay: animationStart + 1.5
+                                                delay: animationStart
                                             }}
                                         >
                                             <b>Итого:</b>
@@ -348,10 +345,10 @@ function CartScreen(location, history) {
                                         transition={{
                                             ease: 'easeIn',
                                             type: 'spring',
-                                            staggerChildren: .25,
+                                            staggerChildren: .1,
                                             duration: 1,
                                             delayChildren: animationStart,
-                                            delay: animationStart + 1.75
+                                            delay: animationStart + .1
                                         }}
                                     >
                                         <Button
