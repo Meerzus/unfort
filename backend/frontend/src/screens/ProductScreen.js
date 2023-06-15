@@ -12,6 +12,7 @@ import Size from "../components/Size";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Product from "../components/Product";
+import {animationStart, reveal} from "../utils/animation";
 
 function ProductScreen() {
     // const productList = useSelector(state => state.productList)
@@ -337,172 +338,353 @@ function ProductScreen() {
                     </div>
 
                     <Container>
-                        <Link to='/' className='btn btn-light my-3'>Go Back</Link>
+                        <motion.div
+                            variants={reveal}
+                            initial='hiddenVariantX'
+                            animate='revealedVariantX'
+                            transition={{
+                                ease: 'easeIn',
+                                type: 'spring',
+                                staggerChildren: .25,
+                                duration: 1,
+                                delayChildren: animationStart,
+                                delay: animationStart
+                            }}
+                        >
+                            <Link to='/' className='btn btn-light my-3'>{`< Назад`}</Link>
+                        </motion.div>
+
                         <Row>
-                            <div className="col-md-6 image-track">
+                            <motion.div
+                                className="col-md-6 image-track"
+                                variants={reveal}
+                                initial='hiddenVariantX'
+                                animate='revealedVariantX'
+                                transition={{
+                                    ease: 'easeIn',
+                                    type: 'spring',
+                                    staggerChildren: .25,
+                                    duration: 1,
+                                    delayChildren: animationStart,
+                                    delay: animationStart
+                                }}
+                            >
                                 <Col md={6} id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-                                    <motion.img layout src={product.preview1} id={product.preview1} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview2} id={product.preview2} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview3} id={product.preview3} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview4} id={product.preview4} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview5} id={product.preview5} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview6} id={product.preview6} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview7} id={product.preview7} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview8} id={product.preview8} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview9} id={product.preview9} className="product-screen-img" draggable="false"/>
-                                    <motion.img layout src={product.preview10} id={product.preview10} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview1} id={product.preview1} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview2} id={product.preview2} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview3} id={product.preview3} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview4} id={product.preview4} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview5} id={product.preview5} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview6} id={product.preview6} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview7} id={product.preview7} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview8} id={product.preview8} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview9} id={product.preview9} className="product-screen-img" draggable="false"/>
+                                    <motion.img variants={reveal} src={product.preview10} id={product.preview10} className="product-screen-img" draggable="false"/>
                                 </Col>
-                            </div>
+                            </motion.div>
 
                             <Col md={3}>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item>
-                                        <h3>{product.name}</h3>
-                                    </ListGroup.Item>
-
-                                    <ListGroup.Item>
-                                        <span className="my-3 rating">
-                                            <span> <i className={
-                                                product.rating >= 1
-                                                    ? "fas fa-star"
-                                                    : product.rating >= 0.5
-                                                        ? "fas fa-star-half-alt"
-                                                        : "far fa-star"
-                                            }></i></span>
-                                            <span> <i className={
-                                                product.rating >= 2
-                                                    ? "fas fa-star"
-                                                    : product.rating >= 1.5
-                                                        ? "fas fa-star-half-alt"
-                                                        : "far fa-star"
-                                            }></i></span>
-                                            <span> <i className={
-                                                product.rating >= 3
-                                                    ? "fas fa-star"
-                                                    : product.rating >= 2.5
-                                                        ? "fas fa-star-half-alt"
-                                                        : "far fa-star"
-                                            }></i></span>
-                                            <span> <i className={
-                                                product.rating >= 4
-                                                    ? "fas fa-star"
-                                                    : product.rating >= 3.5
-                                                        ? "fas fa-star-half-alt"
-                                                        : "far fa-star"
-                                            }></i></span>
-                                            <span> <i className={
-                                                product.rating >= 5
-                                                    ? "fas fa-star"
-                                                    : product.rating >= 4.5
-                                                        ? "fas fa-star-half-alt"
-                                                        : "far fa-star"
-                                            }></i></span>
-                                        </span>
-                                        <span className="mx-2"><i className="fas fa-user"></i> {product.numReviews}</span>
-                                    </ListGroup.Item>
-
-                                    <ListGroup.Item>
-                                        Цена: ₽ {product.price}
-                                    </ListGroup.Item>
-
-                                    <ListGroup.Item className='description-group-item'>
-                                        - {product.description1}
-                                        <br/>
-                                        <br/>
-                                        - {product.description2}
-                                        <br/>
-                                        <br/>
-                                        - {product.description3}
-                                        <br/>
-                                        <br/>
-                                        - {product.description4}
-                                        <br/>
-                                        <br/>
-                                        - {product.description5}
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Col>
-                            <Col md={3}>
-                                <Card>
+                                <motion.div variants={reveal} initial='hiddenVariantX' animate='revealedVariantX'>
                                     <ListGroup variant="flush">
-                                        <ListGroup.Item>
-                                            <Row>
-                                                <Col>Цена: </Col>
-                                                <Col>
-                                                    <strong>₽ {product.price}</strong>
-                                                </Col>
-                                            </Row>
-                                        </ListGroup.Item>
-
-                                        <ListGroup.Item>
-                                            <Row>
-                                                <Col>
-                                                    <Size product={product} setSize={setSize} size={size} qtySize={qtySize} setQtySize={setQtySize}/>
-                                                    <div className='product-size'>
-                                                        <Button
-                                                            variant='dark'
-                                                            className='size-btn mt-2'
-                                                            type='button'
-                                                            id='sizeShow'
-                                                        >
-                                                            Таблица размеров
-                                                        </Button>
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                        </ListGroup.Item>
-
-                                        {count > 0 && (
-                                            <ListGroup.Item>
-                                                <Row>
-                                                    <Col>
-                                                        Количество:
-                                                    </Col>
-                                                    <Col xs='auto' className='my-1'>
-                                                        <Form.Control
-                                                            className="qty-form"
-                                                            as="select" value={qty}
-                                                            onChange={(e) => setQty(e.target.value)}
-                                                        >
-                                                            {
-                                                                [...Array(
-                                                                    (size === 'S' && product.sizeInStockS) ||
-                                                                    (size === 'M' && product.sizeInStockM) ||
-                                                                    (size === 'L' && product.sizeInStockL) ||
-                                                                    (size === 'XL' && product.sizeInStockXL) ||
-                                                                    (product.countInStock)
-                                                                ).keys()].map((x) => (
-                                                                    <option key={x+1} value={x+1}>{x+1}</option>
-                                                                ))
-                                                            }
-                                                        </Form.Control>
-                                                    </Col>
-                                                </Row>
+                                        <motion.div variants={reveal} className='border-0'>
+                                            <ListGroup.Item style={{border: 0}}>
+                                                <motion.h3
+                                                    variants={reveal}
+                                                    initial='hiddenVariantX'
+                                                    animate='revealedVariantX'
+                                                    transition={{
+                                                        ease: 'easeIn',
+                                                        type: 'spring',
+                                                        staggerChildren: .25,
+                                                        duration: 1,
+                                                        delayChildren: animationStart,
+                                                        delay: animationStart
+                                                    }}
+                                                >{product.name}</motion.h3>
                                             </ListGroup.Item>
-                                        )}
+                                        </motion.div>
 
-                                        <ListGroup.Item className="d-grid gap-2">
-                                            <Button onClick={() => {
-                                                addToCartHandler()
-                                                product.size = size
-                                            }} variant='dark' className='size-btn' type='button' disabled={
-                                                ((product?.countInStock === 0 || !size) && !product?.category?.includes('Аксессуары'))
-                                            }>Добавить в корзину</Button>
+                                        <ListGroup.Item style={{border: 0}}>
+                                            <motion.span
+                                                className="my-3 rating"
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .1,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart
+                                                }}
+                                            >
+                                                <motion.span variants={reveal}> <i className={
+                                                    product.rating >= 1
+                                                        ? "fas fa-star"
+                                                        : product.rating >= 0.5
+                                                            ? "fas fa-star-half-alt"
+                                                            : "far fa-star"
+                                                }></i></motion.span>
+                                                <motion.span variants={reveal}> <i className={
+                                                    product.rating >= 2
+                                                        ? "fas fa-star"
+                                                        : product.rating >= 1.5
+                                                            ? "fas fa-star-half-alt"
+                                                            : "far fa-star"
+                                                }></i></motion.span>
+                                                <motion.span variants={reveal}> <i className={
+                                                    product.rating >= 3
+                                                        ? "fas fa-star"
+                                                        : product.rating >= 2.5
+                                                            ? "fas fa-star-half-alt"
+                                                            : "far fa-star"
+                                                }></i></motion.span>
+                                                <motion.span variants={reveal}> <i className={
+                                                    product.rating >= 4
+                                                        ? "fas fa-star"
+                                                        : product.rating >= 3.5
+                                                            ? "fas fa-star-half-alt"
+                                                            : "far fa-star"
+                                                }></i></motion.span>
+                                                <motion.span variants={reveal}> <i className={
+                                                    product.rating >= 5
+                                                        ? "fas fa-star"
+                                                        : product.rating >= 4.5
+                                                            ? "fas fa-star-half-alt"
+                                                            : "far fa-star"
+                                                }></i></motion.span>
+                                            </motion.span>
+                                            <motion.span
+                                                className="mx-2"
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + .5
+                                                }}
+                                            ><motion.i variants={reveal} className="fas fa-user"></motion.i> {product.numReviews}</motion.span>
+                                        </ListGroup.Item>
+
+                                        <ListGroup.Item className='description-group-item'>
+                                            <motion.div className='border-top'
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart
+                                                }}
+                                            >
+                                                <motion.div
+                                                    variants={reveal}
+                                                >
+                                                    {product.description1}
+                                                </motion.div>
+                                                <br/>
+                                                <motion.div
+                                                    variants={reveal}
+                                                >
+                                                    {product.description2}
+                                                </motion.div>
+                                                <br/>
+                                                <motion.div
+                                                    variants={reveal}
+                                                >
+                                                    {product.description3}
+                                                </motion.div>
+                                                <br/>
+                                                <motion.div
+                                                    variants={reveal}
+                                                >
+                                                    {product.description4}
+                                                </motion.div>
+                                                <br/>
+                                                <motion.div
+                                                    variants={reveal}
+                                                >
+                                                    {product.description5}
+                                                </motion.div>
+                                            </motion.div>
                                         </ListGroup.Item>
                                     </ListGroup>
-                                </Card>
+                                </motion.div>
+                            </Col>
+
+                            <Col md={3}>
+                                <motion.div>
+                                    <Card className='border-0'>
+                                        <ListGroup variant="flush" className='list-group-flush'>
+                                            <motion.div className='rounded-top'
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + 1
+                                                }}
+                                            >
+                                                <ListGroup.Item variant="flush">
+                                                    <Row>
+                                                        <motion.Col variants={reveal}>Цена: </motion.Col>
+                                                        <motion.Col variants={reveal}>
+                                                            <strong>₽ {product.price}</strong>
+                                                        </motion.Col>
+                                                    </Row>
+                                                </ListGroup.Item>
+                                            </motion.div>
+
+                                            <motion.div
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + 1.2
+                                                }}
+                                            >
+                                                <ListGroup.Item variant="flush">
+                                                    <Row>
+                                                        <Col>
+                                                            <Size variants={reveal} product={product} setSize={setSize} size={size} qtySize={qtySize} setQtySize={setQtySize}/>
+                                                            <motion.div variants={reveal} className='product-size'>
+                                                                <Button
+                                                                    variant='dark'
+                                                                    className='size-btn mt-2'
+                                                                    type='button'
+                                                                    id='sizeShow'
+                                                                >
+                                                                    Таблица размеров
+                                                                </Button>
+                                                            </motion.div>
+                                                        </Col>
+                                                    </Row>
+                                                </ListGroup.Item>
+                                            </motion.div>
+
+                                            {count > 0 && (
+                                                <motion.div
+                                                    variants={reveal}
+                                                    initial='hiddenVariantX'
+                                                    animate='revealedVariantX'
+                                                    transition={{
+                                                        ease: 'easeIn',
+                                                        type: 'spring',
+                                                        staggerChildren: .25,
+                                                        duration: 1,
+                                                        delayChildren: animationStart,
+                                                        delay: animationStart + .8
+                                                    }}
+                                                >
+                                                    <ListGroup.Item variant="flush">
+                                                        <Row>
+                                                            <motion.Col variants={reveal}>
+                                                                Количество:
+                                                            </motion.Col>
+                                                            <motion.Col variants={reveal} xs='auto' className='my-1'>
+                                                                <Form.Control
+                                                                    className="qty-form"
+                                                                    as="select" value={qty}
+                                                                    onChange={(e) => setQty(e.target.value)}
+                                                                >
+                                                                    {
+                                                                        [...Array(
+                                                                            (size === 'S' && product.sizeInStockS) ||
+                                                                            (size === 'M' && product.sizeInStockM) ||
+                                                                            (size === 'L' && product.sizeInStockL) ||
+                                                                            (size === 'XL' && product.sizeInStockXL) ||
+                                                                            (product.countInStock)
+                                                                        ).keys()].map((x) => (
+                                                                            <option key={x+1} value={x+1}>{x+1}</option>
+                                                                        ))
+                                                                    }
+                                                                </Form.Control>
+                                                            </motion.Col>
+                                                        </Row>
+                                                    </ListGroup.Item>
+                                                </motion.div>
+                                            )}
+
+                                            <motion.div className='rounded-bottom'
+                                                variants={reveal}
+                                                initial='hiddenVariantX'
+                                                animate='revealedVariantX'
+                                                transition={{
+                                                    ease: 'easeIn',
+                                                    type: 'spring',
+                                                    staggerChildren: .25,
+                                                    duration: 1,
+                                                    delayChildren: animationStart,
+                                                    delay: animationStart + 1.4
+                                                }}
+                                            >
+                                                <ListGroup.Item className="d-grid gap-2" variant="flush">
+                                                    <Button onClick={() => {
+                                                        addToCartHandler()
+                                                        product.size = size
+                                                    }} variant='dark' className='size-btn' type='button' disabled={
+                                                        ((product?.countInStock === 0 || !size) && !product?.category?.includes('Аксессуары'))
+                                                    }>Добавить в корзину</Button>
+                                                </ListGroup.Item>
+                                            </motion.div>
+                                        </ListGroup>
+                                    </Card>
+                                </motion.div>
                             </Col>
                         </Row>
                     </Container>
                     <Row>
                         <Col md={12}>
-                            <h2 className='text-center'>Рекомендуем</h2>
+                            <motion.h2
+                                className='text-center'
+                                variants={reveal}
+                                initial='hiddenVariantY'
+                                animate='revealedVariantY'
+                                transition={{
+                                    ease: 'easeIn',
+                                    type: 'spring',
+                                    staggerChildren: .25,
+                                    duration: 1,
+                                    delayChildren: animationStart,
+                                    delay: animationStart + 1.5
+                                }}
+                            >Рекомендуем</motion.h2>
 
-                            <div className="products">
+                            <motion.div
+                                className="products"
+                                variants={reveal}
+                                initial='hiddenVariantY'
+                                animate='revealedVariantY'
+                                transition={{
+                                    ease: 'easeIn',
+                                    type: 'spring',
+                                    staggerChildren: .25,
+                                    duration: 1,
+                                    delayChildren: animationStart,
+                                    delay: animationStart + 1.75
+                                }}
+                            >
                                 {prodsAlike.slice(0, 7).map((productI) => {
-                                    return <Product key={productI._id} product={productI}/>
+                                    return <Product variants={reveal} key={productI._id} product={productI}/>
                                 })}
-                            </div>
+                            </motion.div>
                         </Col>
                     </Row>
                 </div>

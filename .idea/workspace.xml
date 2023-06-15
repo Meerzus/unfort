@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="">
+    <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Size.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Size.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/CartScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/CartScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -226,12 +225,36 @@
       <workItem from="1686652724853" duration="677000" />
       <workItem from="1686664584077" duration="1568000" />
       <workItem from="1686721483476" duration="2804000" />
-      <workItem from="1686732355914" duration="7049000" />
+      <workItem from="1686732355914" duration="7205000" />
+      <workItem from="1686812565894" duration="5090000" />
     </task>
+    <task id="LOCAL-00001" summary="Фикс багов в корзине">
+      <created>1686739502310</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686739502310</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Фикс багов в корзине" />
+    <option name="LAST_COMMIT_MESSAGE" value="Фикс багов в корзине" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/unfort_ecmmrc$order_views.coverage" NAME="order_views Coverage Results" MODIFIED="1685680321204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend/base/views" />
