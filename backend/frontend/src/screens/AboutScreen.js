@@ -16,7 +16,7 @@ function AboutScreen() {
                     transition={{
                         ease: 'easeIn',
                         type: 'spring',
-                        staggerChildren: .25,
+                        staggerChildren: .2,
                         duration: 1,
                         delayChildren: animationStart,
                         delay: animationStart
@@ -32,9 +32,9 @@ function AboutScreen() {
                     transition={{
                         ease: 'easeIn',
                         type: 'spring',
-                        staggerChildren: .25,
+                        staggerChildren: .2,
                         duration: 1,
-                        delayChildren: animationStart,
+                        delayChildren: animationStart + .25,
                         delay: animationStart
                     }}
                     className='text-center'

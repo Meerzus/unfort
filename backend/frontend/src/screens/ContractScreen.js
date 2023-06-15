@@ -16,7 +16,7 @@ function ContractScreen(props) {
                     transition={{
                         ease: 'easeIn',
                         type: 'spring',
-                        staggerChildren: .25,
+                        staggerChildren: .05,
                         duration: 1,
                         delayChildren: animationStart,
                         delay: animationStart
@@ -33,10 +33,10 @@ function ContractScreen(props) {
                     transition={{
                         ease: 'easeIn',
                         type: 'spring',
-                        staggerChildren: .1,
+                        staggerChildren: .05,
                         duration: 1,
-                        delayChildren: animationStart + .5,
-                        delay: animationStart + .5
+                        delayChildren: animationStart + .25,
+                        delay: animationStart
                     }}
                     className='text-left mb-3'
                 >
