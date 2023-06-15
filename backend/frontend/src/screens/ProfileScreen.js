@@ -87,7 +87,7 @@ function ProfileScreen({history}) {
                             delayChildren: animationStart,
                             delay: animationStart
                         }}
-                    >User Profile</motion.h2>
+                    >Мой Профиль</motion.h2>
                     {message && <Message variant='danger'>{message}</Message>}
                     {loading && <Loader/>}
                     {error && <Message variant='danger'>{error}</Message>}
@@ -166,7 +166,7 @@ function ProfileScreen({history}) {
                                 </Form.Group>
 
                                 <motion.div variants={reveal}>
-                                    <Button className='size-btn btn btn-dark mb-3' type='submit' style={{width: 100 + '%'}}>Update</Button>
+                                    <Button className='size-btn btn btn-dark mb-3' type='submit' style={{width: 100 + '%'}}>Обновить</Button>
                                 </motion.div>
                             </Form>
                         </motion.div>
@@ -186,7 +186,7 @@ function ProfileScreen({history}) {
                             delayChildren: animationStart,
                             delay: animationStart
                         }}
-                    >My Orders</motion.h2>
+                    >Мои Заказы</motion.h2>
                     {
                         loadingOrders ? (
                             <Loader/>
@@ -213,10 +213,10 @@ function ProfileScreen({history}) {
                                     <thead>
                                         <tr>
                                             <motion.th variants={reveal}>ID</motion.th>
-                                            <motion.th variants={reveal}>Date</motion.th>
-                                            <motion.th variants={reveal}>Total</motion.th>
-                                            <motion.th variants={reveal}>Paid</motion.th>
-                                            <motion.th variants={reveal}>Delivered</motion.th>
+                                            <motion.th variants={reveal}>Дата</motion.th>
+                                            <motion.th variants={reveal}>Сумма</motion.th>
+                                            <motion.th variants={reveal}>Оплачено</motion.th>
+                                            <motion.th variants={reveal}>Детали</motion.th>
                                         </tr>
                                     </thead>
                                     <tbody>

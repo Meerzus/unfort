@@ -45,7 +45,7 @@ def addOrderItems(request):
             item = OrderItem.objects.create(
                 product=product,
                 order=order,
-                name=product.name + ', size: ' + i['size'] + ', by: ' + user.username,
+                name=product.name + ', Размер: ' + i['size'] + ', by: ' + user.username,
                 qty=i['qty'],
                 price=i['price'],
                 image=product.mainimg.url,

@@ -86,22 +86,22 @@ function Header() {
                                     {
                                         (userInfo && userInfo.isAdmin) && (
                                             <motion.div variants={reveal}>
-                                                <NavDropdown className='admin-menu' title='Admin' id='admin-menu'>
+                                                <NavDropdown className='admin-menu' title='Админ' id='admin-menu'>
                                                     <LinkContainer to='/admin/userlist'>
                                                         <NavDropdown.Item>
-                                                            Users
+                                                            Пользователи
                                                         </NavDropdown.Item>
                                                     </LinkContainer>
 
                                                     <LinkContainer to='/admin/productlist'>
                                                         <NavDropdown.Item>
-                                                            Products
+                                                            Товары
                                                         </NavDropdown.Item>
                                                     </LinkContainer>
 
                                                     <LinkContainer to='/admin/orderlist'>
                                                         <NavDropdown.Item>
-                                                            Orders
+                                                            Заказы
                                                         </NavDropdown.Item>
                                                     </LinkContainer>
                                                 </NavDropdown>
