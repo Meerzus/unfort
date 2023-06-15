@@ -102,12 +102,9 @@ img {
 }
 
 .banner {
-    /*width: 100vw;*/
-    /*height: 95vh;*/
     background-image: url("../public/images/banner.png");
     background-position: center center;
     background-size: cover;
-
 }
 
 .product-img {
@@ -243,18 +240,6 @@ button.active {
     display: none !important;
 }
 
-/*.show {*/
-/*    display: flex;*/
-/*    position: absolute;*/
-/*    width: 50rem;*/
-/*    height: 50rem;*/
-/*    object-fit: cover;*/
-/*    object-position: center center;*/
-/*    !*left: calc(50vw - 25rem);*!*/
-/*    !*top: calc(50vh - 25rem);*!*/
-/*    z-index: 5;*/
-/*}*/
-
 #sizeCloseBtn {
     position: fixed;
     top: 0;
@@ -278,21 +263,6 @@ button.active {
 #sizeCloseBtn:hover {
     opacity: .9 !important;
 }
-
-/*#sizeCloseBtn {*/
-/*    background-color: white;*/
-/*    border-radius: 1rem;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    font-size: 1.5rem;*/
-/*    display: flex;*/
-/*    position: absolute;*/
-/*    width: 50px;*/
-/*    height: 50px;*/
-/*    left: 10px;*/
-/*    top: 10px;*/
-/*    z-index: 6;*/
-/*}*/
 
 .sizeImgFull {
     display: flex;
@@ -395,14 +365,8 @@ td[width='50'] a {
     left: 0;
 }
 
-td a {
-    /*position: relative;*/
-    /*left: -1vmax;*/
-}
-
 a.size-btn {
     display: inline-block !important;
-    /*padding: 1rem;*/
 }
 
 .filter-size {
@@ -414,8 +378,6 @@ a.size-btn {
 }
 
 td .btn-danger {
-    /*position: relative;*/
-    /*right: -1vmax;*/
     color: red !important;
     background-color: white !important;
     border: .1rem solid red !important;
@@ -756,13 +718,9 @@ li[class='active page-item active'] .page-link {
     }
 }
 
-.footer-column-fourth a:hover {
+.footer-column-fourth-row a:hover {
     animation: socials 250ms;
     animation-fill-mode: both;
-}
-
-.footer-column-fourth a:last-child:hover {
-    animation: none;
 }
 
 .nav-link {
@@ -869,7 +827,6 @@ li[class='active page-item active'] .page-link {
     }
 
     .search-box {
-        /*width: 20rem !important;*/
         display: flex !important;
         position: absolute;
         left: 10% !important;

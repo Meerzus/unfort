@@ -91,7 +91,7 @@ function Footer() {
                                 md={document.documentElement.clientWidth < 992 ? 3 :4}
                                 className="footer-column-fourth"
                             >
-                                <Row>
+                                <Row className='footer-column-fourth-row'>
                                     <LinkContainer className="text-center" to='/copyright'>
                                         <Nav.Link className="cursor">
                                             <i className="fa-brands fa-vk fa-2xl"></i>
