@@ -28,7 +28,7 @@ def addOrderItems(request):
         # (1) Create Order
         order = Order.objects.create(
             user=user,
-            paymentMethod=data['paymentMethod'],
+            # paymentMethod=data['paymentMethod'],
             shippingPrice=data['shippingPrice'],
             totalPrice=data['totalPrice']
         )

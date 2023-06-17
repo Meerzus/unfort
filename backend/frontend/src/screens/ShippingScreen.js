@@ -9,6 +9,7 @@ import {saveShippingAddress} from "../actions/cartActions";
 import {motion} from "framer-motion";
 import {animationStart, reveal} from "../utils/animation";
 
+
 function ShippingScreen({history}) {
     const cart = useSelector(state => state.cart)
     const {shippingAddress} = cart
@@ -28,7 +29,7 @@ function ShippingScreen({history}) {
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(saveShippingAddress({city, fullName, address, postalCode, phoneNumber, socials, infoSource}))
-        navigate('/payment')
+        navigate('/placeorder')
     }
     return (
         <FormContainer>

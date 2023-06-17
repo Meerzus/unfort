@@ -2,7 +2,7 @@ import React from 'react';
 import {LinkContainer} from "react-router-bootstrap";
 import {Nav} from "react-bootstrap";
 
-function CheckoutSteps({step1, step2, step3, step4}) {
+function CheckoutSteps({step1, step2, step3}) {
     return (
         <Nav className='my-3 checkout-steps'>
             <Nav.Item>
