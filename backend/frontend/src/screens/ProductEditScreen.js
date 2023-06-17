@@ -179,7 +179,21 @@ function ProductEditScreen({location, history}) {
 
     return (
         <Container>
-            <Link to='/admin/productlist' className='btn btn-light my-3'>Назад</Link>
+            <motion.div
+                variants={reveal}
+                initial='hiddenVariantY'
+                animate='revealedVariantY'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .2,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart - .5
+                }}
+            >
+                <Link to='/admin/productlist' className='btn btn-light my-3'>Назад</Link>
+            </motion.div>
             <FormContainer>
                 <motion.h1
                     className='text-sm-center'
