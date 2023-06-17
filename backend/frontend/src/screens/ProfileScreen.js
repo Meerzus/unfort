@@ -196,7 +196,6 @@ function ProfileScreen({history}) {
                             </Message>
                         ) : (
                             <motion.div
-                                // className='order-table'
                                 variants={reveal}
                                 initial='hiddenVariantX'
                                 animate='revealedVariantX'

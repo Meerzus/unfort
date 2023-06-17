@@ -9,6 +9,9 @@ import {listUsers, deleteUser} from "../actions/userActions";
 import {userListReducer} from "../reducers/userReducers";
 import loader from "../components/Loader";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 function UserListScreen() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -42,68 +45,95 @@ function UserListScreen() {
         <Message variant='danger'>{error}</Message>
     ) : (
         <Container>
-            <h1 className='text-center'>Users</h1>
-            <Table
-                striped
-                bordered
-                hover
-                responsive
-                className='table-sm text-center'
+            <motion.h1
+                className='text-center'
+                variants={reveal}
+                initial='hiddenVariantY'
+                animate='revealedVariantY'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .2,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart - .25
+                }}
+            >Пользователи</motion.h1>
+            <motion.div
+                variants={reveal}
+                initial='hiddenVariantX'
+                animate='revealedVariantX'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .01,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart
+                }}
             >
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>EMAIL</th>
-                        <th>ADMIN</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users.map(user => (
-                        <tr key={user._id}>
-                            <td>{user._id}</td>
-                            <td>{user.name}</td>
-                            <td>{user.email}</td>
-                            <td>{user.isAdmin ? (
-                                <i
-                                    className='fas fa-check fa-xl'
-                                    style={{color: 'green'}}
-                                ></i>
-                            ) : (
-                                <i
-                                    className='fas fa-xmark fa-xl'
-                                    style={{color: 'red'}}
-                                ></i>
-                            )}</td>
-                            <td>
-                                <LinkContainer
-                                    className='mx-1'
-                                    to={`/admin/user/${user._id}/edit`}
-                                >
+                <Table
+                    striped
+                    bordered
+                    hover
+                    responsive
+                    className='table-sm text-center overflow-hidden'
+                >
+                    <thead>
+                        <tr>
+                            <motion.th variants={reveal}>ID</motion.th>
+                            <motion.th variants={reveal}>ИМЯ</motion.th>
+                            <motion.th variants={reveal}>ПОЧТА</motion.th>
+                            <motion.th variants={reveal}>АДМИН</motion.th>
+                            <motion.th variants={reveal}></motion.th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map(user => (
+                            <tr key={user._id}>
+                                <motion.td variants={reveal}>{user._id}</motion.td>
+                                <motion.td variants={reveal}>{user.name}</motion.td>
+                                <motion.td variants={reveal}>{user.email}</motion.td>
+                                <motion.td variants={reveal}>{user.isAdmin ? (
+                                    <i
+                                        className='fas fa-check fa-xl'
+                                        style={{color: 'green'}}
+                                    ></i>
+                                ) : (
+                                    <i
+                                        className='fas fa-xmark fa-xl'
+                                        style={{color: 'red'}}
+                                    ></i>
+                                )}</motion.td>
+                                <motion.td variants={reveal}>
+                                    <LinkContainer
+                                        className='mx-1'
+                                        to={`/admin/user/${user._id}/edit`}
+                                    >
+                                        <Button
+                                            variant='dark'
+                                            className='size-btn btn-sm'
+                                        >
+                                            <i
+                                                className='fas fa-edit fa-xl'
+                                            ></i>
+                                        </Button>
+                                    </LinkContainer>
                                     <Button
-                                        variant='dark'
-                                        className='size-btn btn-sm'
+                                        variant='danger'
+                                        className='btn-sm'
+                                        onClick={() => {deleteHandler(user._id)}}
                                     >
                                         <i
-                                            className='fas fa-edit fa-xl'
+                                            className='fas fa-trash'
                                         ></i>
                                     </Button>
-                                </LinkContainer>
-                                <Button
-                                    variant='danger'
-                                    className='btn-sm'
-                                    onClick={() => {deleteHandler(user._id)}}
-                                >
-                                    <i
-                                        className='fas fa-trash'
-                                    ></i>
-                                </Button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
+                                </motion.td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </motion.div>
         </Container>
     )
 }

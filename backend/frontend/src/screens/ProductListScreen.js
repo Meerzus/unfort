@@ -10,6 +10,9 @@ import {listProducts, deleteProduct, createProduct} from "../actions/productActi
 import {PRODUCT_CREATE_RESET} from "../constants/productConstants";
 import products from "../products";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 function ProductListScreen() {
     const { id } = useParams();
 
@@ -70,66 +73,106 @@ function ProductListScreen() {
             {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
             <Row className='align-items-center'>
                 <Col>
-                    <h1>Products</h1>
+                    <motion.h1
+                        variants={reveal}
+                        initial='hiddenVariantY'
+                        animate='revealedVariantY'
+                        transition={{
+                            ease: 'easeIn',
+                            type: 'spring',
+                            staggerChildren: .2,
+                            duration: 1,
+                            delayChildren: animationStart,
+                            delay: animationStart - .25
+                        }}
+                    >Товары</motion.h1>
                 </Col>
 
                 <Col className='create-product'>
-                    <Button className='size-btn my-3' onClick={createProductHandler}>
-                        <i className='fas fa-plus mx-2'></i> Create Product
-                    </Button>
+                    <motion.div
+                        variants={reveal}
+                        initial='hiddenVariantY'
+                        animate='revealedVariantY'
+                        transition={{
+                            ease: 'easeIn',
+                            type: 'spring',
+                            staggerChildren: .2,
+                            duration: 1,
+                            delayChildren: animationStart,
+                            delay: animationStart
+                        }}
+                    >
+                        <Button className='size-btn my-3' onClick={createProductHandler}>
+                            <i className='fas fa-plus mx-2'></i> Создать Товар
+                        </Button>
+                    </motion.div>
                 </Col>
             </Row>
-            <Table
-                striped
-                bordered
-                hover
-                responsive
-                className='table-sm text-center'
+            <motion.div
+                variants={reveal}
+                initial='hiddenVariantX'
+                animate='revealedVariantX'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .01,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart
+                }}
             >
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>PRICE</th>
-                        <th>CATEGORY</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {products.map(product => (
-                        <tr key={product._id}>
-                            <td>{product._id}</td>
-                            <td>{product.name}</td>
-                            <td>₽ {product.price}</td>
-                            <td>{product.category}</td>
-                            <td>
-                                <LinkContainer
-                                    className='mx-1'
-                                    to={`/admin/product/${product._id}/edit`}
-                                >
+                <Table
+                    striped
+                    bordered
+                    hover
+                    responsive
+                    className='table-sm text-center overflow-hidden'
+                >
+                    <thead>
+                        <tr>
+                            <motion.th variants={reveal}>ID</motion.th>
+                            <motion.th variants={reveal}>НАЗВАНИЕ</motion.th>
+                            <motion.th variants={reveal}>ЦЕНА</motion.th>
+                            <motion.th variants={reveal}>КАТЕГОРИЯ</motion.th>
+                            <motion.th variants={reveal}></motion.th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {products.map(product => (
+                            <tr key={product._id}>
+                                <motion.td variants={reveal}>{product._id}</motion.td>
+                                <motion.td variants={reveal}>{product.name}</motion.td>
+                                <motion.td variants={reveal}>₽ {product.price}</motion.td>
+                                <motion.td variants={reveal}>{product.category}</motion.td>
+                                <motion.td variants={reveal}>
+                                    <LinkContainer
+                                        className='mx-1'
+                                        to={`/admin/product/${product._id}/edit`}
+                                    >
+                                        <Button
+                                            variant='dark'
+                                            className='size-btn btn-sm'
+                                        >
+                                            <i
+                                                className='fas fa-edit fa-xl'
+                                            ></i>
+                                        </Button>
+                                    </LinkContainer>
                                     <Button
-                                        variant='dark'
-                                        className='size-btn btn-sm'
+                                        variant='danger'
+                                        className='btn-sm'
+                                        onClick={() => {deleteHandler(product._id)}}
                                     >
                                         <i
-                                            className='fas fa-edit fa-xl'
+                                            className='fas fa-trash'
                                         ></i>
                                     </Button>
-                                </LinkContainer>
-                                <Button
-                                    variant='danger'
-                                    className='btn-sm'
-                                    onClick={() => {deleteHandler(product._id)}}
-                                >
-                                    <i
-                                        className='fas fa-trash'
-                                    ></i>
-                                </Button>
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </Table>
+                                </motion.td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </motion.div>
             <Paginate
                 page={page}
                 pages={pages}

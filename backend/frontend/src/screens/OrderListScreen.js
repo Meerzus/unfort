@@ -8,6 +8,9 @@ import Message from "../components/Message";
 import {listOrders} from "../actions/orderActions";
 import {userListReducer} from "../reducers/userReducers";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 function OrderListScreen() {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -32,65 +35,91 @@ function OrderListScreen() {
         <Message variant='danger'>{error}</Message>
     ) : (
         <Container>
-            <h1 className='text-center'>Orders</h1>
-            <Table
-                striped
-                bordered
-                hover
-                responsive
-                className='table-sm text-center'
+            <motion.h1
+                className='text-center'
+                variants={reveal}
+                initial='hiddenVariantY'
+                animate='revealedVariantY'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .2,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart - .25
+                }}
+            >Заказы</motion.h1>
+            <motion.div
+                variants={reveal}
+                initial='hiddenVariantX'
+                animate='revealedVariantX'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .01,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart
+                }}
             >
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>USER</th>
-                        <th>DATE</th>
-                        <th>TOTAL</th>
-                        <th>PAID</th>
-                        <th>DELIVERED</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {orders.map(order => (
-                        <tr key={order._id}>
-                            <td>{order._id}</td>
-                            <td>{order.user && order.user.name}</td>
-                            <td>{order.createdAt.substring(0, 10)}</td>
-                            <td>₽ {order.totalPrice}</td>
-                            <td>{order.isPaid ? (
-                                order.paidAt.substring(0, 10)
-                            ) : (
-                                <i
-                                    className='fas fa-xmark fa-xl'
-                                    style={{color: 'red'}}
-                                ></i>
-                            )}</td>
-                            <td>{order.isDelivered ? (
-                                order.deliveredAt.substring(0, 10)
-                            ) : (
-                                <i
-                                    className='fas fa-xmark fa-xl'
-                                    style={{color: 'red'}}
-                                ></i>
-                            )}</td>
-                            <td>
-                                <LinkContainer
-                                    className='mx-1'
-                                    to={`/order/${order._id}`}
-                                >
-                                    <Button
-                                        variant='dark'
-                                        className='size-btn btn-sm'
-                                    >
-                                        <i className="fa-solid fa-info fa-xl"></i>
-                                    </Button>
-                                </LinkContainer>
-                            </td>
+                <Table
+                    striped
+                    hover
+                    responsive
+                    className='table-sm text-center overflow-hidden'
+                >
+                    <thead>
+                        <tr>
+                            <motion.th variants={reveal}>ID</motion.th>
+                            <motion.th variants={reveal}>ПОЛЬЗОВАТЕЛЬ</motion.th>
+                            <motion.th variants={reveal}>ДАТА</motion.th>
+                            <motion.th variants={reveal}>СУММА</motion.th>
+                            <motion.th variants={reveal}>ОПЛАЧЕНО</motion.th>
+                            <motion.th variants={reveal}>ДОСТАВЛЕНО</motion.th>
+                            <motion.th variants={reveal}></motion.th>
                         </tr>
-                    ))}
-                </tbody>
-            </Table>
+                    </thead>
+                    <tbody>
+                        {orders.map(order => (
+                            <tr key={order._id}>
+                                <motion.td variants={reveal}>{order._id}</motion.td>
+                                <motion.td variants={reveal}>{order.user && order.user.name}</motion.td>
+                                <motion.td variants={reveal}>{order.createdAt.substring(0, 10)}</motion.td>
+                                <motion.td variants={reveal}>₽ {order.totalPrice}</motion.td>
+                                <motion.td variants={reveal}>{order.isPaid ? (
+                                    order.paidAt.substring(0, 10)
+                                ) : (
+                                    <i
+                                        className='fas fa-xmark fa-xl'
+                                        style={{color: 'red'}}
+                                    ></i>
+                                )}</motion.td>
+                                <motion.td variants={reveal}>{order.isDelivered ? (
+                                    order.deliveredAt.substring(0, 10)
+                                ) : (
+                                    <i
+                                        className='fas fa-xmark fa-xl'
+                                        style={{color: 'red'}}
+                                    ></i>
+                                )}</motion.td>
+                                <motion.td variants={reveal}>
+                                    <LinkContainer
+                                        className='mx-1'
+                                        to={`/order/${order._id}`}
+                                    >
+                                        <Button
+                                            variant='dark'
+                                            className='size-btn btn-sm'
+                                        >
+                                            <i className="fa-solid fa-info fa-xl"></i>
+                                        </Button>
+                                    </LinkContainer>
+                                </motion.td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
+            </motion.div>
         </Container>
     )
 }
