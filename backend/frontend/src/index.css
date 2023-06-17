@@ -494,18 +494,8 @@ i[class='far fa-user'] {
 }
 
 .checkout-steps {
-    justify-content: space-around;
+    justify-content: space-around !important;
     border-bottom: .2rem solid black;
-}
-
-.checkout-steps a {
-    min-width: 7.5rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: black;
-    margin: 0 1.2rem;
-    transition-duration: 250ms;
 }
 
 input[type='radio']{
@@ -551,6 +541,24 @@ a[aria-disabled="true"] {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.checkout-steps .nav-item {
+    width: 5rem !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: black !important;
+    margin: 0 .2rem;
+    transition-duration: 250ms;
+}
+
+.checkout-steps .nav-item a {
+    padding: .75rem 0 !important;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: black !important;
 }
 
 #admin-menu {

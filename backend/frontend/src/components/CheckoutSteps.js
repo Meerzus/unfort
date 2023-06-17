@@ -9,10 +9,10 @@ function CheckoutSteps({step1, step2, step3, step4}) {
                 {
                     step1 ? (
                         <LinkContainer to='/login'>
-                            <Nav.Link>Login</Nav.Link>
+                            <Nav.Link>Вход</Nav.Link>
                         </LinkContainer>
                     ) : (
-                        <Nav.Link disabled>Login</Nav.Link>
+                        <Nav.Link disabled>Вход</Nav.Link>
                     )
                 }
             </Nav.Item>
@@ -21,10 +21,10 @@ function CheckoutSteps({step1, step2, step3, step4}) {
                 {
                     step2 ? (
                         <LinkContainer to='/shipping'>
-                            <Nav.Link>shipping</Nav.Link>
+                            <Nav.Link>Доставка</Nav.Link>
                         </LinkContainer>
                     ) : (
-                        <Nav.Link disabled>shipping</Nav.Link>
+                        <Nav.Link disabled>Доставка</Nav.Link>
                     )
                 }
             </Nav.Item>
@@ -32,23 +32,11 @@ function CheckoutSteps({step1, step2, step3, step4}) {
             <Nav.Item>
                 {
                     step3 ? (
-                        <LinkContainer to='/payment'>
-                            <Nav.Link>payment</Nav.Link>
-                        </LinkContainer>
-                    ) : (
-                        <Nav.Link disabled>payment</Nav.Link>
-                    )
-                }
-            </Nav.Item>
-
-            <Nav.Item>
-                {
-                    step4 ? (
                         <LinkContainer to='/placeorder'>
-                            <Nav.Link>place order</Nav.Link>
+                            <Nav.Link>Заказ</Nav.Link>
                         </LinkContainer>
                     ) : (
-                        <Nav.Link disabled>place order</Nav.Link>
+                        <Nav.Link disabled>Заказ</Nav.Link>
                     )
                 }
             </Nav.Item>

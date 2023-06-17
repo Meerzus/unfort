@@ -351,7 +351,7 @@ function ProductScreen() {
                                 delay: animationStart
                             }}
                         >
-                            <Link to='/' className='btn btn-light my-3'>{`< Назад`}</Link>
+                            <Link to='/' className='btn btn-light my-3'>Назад</Link>
                         </motion.div>
 
                         <Row>
