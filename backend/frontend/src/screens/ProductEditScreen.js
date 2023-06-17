@@ -219,12 +219,12 @@ function ProductEditScreen({location, history}) {
                                     <Form onSubmit={submitHandler}>
                                         <Form.Group className='mb-3' controlId='name'>
                                             <motion.div variants={reveal}>
-                                                <Form.Label>Имя</Form.Label>
+                                                <Form.Label>Название</Form.Label>
                                             </motion.div>
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='name'
-                                                    placeholder='Введите Имя'
+                                                    placeholder='Введите название товара'
                                                     value={name}
                                                     onChange={(e) => setName(e.target.value)}
                                                 ></Form.Control>
@@ -238,7 +238,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите price'
+                                                    placeholder='Введите цену на товар'
                                                     value={price}
                                                     onChange={(e) => setPrice(e.target.value)}
                                                 ></Form.Control>
@@ -264,7 +264,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите mainimg'
+                                                    placeholder='Введите категории товара'
                                                     value={category}
                                                     onChange={(e) => setCategory(e.target.value)}
                                                 ></Form.Control>
@@ -280,7 +280,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите sizeInStockS'
+                                                    placeholder='Количество товара размера S'
                                                     value={sizeInStockS}
                                                     onChange={(e) => setSizeInStockS(e.target.value)}
                                                 ></Form.Control>
@@ -294,7 +294,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите sizeInStockM'
+                                                    placeholder='Количество товара размера M'
                                                     value={sizeInStockM}
                                                     onChange={(e) => setSizeInStockM(e.target.value)}
                                                 ></Form.Control>
@@ -308,7 +308,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите sizeInStockL'
+                                                    placeholder='Количество товара размера L'
                                                     value={sizeInStockL}
                                                     onChange={(e) => setSizeInStockL(e.target.value)}
                                                 ></Form.Control>
@@ -322,7 +322,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите sizeInStockXL'
+                                                    placeholder='Количество товара размера XL'
                                                     value={sizeInStockXL}
                                                     onChange={(e) => setSizeInStockXL(e.target.value)}
                                                 ></Form.Control>
@@ -336,7 +336,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите countInStock'
+                                                    placeholder='Введите количество товара'
                                                     value={countInStock}
                                                     onChange={(e) => setCountIntStock(e.target.value)}
                                                 ></Form.Control>
@@ -352,7 +352,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите description1'
+                                                    placeholder='Введите описание товара 1'
                                                     value={description1}
                                                     onChange={(e) => setDescription1(e.target.value)}
                                                 ></Form.Control>
@@ -366,7 +366,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите description2'
+                                                    placeholder='Введите описание товара 2'
                                                     value={description2}
                                                     onChange={(e) => setDescription2(e.target.value)}
                                                 ></Form.Control>
@@ -380,7 +380,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите description3'
+                                                    placeholder='Введите описание товара 3'
                                                     value={description3}
                                                     onChange={(e) => setDescription3(e.target.value)}
                                                 ></Form.Control>
@@ -394,7 +394,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите description4'
+                                                    placeholder='Введите описание товара 4'
                                                     value={description4}
                                                     onChange={(e) => setDescription4(e.target.value)}
                                                 ></Form.Control>
@@ -408,7 +408,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите description5'
+                                                    placeholder='Введите описание товара 5'
                                                     value={description5}
                                                     onChange={(e) => setDescription5(e.target.value)}
                                                 ></Form.Control>
