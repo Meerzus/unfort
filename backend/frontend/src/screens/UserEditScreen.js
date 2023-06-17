@@ -8,6 +8,9 @@ import FormContainer from "../components/FormContainer";
 import {getUserDetails, updateUser} from "../actions/userActions";
 import {USER_UPDATE_RESET} from "../constants/userConstants";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 function UserEditScreen({location, history}) {
     const { id } = useParams();
 
@@ -49,7 +52,21 @@ function UserEditScreen({location, history}) {
 
     return (
         <Container>
-            <Link to='/admin/userlist' className='btn btn-light my-3'>Go Back</Link>
+            <motion.div
+                variants={reveal}
+                initial='hiddenVariantY'
+                animate='revealedVariantY'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .2,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart - .5
+                }}
+            >
+                <Link to='/admin/userlist' className='btn btn-light my-3'>Назад</Link>
+            </motion.div>
             {
                 loadingUpdate &&
                 <Loader/>
@@ -59,61 +76,89 @@ function UserEditScreen({location, history}) {
                 <Message variant='danger'>{errorUpdate}</Message>
             }
             <FormContainer>
-                <h1 className='text-sm-center'>Edit User</h1>
+                <motion.h1
+                    className='text-sm-center'
+                    variants={reveal}
+                    initial='hiddenVariantY'
+                    animate='revealedVariantY'
+                    transition={{
+                        ease: 'easeIn',
+                        type: 'spring',
+                        staggerChildren: .2,
+                        duration: 1,
+                        delayChildren: animationStart,
+                        delay: animationStart - .25
+                    }}
+                >Редактор пользователя</motion.h1>
                 {
                     loading ?
                         <Loader/> :
                         error ?
                             <Message variant='danger'>{error}</Message> :
                             (
-                                <Form onSubmit={submitHandler}>
-                                    <Form.Group className='mb-3' controlId='name'>
-                                        <Form.Label>Имя</Form.Label>
-                                        <Form.Control
-                                            type='name'
-                                            placeholder='Введите Имя'
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                <motion.div
+                                    variants={reveal}
+                                    initial='hiddenVariantX'
+                                    animate='revealedVariantX'
+                                    transition={{
+                                        ease: 'easeIn',
+                                        type: 'spring',
+                                        staggerChildren: .1,
+                                        duration: 1,
+                                        delayChildren: animationStart,
+                                        delay: animationStart
+                                    }}
+                                >
+                                    <Form onSubmit={submitHandler}>
+                                        <Form.Group className='mb-3' controlId='name'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Имя</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='name'
+                                                    placeholder='Введите Имя'
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='email'>
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control
-                                            type='email'
-                                            placeholder='Введите Email'
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='email'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Email</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='email'
+                                                    placeholder='Введите Email'
+                                                    value={email}
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='isAdmin'>
-                                        <Form.Switch
-                                            type="switch"
-                                            label='is admin'
-                                            checked={isAdmin}
-                                            onChange={handleToggle}
-                                        >
+                                        <Form.Group className='mb-3' controlId='isAdmin'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Switch
+                                                    type="switch"
+                                                    label='Админ'
+                                                    checked={isAdmin}
+                                                    onChange={handleToggle}
+                                                ></Form.Switch>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                        </Form.Switch>
-                                        {/*<Form.Check*/}
-                                        {/*    type='checkbox'*/}
-                                        {/*    label='is admin'*/}
-                                        {/*    checked={isAdmin}*/}
-                                        {/*    onChange={(e) => setIsAdmin(e.target.checked)}*/}
-                                        {/*>*/}
-                                        {/*</Form.Check>*/}
-                                    </Form.Group>
-
-                                    <Button
-                                        className='size-btn btn btn-dark mb-3'
-                                        type='submit'
-                                        style={{width: 100 + '%'}}>
-                                        Update
-                                    </Button>
-                                </Form>
+                                        <motion.div variants={reveal}>
+                                            <Button
+                                                className='size-btn btn btn-dark mb-3'
+                                                type='submit'
+                                                style={{width: 100 + '%'}}>
+                                                Обновить
+                                            </Button>
+                                        </motion.div>
+                                    </Form>
+                                </motion.div>
                             )
                 }
             </FormContainer>
