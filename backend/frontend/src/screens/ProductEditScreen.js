@@ -9,6 +9,9 @@ import FormContainer from "../components/FormContainer";
 import {listProductDetails, updateProduct} from "../actions/productActions";
 import {PRODUCT_UPDATE_RESET} from "../constants/productConstants";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 function ProductEditScreen({location, history}) {
     const { id } = useParams();
 
@@ -176,9 +179,22 @@ function ProductEditScreen({location, history}) {
 
     return (
         <Container>
-            <Link to='/admin/productlist' className='btn btn-light my-3'>Go Back</Link>
+            <Link to='/admin/productlist' className='btn btn-light my-3'>Назад</Link>
             <FormContainer>
-                <h1 className='text-sm-center'>Edit Product {product.name}</h1>
+                <motion.h1
+                    className='text-sm-center'
+                    variants={reveal}
+                    initial='hiddenVariantY'
+                    animate='revealedVariantY'
+                    transition={{
+                        ease: 'easeIn',
+                        type: 'spring',
+                        staggerChildren: .2,
+                        duration: 1,
+                        delayChildren: animationStart,
+                        delay: animationStart - .25
+                    }}
+                >Редактор Товара {product.name}</motion.h1>
                 {loadingUpdate && <Loader/>}
                 {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
                 {
@@ -187,169 +203,228 @@ function ProductEditScreen({location, history}) {
                         error ?
                             <Message variant='danger'>{error}</Message> :
                             (
-                                <Form onSubmit={submitHandler}>
-                                    <Form.Group className='mb-3' controlId='name'>
-                                        <Form.Label>Имя</Form.Label>
-                                        <Form.Control
-                                            type='name'
-                                            placeholder='Введите Имя'
-                                            value={name}
-                                            onChange={(e) => setName(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                <motion.div
+                                    variants={reveal}
+                                    initial='hiddenVariantX'
+                                    animate='revealedVariantX'
+                                    transition={{
+                                        ease: 'easeIn',
+                                        type: 'spring',
+                                        staggerChildren: .1,
+                                        duration: 1,
+                                        delayChildren: animationStart,
+                                        delay: animationStart
+                                    }}
+                                >
+                                    <Form onSubmit={submitHandler}>
+                                        <Form.Group className='mb-3' controlId='name'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Имя</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='name'
+                                                    placeholder='Введите Имя'
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='price'>
-                                        <Form.Label>price</Form.Label>
-                                        <Form.Control
-                                            type='number'
-                                            placeholder='Введите price'
-                                            value={price}
-                                            onChange={(e) => setPrice(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='price'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Цена</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='number'
+                                                    placeholder='Введите price'
+                                                    value={price}
+                                                    onChange={(e) => setPrice(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group controlId="formFileMultiple" className="mb-3">
-                                        <Form.Label>Images (mainImg + 10 preview + productSize)(12 files)</Form.Label>
-                                        <Form.Control type="file" multiple onChange={uploadImageHandler}/>
-                                        {uploading && <Loader/>}
-                                    </Form.Group>
+                                        <Form.Group controlId="formFileMultiple" className="mb-3">
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Фото</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control type="file" multiple onChange={uploadImageHandler}/>
+                                            </motion.div>
+                                            {uploading && <Loader/>}
+                                        </Form.Group>
 
-                                    {/**/}
+                                        {/**/}
 
-                                    <Form.Group className='mb-3' controlId='category'>
-                                        <Form.Label>category</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Введите mainimg'
-                                            value={category}
-                                            onChange={(e) => setCategory(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='category'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Категория</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='text'
+                                                    placeholder='Введите mainimg'
+                                                    value={category}
+                                                    onChange={(e) => setCategory(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    {/**/}
+                                        {/**/}
 
-                                    <Form.Group className='mb-3' controlId='sizeInStockS'>
-                                        <Form.Label>sizeInStockS</Form.Label>
-                                        <Form.Control
-                                            type='number'
-                                            placeholder='Введите sizeInStockS'
-                                            value={sizeInStockS}
-                                            onChange={(e) => setSizeInStockS(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='sizeInStockS'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Количество S</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='number'
+                                                    placeholder='Введите sizeInStockS'
+                                                    value={sizeInStockS}
+                                                    onChange={(e) => setSizeInStockS(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='sizeInStockM'>
-                                        <Form.Label>sizeInStockM</Form.Label>
-                                        <Form.Control
-                                            type='number'
-                                            placeholder='Введите sizeInStockM'
-                                            value={sizeInStockM}
-                                            onChange={(e) => setSizeInStockM(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='sizeInStockM'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Количество M</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='number'
+                                                    placeholder='Введите sizeInStockM'
+                                                    value={sizeInStockM}
+                                                    onChange={(e) => setSizeInStockM(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='sizeInStockL'>
-                                        <Form.Label>sizeInStockL</Form.Label>
-                                        <Form.Control
-                                            type='number'
-                                            placeholder='Введите sizeInStockL'
-                                            value={sizeInStockL}
-                                            onChange={(e) => setSizeInStockL(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='sizeInStockL'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Количество L</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='number'
+                                                    placeholder='Введите sizeInStockL'
+                                                    value={sizeInStockL}
+                                                    onChange={(e) => setSizeInStockL(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='sizeInStockXL'>
-                                        <Form.Label>sizeInStockXL</Form.Label>
-                                        <Form.Control
-                                            type='number'
-                                            placeholder='Введите sizeInStockXL'
-                                            value={sizeInStockXL}
-                                            onChange={(e) => setSizeInStockXL(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='sizeInStockXL'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Количество XL</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='number'
+                                                    placeholder='Введите sizeInStockXL'
+                                                    value={sizeInStockXL}
+                                                    onChange={(e) => setSizeInStockXL(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='countInStock'>
-                                        <Form.Label>countInStock</Form.Label>
-                                        <Form.Control
-                                            type='number'
-                                            placeholder='Введите countInStock'
-                                            value={countInStock}
-                                            onChange={(e) => setCountIntStock(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='countInStock'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Количество</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='number'
+                                                    placeholder='Введите countInStock'
+                                                    value={countInStock}
+                                                    onChange={(e) => setCountIntStock(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    {/**/}
+                                        {/**/}
 
-                                    <Form.Group className='mb-3' controlId='description1'>
-                                        <Form.Label>description1</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Введите description1'
-                                            value={description1}
-                                            onChange={(e) => setDescription1(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='description1'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Описание 1</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='text'
+                                                    placeholder='Введите description1'
+                                                    value={description1}
+                                                    onChange={(e) => setDescription1(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='description2'>
-                                        <Form.Label>description2</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Введите description2'
-                                            value={description2}
-                                            onChange={(e) => setDescription2(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='description2'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Описание 2</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='text'
+                                                    placeholder='Введите description2'
+                                                    value={description2}
+                                                    onChange={(e) => setDescription2(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='description3'>
-                                        <Form.Label>description3</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Введите description3'
-                                            value={description3}
-                                            onChange={(e) => setDescription3(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='description3'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Описание 3</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='text'
+                                                    placeholder='Введите description3'
+                                                    value={description3}
+                                                    onChange={(e) => setDescription3(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='description4'>
-                                        <Form.Label>description4</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Введите description4'
-                                            value={description4}
-                                            onChange={(e) => setDescription4(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='description4'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Описание 4</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='text'
+                                                    placeholder='Введите description4'
+                                                    value={description4}
+                                                    onChange={(e) => setDescription4(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Form.Group className='mb-3' controlId='description5'>
-                                        <Form.Label>description5</Form.Label>
-                                        <Form.Control
-                                            type='text'
-                                            placeholder='Введите description5'
-                                            value={description5}
-                                            onChange={(e) => setDescription5(e.target.value)}
-                                        >
-                                        </Form.Control>
-                                    </Form.Group>
+                                        <Form.Group className='mb-3' controlId='description5'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Описание 5</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='text'
+                                                    placeholder='Введите description5'
+                                                    value={description5}
+                                                    onChange={(e) => setDescription5(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
 
-                                    <Button
-                                        className='size-btn btn btn-dark mb-3'
-                                        type='submit'
-                                        style={{width: 100 + '%'}}>
-                                        Update
-                                    </Button>
-                                </Form>
+                                        <motion.div variants={reveal}>
+                                            <Button
+                                                className='size-btn btn btn-dark mb-3'
+                                                type='submit'
+                                                style={{width: 100 + '%'}}>
+                                                Обновить
+                                            </Button>
+                                        </motion.div>
+                                    </Form>
+                                </motion.div>
                             )
                 }
             </FormContainer>
