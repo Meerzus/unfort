@@ -26,10 +26,21 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Unfort</title>
+    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?168"></script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <div id="vk_community_messages"></div>
+    <script type="text/javascript">
+      VK.Widgets.CommunityMessages("vk_community_messages", 211760482, {disableButtonTooltip: 1});
+    </script>
+
+<!--    <div id="vk_community_messages"></div>-->
+<!--    <script type="text/javascript">-->
+<!--      VK.Widgets.CommunityMessages("vk_community_messages", 211760482, {tooltipButtonText: "Есть вопрос?"});-->
+<!--    </script>-->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

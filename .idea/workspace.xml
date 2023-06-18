@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/base/views/order_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/base/views/order_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/CheckoutSteps.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/CheckoutSteps.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/OrderListScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/OrderListScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/PlaceOrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/PlaceOrderScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ShippingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ShippingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +226,8 @@
       <workItem from="1686721483476" duration="2804000" />
       <workItem from="1686732355914" duration="7205000" />
       <workItem from="1686812565894" duration="8545000" />
-      <workItem from="1687019577690" duration="6058000" />
+      <workItem from="1687019577690" duration="6210000" />
+      <workItem from="1687069616437" duration="2474000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>
