@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+rjow@5&jqa&=ui-xx3by!gv5!d1#5+@86f9e%!jkhw(+^@bsi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['95.163.242.170', '127.0.0.1']
+DEBUG = False
+# '95.163.242.170', '127.0.0.1'
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 # Application definition
 
@@ -92,6 +92,7 @@ SIMPLE_JWT = {
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -187,7 +188,8 @@ STATICFILES_DIRS = [
 
 # print(BASE_DIR / 'frontend/build/static')
 
-MEDIA_ROOT = 'static/images'
+MEDIA_ROOT = BASE_DIR / 'static/images'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -198,3 +200,5 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 TERMINAL_KEY = '1680349104054DEMO'
 TERMINAL_PASSWORD = '1oh9jyjkzs4rgwo1'
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
