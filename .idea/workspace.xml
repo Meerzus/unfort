@@ -4,8 +4,6 @@
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +229,10 @@
       <workItem from="1687019577690" duration="6210000" />
       <workItem from="1687069616437" duration="5527000" />
       <workItem from="1687091663625" duration="3296000" />
+      <workItem from="1687142232067" duration="1487000" />
+      <workItem from="1687145839344" duration="951000" />
+      <workItem from="1687173241906" duration="2300000" />
+      <workItem from="1687257671867" duration="615000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>
