@@ -33,6 +33,9 @@ import ReturnScreen from "./screens/ReturnScreen";
 import ContractScreen from "./screens/ContractScreen";
 import PrivacyScreen from "./screens/PrivacyScreen";
 
+import SuccessPage from "./screens/SuccessPage";
+// import FailPage from "./screens/FailPage";
+
 
 function App() {
 
@@ -50,6 +53,9 @@ function App() {
                 <Route path='/shipping' element={<ShippingScreen/>}/>
                 <Route path='/payment' element={<PaymentScreen/>}/>
                 <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
+
+                <Route path='/success' element={<SuccessPage/>}/>
+                {/*<Route path='/fail' element={<FailPage/>}/>*/}
 
                 <Route path='/about' element={<AboutScreen/>}/>
                 <Route path='/support' element={<SupportScreen/>}/>

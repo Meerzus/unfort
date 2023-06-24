@@ -122,34 +122,12 @@ function ProductEditScreen({location, history}) {
         navigate('/admin/productlist')
     }
 
-    const uploadImageHandler = async (e) => {
+    const uploadMainImageHandler = async (e) => {
         const mainImg = e.target.files[0]
-        const prev1 = e.target.files[1]
-        const prev2 = e.target.files[2]
-        const prev3 = e.target.files[3]
-        const prev4 = e.target.files[4]
-        const prev5 = e.target.files[5]
-        const prev6 = e.target.files[6]
-        const prev7 = e.target.files[7]
-        const prev8 = e.target.files[8]
-        const prev9 = e.target.files[9]
-        const prev10 = e.target.files[10]
-        const prodSize = e.target.files[11]
 
-        const formData = new FormData()
-        formData.append('mainimg', mainImg)
-        formData.append('preview1', prev1)
-        formData.append('preview2', prev2)
-        formData.append('preview3', prev3)
-        formData.append('preview4', prev4)
-        formData.append('preview5', prev5)
-        formData.append('preview6', prev6)
-        formData.append('preview7', prev7)
-        formData.append('preview8', prev8)
-        formData.append('preview9', prev9)
-        formData.append('preview10', prev10)
-        formData.append('productSize', prodSize)
-        formData.append('product_id', id)
+        const formMainData = new FormData()
+        formMainData.append('mainimg', mainImg)
+        formMainData.append('product_id', id)
 
         try {
             const config = {
@@ -158,8 +136,47 @@ function ProductEditScreen({location, history}) {
                 }
             }
 
-            const {data} = await axios.post('/api/products/upload/', formData, config)
+            const {mainData} = await axios.post('/api/products/upload/', formMainData, config)
             setMainimg(mainImg)
+            setUploading(false)
+        } catch (error) {
+            setUploading(false)
+        }
+    }
+
+    const uploadProductImagesHandler = async (e) => {
+        const prev1 = e.target.files[0]
+        const prev2 = e.target.files[1]
+        const prev3 = e.target.files[2]
+        const prev4 = e.target.files[3]
+        const prev5 = e.target.files[4]
+        const prev6 = e.target.files[5]
+        const prev7 = e.target.files[6]
+        const prev8 = e.target.files[7]
+        const prev9 = e.target.files[8]
+        const prev10 = e.target.files[9]
+
+        const formProductData = new FormData()
+        formProductData.append('preview1', prev1)
+        formProductData.append('preview2', prev2)
+        formProductData.append('preview3', prev3)
+        formProductData.append('preview4', prev4)
+        formProductData.append('preview5', prev5)
+        formProductData.append('preview6', prev6)
+        formProductData.append('preview7', prev7)
+        formProductData.append('preview8', prev8)
+        formProductData.append('preview9', prev9)
+        formProductData.append('preview10', prev10)
+        formProductData.append('product_id', id)
+
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+
+            const {productData} = await axios.post('/api/products/upload/', formProductData, config)
             setPreview1(prev1)
             setPreview2(prev2)
             setPreview3(prev3)
@@ -170,6 +187,27 @@ function ProductEditScreen({location, history}) {
             setPreview8(prev8)
             setPreview9(prev9)
             setPreview10(prev10)
+            setUploading(false)
+        } catch (error) {
+            setUploading(false)
+        }
+    }
+
+    const uploadSizeImageHandler = async (e) => {
+        const prodSize = e.target.files[0]
+
+        const formSizeData = new FormData()
+        formSizeData.append('productSize', prodSize)
+        formSizeData.append('product_id', id)
+
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            }
+
+            const {sizeData} = await axios.post('/api/products/upload/', formSizeData, config)
             setProductSize(prodSize)
             setUploading(false)
         } catch (error) {
@@ -261,10 +299,30 @@ function ProductEditScreen({location, history}) {
 
                                         <Form.Group controlId="formFileMultiple" className="mb-3">
                                             <motion.div variants={reveal}>
-                                                <Form.Label>Фото</Form.Label>
+                                                <Form.Label>Фото на карточке</Form.Label>
                                             </motion.div>
                                             <motion.div variants={reveal}>
-                                                <Form.Control type="file" multiple onChange={uploadImageHandler}/>
+                                                <Form.Control type="file" multiple onChange={uploadMainImageHandler}/>
+                                            </motion.div>
+                                            {uploading && <Loader/>}
+                                        </Form.Group>
+
+                                        <Form.Group controlId="formFileMultiple" className="mb-3">
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Фото товара</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control type="file" multiple onChange={uploadProductImagesHandler}/>
+                                            </motion.div>
+                                            {uploading && <Loader/>}
+                                        </Form.Group>
+
+                                        <Form.Group controlId="formFileMultiple" className="mb-3">
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>Таблица размеров</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control type="file" multiple onChange={uploadSizeImageHandler}/>
                                             </motion.div>
                                             {uploading && <Loader/>}
                                         </Form.Group>

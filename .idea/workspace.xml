@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине" />
+    <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.e8bb60f0.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.e8bb60f0.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.74059479.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.74059479.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.74059479.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/media/banner.f59693931122538017b3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductEditScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductEditScreen.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +76,9 @@
       <recent name="D:\GitHub\unfort\backend\frontend\build\images" />
       <recent name="D:\GitHub\unfort\backend\backend" />
       <recent name="D:\WEB\unfort_ecmmrc\backend\static\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitHub\unfort\backend\frontend\public" />
     </key>
   </component>
   <component name="RunManager" selected="Python.order_views">
@@ -229,7 +248,13 @@
       <workItem from="1687142232067" duration="1487000" />
       <workItem from="1687145839344" duration="951000" />
       <workItem from="1687173241906" duration="2300000" />
-      <workItem from="1687257671867" duration="1494000" />
+      <workItem from="1687257671867" duration="3778000" />
+      <workItem from="1687279149592" duration="208000" />
+      <workItem from="1687438219350" duration="6888000" />
+      <workItem from="1687502531627" duration="15921000" />
+      <workItem from="1687584254648" duration="3784000" />
+      <workItem from="1687611322978" duration="3731000" />
+      <workItem from="1687626563066" duration="3262000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>

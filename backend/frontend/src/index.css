@@ -4,6 +4,12 @@
     --third-color: #bd264c;
 }
 
+@font-face {
+    font-family: Monas Grotesk;
+    src: url(../public/monasgrotesk-bold.otf);
+    font-weight: normal;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -18,6 +24,7 @@ html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /*font-family: 'Monas Grotesk', sans-serif;*/
 }
 
 h1 {
@@ -46,6 +53,7 @@ a {
 body {
     overflow-x: hidden !important;
     -webkit-font-smoothing: antialiased;
+
 }
 
 h5 {
@@ -102,7 +110,7 @@ img {
 }
 
 .banner {
-    background-image: url("../public/images/banner.png");
+    background-image: url("../public/images/banner.webp");
     background-position: center center;
     background-size: cover;
 }
