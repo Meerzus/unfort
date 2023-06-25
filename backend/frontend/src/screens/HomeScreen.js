@@ -37,10 +37,11 @@ function HomeScreen() {
         <div>
             <Banner/>
             <Container>
-                <Filter products={products}
-                        setFiltered={setFiltered}
-                        activeFilter={activeFilter}
-                        setActiveFilter={setActiveFilter}
+                <Filter
+                    products={products}
+                    setFiltered={setFiltered}
+                    activeFilter={activeFilter}
+                    setActiveFilter={setActiveFilter}
                 />
                 <Paginate
                     page={page}

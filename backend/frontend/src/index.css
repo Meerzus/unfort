@@ -10,6 +10,10 @@
     font-weight: normal;
 }
 
+.vk_black {
+    background: black !important;
+}
+
 html {
     margin: 0;
     padding: 0;

@@ -38,7 +38,6 @@ import SuccessPage from "./screens/SuccessPage";
 
 
 function App() {
-
   return (
     <Router>
         <Header/>

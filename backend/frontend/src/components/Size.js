@@ -29,7 +29,7 @@ function Size({product, size, setSize, qtySize, setQtySize}) {
             <Button variants={reveal} className={size === "S" ? "active size-btn" : "size-btn"} disabled={product.sizeInStockS === 0} onClick={() => sizeHandler('S')}>S</Button>
             <Button variants={reveal} className={size === "M" ? "active size-btn" : "size-btn"} disabled={product.sizeInStockM === 0} onClick={() => sizeHandler('M')}>M</Button>
             <Button variants={reveal} className={size === "L" ? "active size-btn" : "size-btn"} disabled={product.sizeInStockL === 0} onClick={() => sizeHandler('L')}>L</Button>
-            <Button variants={reveal} className={size === "XL" ? "active size-btn" : "size-btn"} disabled={product.sizeInStockXL === 0} onClick={() => sizeHandler('XL')}>XL</Button>
+            {/*<Button variants={reveal} className={size === "XL" ? "active size-btn" : "size-btn"} disabled={product.sizeInStockXL === 0} onClick={() => sizeHandler('XL')}>XL</Button>*/}
         </motion.div>
     );
 }

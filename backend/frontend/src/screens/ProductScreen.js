@@ -14,6 +14,8 @@ import Message from "../components/Message";
 import Product from "../components/Product";
 import {animationStart, reveal} from "../utils/animation";
 
+import Carousel from "../components/Carousel";
+
 function ProductScreen() {
     // const productList = useSelector(state => state.productList)
     // const {products} = productList
@@ -289,6 +291,7 @@ function ProductScreen() {
 
     const [size, setSize] = useState('')
     const [qtySize, setQtySize] = useState(product.countInStock)
+    const [newDescription, setNewDescription] = useState([])
 
     let count = (product.sizeInStockS === 0 && product.sizeInStockM === 0 && product.sizeInStockL === 0 && product.sizeInStockXL === 0) ? product.countInStock : (product.sizeInStockS + product.sizeInStockM + product.sizeInStockL + product.sizeInStockXL)
 
@@ -310,6 +313,13 @@ function ProductScreen() {
         if (!Object?.values(products)?.[0]?.[i]?.category?.split(', ')?.includes(product?.category?.split(', ')?.[0])) {
             prodsAlike.push(Object?.values(products)?.[0]?.[i])
         }
+    }
+
+    const descriptionHandler = (description) => {
+        if (description.includes(';')) {
+            description = description.split(';')
+        }
+        return [...description]
     }
 
     return (
@@ -485,35 +495,17 @@ function ProductScreen() {
                                                     delay: animationStart
                                                 }}
                                             >
-                                                <motion.div
-                                                    variants={reveal}
-                                                >
-                                                    {product.description1}
-                                                </motion.div>
-                                                <br/>
-                                                <motion.div
-                                                    variants={reveal}
-                                                >
-                                                    {product.description2}
-                                                </motion.div>
-                                                <br/>
-                                                <motion.div
-                                                    variants={reveal}
-                                                >
-                                                    {product.description3}
-                                                </motion.div>
-                                                <br/>
-                                                <motion.div
-                                                    variants={reveal}
-                                                >
-                                                    {product.description4}
-                                                </motion.div>
-                                                <br/>
-                                                <motion.div
-                                                    variants={reveal}
-                                                >
-                                                    {product.description5}
-                                                </motion.div>
+                                                {/*{product.description1 && descriptionHandler(product.description1)}*/}
+                                                {/*{product.description1 && console.log(descriptionHandler(product.description1).length)}*/}
+                                                {product.description1 && (
+                                                    descriptionHandler(product.description1).map((desc) => (
+                                                        <div
+                                                            variants={reveal}
+                                                            key={desc}
+                                                            className='mb-2'
+                                                        >{desc}</div>
+                                                    ))
+                                                )}
                                             </motion.div>
                                         </ListGroup.Item>
                                     </ListGroup>
@@ -652,39 +644,25 @@ function ProductScreen() {
                     </Container>
                     <Row>
                         <Col md={12}>
-                            <motion.h2
-                                className='text-center'
-                                variants={reveal}
-                                initial='hiddenVariantY'
-                                animate='revealedVariantY'
-                                transition={{
-                                    ease: 'easeIn',
-                                    type: 'spring',
-                                    staggerChildren: .25,
-                                    duration: 1,
-                                    delayChildren: animationStart,
-                                    delay: animationStart + 1.5
-                                }}
-                            >Рекомендуем</motion.h2>
-
-                            <motion.div
-                                className="products"
-                                variants={reveal}
-                                initial='hiddenVariantY'
-                                animate='revealedVariantY'
-                                transition={{
-                                    ease: 'easeIn',
-                                    type: 'spring',
-                                    staggerChildren: .25,
-                                    duration: 1,
-                                    delayChildren: animationStart,
-                                    delay: animationStart + 1.75
-                                }}
-                            >
-                                {prodsAlike.slice(0, 7).map((productI) => {
-                                    return <Product variants={reveal} key={productI._id} product={productI}/>
-                                })}
-                            </motion.div>
+                            {/*<Carousel windowInnerWidth={windowInnerWidth}/>*/}
+                            {/*<motion.div*/}
+                            {/*    className="products"*/}
+                            {/*    variants={reveal}*/}
+                            {/*    initial='hiddenVariantY'*/}
+                            {/*    animate='revealedVariantY'*/}
+                            {/*    transition={{*/}
+                            {/*        ease: 'easeIn',*/}
+                            {/*        type: 'spring',*/}
+                            {/*        staggerChildren: .25,*/}
+                            {/*        duration: 1,*/}
+                            {/*        delayChildren: animationStart,*/}
+                            {/*        delay: animationStart + 1.75*/}
+                            {/*    }}*/}
+                            {/*>*/}
+                            {/*    {prodsAlike.slice(0, 7).map((productI) => {*/}
+                            {/*        return <Product variants={reveal} key={productI._id} product={productI}/>*/}
+                            {/*    })}*/}
+                            {/*</motion.div>*/}
                         </Col>
                     </Row>
                 </div>
