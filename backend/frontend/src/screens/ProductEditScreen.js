@@ -40,6 +40,7 @@ function ProductEditScreen({location, history}) {
     const [description3, setDescription3] = useState('')
     const [description4, setDescription4] = useState('')
     const [description5, setDescription5] = useState('')
+    const [rating, setRating] = useState(.01)
     const [uploading, setUploading] = useState(false)
 
     const dispatch = useDispatch()
@@ -85,6 +86,7 @@ function ProductEditScreen({location, history}) {
                 setDescription3(product.description3)
                 setDescription4(product.description4)
                 setDescription5(product.description5)
+                setRating(product.rating)
             }
         }
     }, [dispatch, product, id, navigate, successUpdate])
@@ -117,7 +119,8 @@ function ProductEditScreen({location, history}) {
             description2,
             description3,
             description4,
-            description5
+            description5,
+            rating
         }))
         navigate('/admin/productlist')
     }
@@ -245,7 +248,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='name'
-                                                    placeholder='Введите название товара'
+                                                    placeholder='Крутое название товара'
                                                     value={name}
                                                     onChange={(e) => setName(e.target.value)}
                                                 ></Form.Control>
@@ -259,7 +262,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите цену на товар'
+                                                    placeholder='1000000'
                                                     value={price}
                                                     onChange={(e) => setPrice(e.target.value)}
                                                 ></Form.Control>
@@ -283,7 +286,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите категории товара'
+                                                    placeholder='Сумки, Шорты, Новое, Предзаказ и т.д.'
                                                     value={category}
                                                     onChange={(e) => setCategory(e.target.value)}
                                                 ></Form.Control>
@@ -341,7 +344,7 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='number'
-                                                    placeholder='Введите количество товара'
+                                                    placeholder='777'
                                                     value={countInStock}
                                                     onChange={(e) => setCountIntStock(e.target.value)}
                                                 ></Form.Control>
@@ -355,8 +358,8 @@ function ProductEditScreen({location, history}) {
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     as='textarea'
-                                                    rows={5}
-                                                    placeholder='Введите описание товара 1'
+                                                    rows={10}
+                                                    placeholder='Крутое описание товара'
                                                     value={description1}
                                                     onChange={(e) => setDescription1(e.target.value)}
                                                 ></Form.Control>
@@ -365,59 +368,59 @@ function ProductEditScreen({location, history}) {
 
                                         <Form.Group className='mb-3' controlId='description2'>
                                             <motion.div variants={reveal}>
-                                                <Form.Label>Описание 2</Form.Label>
+                                                <Form.Label>Рекомендованные</Form.Label>
                                             </motion.div>
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
-                                                    placeholder='Введите описание товара 2'
+                                                    placeholder='ID1;ID2;ID3;и т.д.;'
                                                     value={description2}
                                                     onChange={(e) => setDescription2(e.target.value)}
                                                 ></Form.Control>
                                             </motion.div>
                                         </Form.Group>
 
-                                        <Form.Group className='mb-3' controlId='description3'>
+                                        <Form.Group className='mb-3' controlId='rating'>
                                             <motion.div variants={reveal}>
-                                                <Form.Label>Описание 3</Form.Label>
+                                                <Form.Label>Rating</Form.Label>
                                             </motion.div>
                                             <motion.div variants={reveal}>
                                                 <Form.Control
                                                     type='text'
                                                     placeholder='Введите описание товара 3'
-                                                    value={description3}
-                                                    onChange={(e) => setDescription3(e.target.value)}
+                                                    value={rating}
+                                                    onChange={(e) => setRating(e.target.value)}
                                                 ></Form.Control>
                                             </motion.div>
                                         </Form.Group>
 
-                                        <Form.Group className='mb-3' controlId='description4'>
-                                            <motion.div variants={reveal}>
-                                                <Form.Label>Описание 4</Form.Label>
-                                            </motion.div>
-                                            <motion.div variants={reveal}>
-                                                <Form.Control
-                                                    type='text'
-                                                    placeholder='Введите описание товара 4'
-                                                    value={description4}
-                                                    onChange={(e) => setDescription4(e.target.value)}
-                                                ></Form.Control>
-                                            </motion.div>
-                                        </Form.Group>
+                                        {/*<Form.Group className='mb-3' controlId='description4'>*/}
+                                        {/*    <motion.div variants={reveal}>*/}
+                                        {/*        <Form.Label>Описание 4</Form.Label>*/}
+                                        {/*    </motion.div>*/}
+                                        {/*    <motion.div variants={reveal}>*/}
+                                        {/*        <Form.Control*/}
+                                        {/*            type='text'*/}
+                                        {/*            placeholder='Введите описание товара 4'*/}
+                                        {/*            value={description4}*/}
+                                        {/*            onChange={(e) => setDescription4(e.target.value)}*/}
+                                        {/*        ></Form.Control>*/}
+                                        {/*    </motion.div>*/}
+                                        {/*</Form.Group>*/}
 
-                                        <Form.Group className='mb-3' controlId='description5'>
-                                            <motion.div variants={reveal}>
-                                                <Form.Label>Описание 5</Form.Label>
-                                            </motion.div>
-                                            <motion.div variants={reveal}>
-                                                <Form.Control
-                                                    type='text'
-                                                    placeholder='Введите описание товара 5'
-                                                    value={description5}
-                                                    onChange={(e) => setDescription5(e.target.value)}
-                                                ></Form.Control>
-                                            </motion.div>
-                                        </Form.Group>
+                                        {/*<Form.Group className='mb-3' controlId='description5'>*/}
+                                        {/*    <motion.div variants={reveal}>*/}
+                                        {/*        <Form.Label>Описание 5</Form.Label>*/}
+                                        {/*    </motion.div>*/}
+                                        {/*    <motion.div variants={reveal}>*/}
+                                        {/*        <Form.Control*/}
+                                        {/*            type='text'*/}
+                                        {/*            placeholder='Введите описание товара 5'*/}
+                                        {/*            value={description5}*/}
+                                        {/*            onChange={(e) => setDescription5(e.target.value)}*/}
+                                        {/*        ></Form.Control>*/}
+                                        {/*    </motion.div>*/}
+                                        {/*</Form.Group>*/}
 
                                         <motion.div variants={reveal}>
                                             <Button

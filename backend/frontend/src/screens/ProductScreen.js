@@ -322,6 +322,17 @@ function ProductScreen() {
         return [...description]
     }
 
+    const alikeIds = product.description2 && product.description2.split(';')
+    const alikeForYou = []
+
+    for (let i in alikeIds) {
+        for (let y in products.products) {
+            if (Number(products.products[y]._id) === Number(alikeIds[i])) {
+                products.products[y] && alikeForYou.push(products.products[y])
+            }
+        }
+    }
+
     return (
         <div>
             {loading && <Loader/>}
@@ -495,15 +506,13 @@ function ProductScreen() {
                                                     delay: animationStart
                                                 }}
                                             >
-                                                {/*{product.description1 && descriptionHandler(product.description1)}*/}
-                                                {/*{product.description1 && console.log(descriptionHandler(product.description1).length)}*/}
                                                 {product.description1 && (
                                                     descriptionHandler(product.description1).map((desc) => (
-                                                        <div
+                                                        <motion.div
                                                             variants={reveal}
                                                             key={desc}
                                                             className='mb-2'
-                                                        >{desc}</div>
+                                                        >{desc}</motion.div>
                                                     ))
                                                 )}
                                             </motion.div>
@@ -603,7 +612,7 @@ function ProductScreen() {
                                                                             (size === 'L' && product.sizeInStockL) ||
                                                                             (size === 'XL' && product.sizeInStockXL) ||
                                                                             (product.countInStock)
-                                                                        ).keys()].map((x) => (
+                                                                        ).slice(0, 10).keys()].map((x) => (
                                                                             <option key={x+1} value={x+1}>{x+1}</option>
                                                                         ))
                                                                     }
@@ -632,7 +641,7 @@ function ProductScreen() {
                                                         addToCartHandler()
                                                         product.size = size
                                                     }} variant='dark' className='size-btn' type='button' disabled={
-                                                        ((product?.countInStock === 0 || !size) && !product?.category?.includes('Аксессуары'))
+                                                        ((product?.countInStock === 0 || !size) && !product?.category?.includes('ACCESSORIES'))
                                                     }>Добавить в корзину</Button>
                                                 </ListGroup.Item>
                                             </motion.div>
@@ -644,25 +653,10 @@ function ProductScreen() {
                     </Container>
                     <Row>
                         <Col md={12}>
-                            {/*<Carousel windowInnerWidth={windowInnerWidth}/>*/}
-                            {/*<motion.div*/}
-                            {/*    className="products"*/}
-                            {/*    variants={reveal}*/}
-                            {/*    initial='hiddenVariantY'*/}
-                            {/*    animate='revealedVariantY'*/}
-                            {/*    transition={{*/}
-                            {/*        ease: 'easeIn',*/}
-                            {/*        type: 'spring',*/}
-                            {/*        staggerChildren: .25,*/}
-                            {/*        duration: 1,*/}
-                            {/*        delayChildren: animationStart,*/}
-                            {/*        delay: animationStart + 1.75*/}
-                            {/*    }}*/}
-                            {/*>*/}
-                            {/*    {prodsAlike.slice(0, 7).map((productI) => {*/}
-                            {/*        return <Product variants={reveal} key={productI._id} product={productI}/>*/}
-                            {/*    })}*/}
-                            {/*</motion.div>*/}
+                            {
+                                product.description2 !== '' &&
+                                <Carousel windowInnerWidth={windowInnerWidth && windowInnerWidth} product={product && product} products={products.products && products.products}/>
+                            }
                         </Col>
                     </Row>
                 </div>

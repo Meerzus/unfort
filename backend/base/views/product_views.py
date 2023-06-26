@@ -90,6 +90,7 @@ def updateProduct(request, pk):
     product.description3 = data['description3']
     product.description4 = data['description4']
     product.description5 = data['description5']
+    product.rating = data['rating']
     product.save()
     serializer = ProductSerializer(product, many=False)
     return Response(serializer.data)

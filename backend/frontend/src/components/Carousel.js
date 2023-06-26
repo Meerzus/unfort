@@ -1,24 +1,33 @@
 import React, {useEffect, useState} from 'react';
 import {animationStart, reveal} from "../utils/animation";
-import {motion} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {useDispatch, useSelector} from "react-redux";
 import {listProducts} from "../actions/productActions";
+import Product from "./Product";
 
-function Carousel({windowInnerWidth}) {
-    const dispatch = useDispatch()
-    const productList = useSelector(state => state.productList)
-    const {products} = productList
+function Carousel({windowInnerWidth, product, products}) {
 
-    const [filtered, setFiltered] = useState([])
+    const filtered = products
 
     let keyword = window.location.search
 
-    useEffect(() => {
-        dispatch(listProducts(keyword))
-        setFiltered(products)
-    }, [dispatch, keyword])
+    const alikeIds = product?.description2?.split(';')
+    // console.log(product?.description2?.split(';') && 'alikeIds ', product?.description2?.split(';'))
 
-    console.log(filtered)
+    const alikeForYou = []
+
+    for (let i in product?.description2?.split(';')) {
+        // console.log(product?.description2?.split(';'))
+        for (let y in filtered && filtered) {
+            console.log(filtered)
+            if (Number(filtered[y]?._id) === Number(product?.description2?.split(';')[i])) {
+                filtered[y] && alikeForYou?.push(filtered[y])
+                // console.log('done')
+            } else console.log('not done')
+        }
+    }
+
+    // console.log(alikeForYou && 'alikeForYou: ', alikeForYou)
 
     return (
         <div>
@@ -36,6 +45,28 @@ function Carousel({windowInnerWidth}) {
                     delay: animationStart + 1.5
                 }}
             >Рекомендуем</motion.h2>
+
+            <motion.div
+                className="products"
+                variants={reveal}
+                initial='hiddenVariantX'
+                animate='revealedVariantX'
+                transition={{
+                    ease: 'easeIn',
+                    type: 'spring',
+                    staggerChildren: .25,
+                    duration: 1,
+                    delayChildren: animationStart,
+                    delay: animationStart + 1.5
+                }}
+            >
+                {
+                    alikeForYou &&
+                        alikeForYou.map((product) => {
+                            return <Product key={product._id} product={product}/>
+                        })
+                }
+            </motion.div>
         </div>
     );
 }

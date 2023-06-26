@@ -58,19 +58,19 @@ function Footer() {
                                 className="footer-column-second"
                             >
                                 <LinkContainer className="text-center" to='/about' onClick={about}>
-                                    <Nav.Link className="cursor">О нас</Nav.Link>
+                                    <Nav.Link className="cursor">ABOUT US</Nav.Link>
                                 </LinkContainer>
 
                                 <LinkContainer className="text-center" to='/support' onClick={support}>
-                                    <Nav.Link className="cursor">Поддержка</Nav.Link>
+                                    <Nav.Link className="cursor">SUPPORT</Nav.Link>
                                 </LinkContainer>
 
                                 <LinkContainer className="text-center" to='/delivery' onClick={delivery}>
-                                    <Nav.Link className="cursor">Доставка</Nav.Link>
+                                    <Nav.Link className="cursor">DELIVERY</Nav.Link>
                                 </LinkContainer>
 
                                 <LinkContainer className="text-center" to='/return' onClick={reTurn}>
-                                    <Nav.Link className="cursor">Возврат</Nav.Link>
+                                    <Nav.Link className="cursor">RETURN</Nav.Link>
                                 </LinkContainer>
                             </Col>
 
@@ -79,11 +79,11 @@ function Footer() {
                                 className="footer-column-third"
                             >
                                 <LinkContainer className="text-center" to='/contract' onClick={contract}>
-                                    <Nav.Link className="cursor">Договор оферты</Nav.Link>
+                                    <Nav.Link className="cursor">CONTRACT OFFER</Nav.Link>
                                 </LinkContainer>
 
                                 <LinkContainer className="text-center" to='/privacy' onClick={privacy}>
-                                    <Nav.Link className="cursor">Политика конфиденциальности</Nav.Link>
+                                    <Nav.Link className="cursor">PRIVACY POLICY</Nav.Link>
                                 </LinkContainer>
                             </Col>
 

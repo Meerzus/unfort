@@ -3,110 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/base/views/product_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/base/views/product_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Size.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Size.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductEditScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductEditScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/0_3MusIBt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/0_CU7KEC7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/0_WMCHTLP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/0_ezDpWKw.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/0_jJlW5kn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/10_fVCQyKq.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/10_st4RNmh.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/2_TBxmZUK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/2_oturbDk.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/3_Kg9ilZR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/3_OV2IYw6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/4_HUnyjG9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/4_iRR3Yla.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/5_TnKjiop.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/5_a8cFKZ0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/6_WbnqiwM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/6_q6AsTft.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/7_3HTJs8H.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/7_7TiiOAc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/8_CtWnN6T.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/8_O1Yicgz.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/9_EPOMxDl.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/static/images/9_Hn7yEO3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/admin/css/forms.9e01221e8f3d.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0.c09a3b9fd262.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_3MusIBt.c09a3b9fd262.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_3MusIBt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_CU7KEC7.c09a3b9fd262.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_CU7KEC7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_WMCHTLP.c09a3b9fd262.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_WMCHTLP.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_ezDpWKw.c09a3b9fd262.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_ezDpWKw.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_jJlW5kn.c09a3b9fd262.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/0_jJlW5kn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/1.f8bb7e7ce3d0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/10.f877f7eb5e5f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/10_fVCQyKq.f877f7eb5e5f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/10_fVCQyKq.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/10_st4RNmh.f877f7eb5e5f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/10_st4RNmh.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/11.f877f7eb5e5f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/2.763fea630db6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/2_TBxmZUK.763fea630db6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/2_TBxmZUK.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/2_oturbDk.763fea630db6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/2_oturbDk.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/3.b7aa486cfde2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/3_Kg9ilZR.b7aa486cfde2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/3_Kg9ilZR.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/3_OV2IYw6.b7aa486cfde2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/3_OV2IYw6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/4.cb3e80ff6ebc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/4_HUnyjG9.cb3e80ff6ebc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/4_HUnyjG9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/4_iRR3Yla.cb3e80ff6ebc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/4_iRR3Yla.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/5.0eb399eb6937.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/5_TnKjiop.0eb399eb6937.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/5_TnKjiop.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/5_a8cFKZ0.0eb399eb6937.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/5_a8cFKZ0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/6.49c35d461f79.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/6_WbnqiwM.49c35d461f79.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/6_WbnqiwM.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/6_q6AsTft.49c35d461f79.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/6_q6AsTft.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/7.77c54404540f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/7_3HTJs8H.77c54404540f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/7_3HTJs8H.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/7_7TiiOAc.77c54404540f.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/7_7TiiOAc.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/8.f162c015bdac.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/8_CtWnN6T.f162c015bdac.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/8_CtWnN6T.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/8_O1Yicgz.f162c015bdac.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/8_O1Yicgz.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/9.8f77f854e7b8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/9_EPOMxDl.8f77f854e7b8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/9_EPOMxDl.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/9_Hn7yEO3.8f77f854e7b8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/images/9_Hn7yEO3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -345,7 +249,9 @@
       <workItem from="1687584254648" duration="3784000" />
       <workItem from="1687611322978" duration="3731000" />
       <workItem from="1687626563066" duration="13514000" />
-      <workItem from="1687701545817" duration="11208000" />
+      <workItem from="1687701545817" duration="11262000" />
+      <workItem from="1687753429190" duration="8054000" />
+      <workItem from="1687773853093" duration="2488000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>

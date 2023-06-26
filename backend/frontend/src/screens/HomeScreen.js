@@ -36,13 +36,13 @@ function HomeScreen() {
     ) : (
         <div>
             <Banner/>
+            <Filter
+                products={products}
+                setFiltered={setFiltered}
+                activeFilter={activeFilter}
+                setActiveFilter={setActiveFilter}
+            />
             <Container>
-                <Filter
-                    products={products}
-                    setFiltered={setFiltered}
-                    activeFilter={activeFilter}
-                    setActiveFilter={setActiveFilter}
-                />
                 <Paginate
                     page={page}
                     pages={pages}
