@@ -2,6 +2,8 @@
     --first-color: #ece9e4;
     --second-color: #131313;
     --third-color: #bd264c;
+    --green: rgb(0, 0, 0);
+    --blue: rgb(255, 255, 255);
 }
 
 @font-face {
@@ -10,8 +12,22 @@
     font-weight: normal;
 }
 
-.vk_black {
-    background: black !important;
+@font-face {
+    font-family: Helvetica;
+    src: url(../public/helvetica_regular.otf);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Helvetica;
+    src: url(../public/helvetica_bold.otf);
+    font-weight: Bold;
+}
+
+@font-face {
+    font-family: Helvetica_Light;
+    src: url(../public/helvetica_light.otf);
+    font-weight: normal;
 }
 
 html {
@@ -28,17 +44,18 @@ html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    /*font-family: 'Monas Grotesk', sans-serif;*/
 }
 
 h1 {
     font-size: 1.8rem;
     padding: 1rem 0;
+    font-family: 'Helvetica_Bold', sans-serif;
 }
 
 h2 {
     font-size: 1.4rem;
     padding: .5rem 0;
+    font-family: 'Helvetica_Bold', sans-serif;
 }
 
 a {
@@ -57,11 +74,18 @@ a {
 body {
     overflow-x: hidden !important;
     -webkit-font-smoothing: antialiased;
-
+    font-family: 'Helvetica', sans-serif !important;
+    font-weight: normal;
 }
 
 h5 {
-    padding-top: 1rem;
+    font-family: 'Helvetica_Light', sans-serif;
+    font-weight: lighter;
+}
+
+h4 {
+    font-family: 'Helvetica_Light', sans-serif;
+    font-weight: lighter;
 }
 
 main {
@@ -189,6 +213,16 @@ img {
     border: .1rem solid #000;
     border-radius: .5rem;
     cursor: pointer;
+}
+
+button, select, option, table, input, a, .cart-sub-total, .checkout-steps, p, font, .list-group-item {
+    font-family: 'Helvetica_Light', sans-serif !important;
+    font-weight: lighter;
+}
+
+thead, label, .cart-total, h6, strong, .card-body {
+    font-family: 'Helvetica', sans-serif !important;
+    font-weight: bold !important;
 }
 
 button.active {
@@ -510,6 +544,10 @@ i[class='far fa-user'] {
     border-bottom: .2rem solid black;
 }
 
+.checkout-steps a {
+    width: 100% !important;
+}
+
 input[type='radio']{
     border: .1rem solid black !important;
 }
@@ -628,6 +666,8 @@ li[class='active page-item active'] .page-link {
 
 .card {
     z-index: 1 !important;
+    font-family: 'Helvetica', sans-serif !important;
+    font-weight: normal;
 }
 
 .alike-btn {
@@ -731,30 +771,174 @@ li[class='active page-item active'] .page-link {
 
 @keyframes socials {
     0% {
-        padding-bottom: 0;
+        position: relative;
+        top: 0;
     }
 
     100% {
-        padding-bottom: 1rem;
+        position: relative;
+        top: -.25rem;
     }
 }
 
 .footer-column-fourth-row a:hover {
+    animation: socials 100ms;
+    animation-fill-mode: both;
+}
+
+.footer-vk:hover .fa-vk {
     animation: socials 250ms;
     animation-fill-mode: both;
 }
 
-.nav-link {
-    width: 100px !important;
+.footer-telegram:hover .fa-telegram {
+    animation: socials 250ms;
+    animation-fill-mode: both;
+}
+
+.footer-instagram:hover .fa-instagram {
+    animation: socials 250ms;
+    animation-fill-mode: both;
+}
+
+.footer-tiktok:hover .fa-tiktok {
+    animation: socials 250ms;
+    animation-fill-mode: both;
+}
+
+.col-md-3, .col-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
 }
 
 .mailto {
     color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 2rem !important;
+    text-transform: uppercase;
     transition-duration: .25s;
 }
 
 .mailto:hover {
     color: rgba(255, 255, 255, 1) !important;
+}
+
+@keyframes float {
+    from, to {
+        transform: translateY(-0%);
+    }
+
+    50% {
+        transform: translateY(-3%);
+    }
+}
+
+@keyframes background-pan {
+    from {
+        background-position: 1000% center;
+    }
+
+    to {
+        background-position: 0% center;
+    }
+}
+
+#text:has(.fancy:hover) .word:not(.fancy:hover) {
+  opacity: 0.2;
+}
+
+.fancy span {
+  display: inline-block;
+}
+
+.fancy > .outer {
+  transition: transform 350ms ease;
+}
+
+.fancy:hover > .outer {
+  transition-duration: 800ms;
+}
+
+.fancy:hover > .outer > .inner {
+  animation: float 5s ease infinite;
+}
+
+.fancy:hover > .outer > .inner > .letter {
+  background: linear-gradient(
+    to right,
+    var(--blue),
+    var(--green),
+    var(--blue)
+  );
+  background-size: 1000%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: background-pan 50s linear infinite;
+}
+
+.fancy:hover > .outer:nth-child(1) {
+  transform: translate(-40%, 30%) rotate(12deg);
+}
+
+.fancy:hover > .outer:nth-child(2) {
+  transform: translate(-20%, 10%) rotate(-9deg);
+}
+
+.fancy:hover > .outer:nth-child(3) {
+  transform: translate(-5%, 30%) rotate(2deg);
+}
+
+.fancy:hover > .outer:nth-child(4) {
+  transform: translate(0%, 4%) rotate(-7deg);
+}
+
+.fancy:hover > .outer:nth-child(5) {
+  transform: translate(0%, -10%) rotate(9deg);
+}
+
+.fancy:hover > .outer:nth-child(6) {
+  transform: translate(0%, 10%) rotate(-15deg);
+}
+
+.fancy:hover > .outer:nth-child(7) {
+  transform: translate(0%, -20%) rotate(1deg);
+}
+
+.fancy:hover > .outer:nth-child(8) {
+  transform: translate(0%, 6%) rotate(-13deg);
+}
+
+.fancy:hover > .outer:nth-child(9) {
+  transform: translate(0%, -25%) rotate(10deg);
+}
+
+.fancy:hover > .outer:nth-child(10) {
+  transform: translate(0%, 20%) rotate(-2deg);
+}
+
+.fancy:hover > .outer:nth-child(11) {
+  transform: translate(25%, -5%) rotate(9deg);
+}
+
+.fancy:hover > .outer:nth-child(12) {
+  transform: translate(30%, -15%) rotate(-10deg);
+}
+
+.fancy:hover > .outer:nth-child(13) {
+  transform: translate(30%, 10%) rotate(12deg);
+}
+
+.fancy:hover > .outer:nth-child(14) {
+  transform: translate(50%, -15%) rotate(-10deg);
+}
+
+.mailto {
+
 }
 
 .unfort-footer {

@@ -244,7 +244,7 @@ function CartScreen(location, history) {
                                             >
                                                 <Form.Control className="qty-form" as="select" value={item.qty} onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value), item.size))}>
                                                     {
-                                                        [...Array(qtyHandler(item)).keys()].map((x) => (
+                                                        [...Array(qtyHandler(item)).keys()].slice(0, 10).map((x) => (
                                                             <option key={x+1} value={x+1}>{x+1}</option>
                                                         ))
                                                     }

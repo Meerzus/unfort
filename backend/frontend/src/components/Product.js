@@ -22,9 +22,9 @@ function Product({product}) {
             layout
             id={product._id}
             className={
-                product.category.includes('Новое') ?
+                product.category.includes('NEW') ?
                 "p-3 rounded-3 card new-product"
-                    : product.category.includes('Предзаказ') ? "p-3 rounded-3 card preorder-product"
+                    : product.category.includes('PREORDER') ? "p-3 rounded-3 card preorder-product"
                         : "p-3 rounded-3 card"
         }
         >

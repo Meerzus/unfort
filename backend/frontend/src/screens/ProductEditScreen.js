@@ -41,6 +41,7 @@ function ProductEditScreen({location, history}) {
     const [description4, setDescription4] = useState('')
     const [description5, setDescription5] = useState('')
     const [rating, setRating] = useState(.01)
+    const [numReviews, setNumReviews] = useState(0)
     const [uploading, setUploading] = useState(false)
 
     const dispatch = useDispatch()
@@ -87,6 +88,7 @@ function ProductEditScreen({location, history}) {
                 setDescription4(product.description4)
                 setDescription5(product.description5)
                 setRating(product.rating)
+                setNumReviews(product.numReviews)
             }
         }
     }, [dispatch, product, id, navigate, successUpdate])
@@ -120,7 +122,8 @@ function ProductEditScreen({location, history}) {
             description3,
             description4,
             description5,
-            rating
+            rating,
+            numReviews
         }))
         navigate('/admin/productlist')
     }
@@ -184,6 +187,30 @@ function ProductEditScreen({location, history}) {
         if (description.includes(';') === true) {
             description = description.split(';')
             setDescription1(description)
+        }
+    }
+
+    let categoryArr = []
+
+    const toggleHandler = (e) => {
+        if (!categoryArr.includes(e)) {
+            categoryArr.push(e)
+        } else {
+            const index = categoryArr.indexOf(e)
+            delete categoryArr[index]
+        }
+
+        // console.log(categoryArr.toString())
+        const categoryArrValue = categoryArr.toString()
+        console.log(categoryArrValue.toString(), typeof categoryArrValue.toString())
+        setCategory(categoryArrValue.toString())
+    }
+
+    const isCheckedHandler = (value) => {
+        if (category.includes(value)) {
+            return true
+        } else {
+            return false
         }
     }
 
@@ -284,12 +311,95 @@ function ProductEditScreen({location, history}) {
                                                 <Form.Label>Категория</Form.Label>
                                             </motion.div>
                                             <motion.div variants={reveal}>
-                                                <Form.Control
-                                                    type='text'
-                                                    placeholder='Сумки, Шорты, Новое, Предзаказ и т.д.'
-                                                    value={category}
-                                                    onChange={(e) => setCategory(e.target.value)}
-                                                ></Form.Control>
+                                                {/*<Form.Control*/}
+                                                {/*    type='text'*/}
+                                                {/*    placeholder='Сумки, Шорты, Новое, Предзаказ и т.д.'*/}
+                                                {/*    value={category}*/}
+                                                {/*    onChange={(e) => setCategory(e.target.value)}*/}
+                                                {/*></Form.Control>*/}
+                                                <div className='d-flex justify-content-between'>
+                                                    <Form.Check
+                                                        label='NEW'
+                                                        name='NEW'
+                                                        type='checkbox'
+                                                        id='NEW'
+                                                        value='NEW'
+                                                        // checked={isCheckedHandler('NEW')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+
+                                                    <Form.Check
+                                                        label='PREORDER'
+                                                        name='PREORDER'
+                                                        type='checkbox'
+                                                        id='PREORDER'
+                                                        value='PREORDER'
+                                                        // checked={isCheckedHandler('PREORDER')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+
+                                                    <Form.Check
+                                                        label='HOODIES'
+                                                        name='HOODIES'
+                                                        type='checkbox'
+                                                        id='HOODIES'
+                                                        value='HOODIES'
+                                                        // checked={isCheckedHandler('HOODIES')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+
+                                                    <Form.Check
+                                                        label='LONG'
+                                                        name='LONG'
+                                                        type='checkbox'
+                                                        id='LONG'
+                                                        value='LONG'
+                                                        // checked={isCheckedHandler('LONG')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+                                                </div>
+
+                                                <div className='d-flex justify-content-between'>
+                                                    <Form.Check
+                                                        label='T-SHIRTS'
+                                                        name='T-SHIRTS'
+                                                        type='checkbox'
+                                                        id='T-SHIRTS'
+                                                        value='T-SHIRTS'
+                                                        // checked={isCheckedHandler('T-SHIRTS')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+
+                                                    <Form.Check
+                                                        label='PANTS'
+                                                        name='PANTS'
+                                                        type='checkbox'
+                                                        id='PANTS'
+                                                        value='PANTS'
+                                                        // checked={isCheckedHandler('PANTS')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+
+                                                    <Form.Check
+                                                        label='SHORTS'
+                                                        name='SHORTS'
+                                                        type='checkbox'
+                                                        id='SHORTS'
+                                                        value='SHORTS'
+                                                        // checked={isCheckedHandler('SHORTS')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+
+                                                    <Form.Check
+                                                        label='ACCESSORIES'
+                                                        name='ACCESSORIES'
+                                                        type='checkbox'
+                                                        id='ACCESSORIES'
+                                                        value='ACCESSORIES'
+                                                        // checked={isCheckedHandler('ACCESSORIES')}
+                                                        onChange={(e) => toggleHandler(e.target.value)}
+                                                    />
+                                                </div>
                                             </motion.div>
                                         </Form.Group>
 
@@ -386,10 +496,24 @@ function ProductEditScreen({location, history}) {
                                             </motion.div>
                                             <motion.div variants={reveal}>
                                                 <Form.Control
-                                                    type='text'
+                                                    type='number'
                                                     placeholder='Введите описание товара 3'
                                                     value={rating}
                                                     onChange={(e) => setRating(e.target.value)}
+                                                ></Form.Control>
+                                            </motion.div>
+                                        </Form.Group>
+
+                                        <Form.Group className='mb-3' controlId='numReviews'>
+                                            <motion.div variants={reveal}>
+                                                <Form.Label>numReviews</Form.Label>
+                                            </motion.div>
+                                            <motion.div variants={reveal}>
+                                                <Form.Control
+                                                    type='number'
+                                                    placeholder='Введите описание товара 3'
+                                                    value={numReviews}
+                                                    onChange={(e) => setNumReviews(e.target.value)}
                                                 ></Form.Control>
                                             </motion.div>
                                         </Form.Group>
