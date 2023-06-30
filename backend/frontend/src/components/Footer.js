@@ -4,6 +4,9 @@ import {LinkContainer} from "react-router-bootstrap";
 
 import {useNavigate} from "react-router-dom";
 
+import {motion} from "framer-motion";
+import {animationStart, reveal} from "../utils/animation";
+
 
 function Footer() {
     const navigate = useNavigate()
@@ -129,104 +132,164 @@ function Footer() {
                     <Nav className="flex-column">
                         <Row>
                             <Col md={3}>
-                                <div className="line">
-                                    <a
-                                        id="unfort-link"
-                                        href='/'
-                                        className="word fancy mailto"
-                                    >
-                                        unfort
-                                    </a>
-                                </div>
+                                <motion.div
+                                    variants={reveal}
+                                    initial='hiddenVariantX'
+                                    animate='revealedVariantX'
+                                    transition={{
+                                        ease: 'easeIn',
+                                        type: 'spring',
+                                        staggerChildren: .25,
+                                        duration: 1,
+                                        delayChildren: animationStart
+                                    }}
+                                >
+                                    <div className="line">
+                                        <a
+                                            id="unfort-link"
+                                            href='/'
+                                            className="word fancy mailto"
+                                        >
+                                            unfort
+                                        </a>
+                                    </div>
+                                </motion.div>
                             </Col>
 
                             <Col md={5}>
-                                <Row>
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/about' onClick={about}>
-                                            <Nav.Link className="cursor">ABOUT US</Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
+                                <motion.div
+                                    variants={reveal}
+                                    initial='hiddenVariantY'
+                                    animate='revealedVariantY'
+                                    transition={{
+                                        ease: 'easeIn',
+                                        type: 'spring',
+                                        staggerChildren: .1,
+                                        duration: 1,
+                                        delayChildren: animationStart
+                                    }}
+                                >
+                                    <Row>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/about' onClick={about}>
+                                                    <Nav.Link className="cursor">ABOUT US</Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
 
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/delivery' onClick={delivery}>
-                                            <Nav.Link className="cursor">DELIVERY</Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/delivery' onClick={delivery}>
+                                                    <Nav.Link className="cursor">DELIVERY</Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
 
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/contract' onClick={contract}>
-                                            <Nav.Link className="cursor">CONTRACT OFFER</Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
-                                </Row>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/contract' onClick={contract}>
+                                                    <Nav.Link className="cursor">CONTRACT OFFER</Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
+                                    </Row>
 
-                                <Row>
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/support' onClick={support}>
-                                            <Nav.Link className="cursor">SUPPORT</Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
+                                    <Row>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/support' onClick={support}>
+                                                    <Nav.Link className="cursor">SUPPORT</Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
 
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/return' onClick={reTurn}>
-                                            <Nav.Link className="cursor">RETURN</Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/return' onClick={reTurn}>
+                                                    <Nav.Link className="cursor">RETURN</Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
 
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/privacy' onClick={privacy}>
-                                            <Nav.Link className="cursor">PRIVACY POLICY</Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
-                                </Row>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/privacy' onClick={privacy}>
+                                                    <Nav.Link className="cursor">PRIVACY POLICY</Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
+                                    </Row>
 
-                                <Row>
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/copyright'>
-                                            <Nav.Link className="cursor footer-vk">
-                                                <i className="fa-brands fa-vk fa-2xl"></i>
-                                            </Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
+                                    <Row>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/copyright'>
+                                                    <Nav.Link className="cursor footer-vk">
+                                                        <i className="fa-brands fa-vk fa-2xl"></i>
+                                                    </Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
 
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/copyright'>
-                                            <Nav.Link className="cursor footer-telegram">
-                                                <i className="fa-brands fa-telegram fa-2xl"></i>
-                                            </Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/copyright'>
+                                                    <Nav.Link className="cursor footer-telegram">
+                                                        <i className="fa-brands fa-telegram fa-2xl"></i>
+                                                    </Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
 
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/copyright'>
-                                            <Nav.Link className="cursor footer-instagram">
-                                                <i className="fa-brands fa-instagram fa-2xl"></i>
-                                            </Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/copyright'>
+                                                    <Nav.Link className="cursor footer-instagram">
+                                                        <i className="fa-brands fa-instagram fa-2xl"></i>
+                                                    </Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
 
-                                    <Col>
-                                        <LinkContainer className="text-center" to='/copyright'>
-                                            <Nav.Link className="cursor footer-tiktok">
-                                                <i className="fa-brands fa-tiktok fa-xl"></i>
-                                            </Nav.Link>
-                                        </LinkContainer>
-                                    </Col>
-                                </Row>
+                                        <Col>
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className="text-center" to='/copyright'>
+                                                    <Nav.Link className="cursor footer-tiktok">
+                                                        <i className="fa-brands fa-tiktok fa-xl"></i>
+                                                    </Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        </Col>
+                                    </Row>
+                                </motion.div>
                             </Col>
 
                             <Col md={4}>
-                                <div className="line">
-                                    <a
-                                        id="channel-link"
-                                        href='mailto:support@unfort.ru'
-                                        target="_blank"
-                                        className="word fancy mailto"
-                                    >
-                                        support@unfort
-                                    </a>
-                                </div>
+                                <motion.div
+                                    variants={reveal}
+                                    initial='hiddenVariantX'
+                                    animate='revealedVariantX'
+                                    transition={{
+                                        ease: 'easeIn',
+                                        type: 'spring',
+                                        staggerChildren: .25,
+                                        duration: 1,
+                                        delayChildren: animationStart + .5,
+                                        delay: animationStart - .5
+                                    }}
+                                >
+                                    <div className="line">
+                                        <a
+                                            id="channel-link"
+                                            href='mailto:support@unfort.ru'
+                                            target="_blank"
+                                            className="word fancy mailto"
+                                        >
+                                            support@unfort
+                                        </a>
+                                    </div>
+                                </motion.div>
                             </Col>
                         </Row>
                     </Nav>

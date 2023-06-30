@@ -190,20 +190,15 @@ function ProductEditScreen({location, history}) {
         }
     }
 
-    let categoryArr = []
+    let categoryArr = ['',]
 
     const toggleHandler = (e) => {
-        if (!categoryArr.includes(e)) {
+        if (!(categoryArr.includes(e))) {
             categoryArr.push(e)
-        } else {
+        } else if (categoryArr.includes(e)) {
             const index = categoryArr.indexOf(e)
             delete categoryArr[index]
         }
-
-        // console.log(categoryArr.toString())
-        const categoryArrValue = categoryArr.toString()
-        console.log(categoryArrValue.toString(), typeof categoryArrValue.toString())
-        setCategory(categoryArrValue.toString())
     }
 
     const isCheckedHandler = (value) => {
@@ -212,6 +207,11 @@ function ProductEditScreen({location, history}) {
         } else {
             return false
         }
+    }
+
+    const confirmCategories = () => {
+        console.log(categoryArr)
+        setCategory(categoryArr.toString())
     }
 
     return (
@@ -311,13 +311,13 @@ function ProductEditScreen({location, history}) {
                                                 <Form.Label>Категория</Form.Label>
                                             </motion.div>
                                             <motion.div variants={reveal}>
-                                                {/*<Form.Control*/}
-                                                {/*    type='text'*/}
-                                                {/*    placeholder='Сумки, Шорты, Новое, Предзаказ и т.д.'*/}
-                                                {/*    value={category}*/}
-                                                {/*    onChange={(e) => setCategory(e.target.value)}*/}
-                                                {/*></Form.Control>*/}
-                                                <div className='d-flex justify-content-between'>
+                                                <Form.Control
+                                                    type='text'
+                                                    placeholder='Сумки, Шорты, Новое, Предзаказ и т.д.'
+                                                    value={category}
+                                                    onChange={(e) => setCategory(e.target.value)}
+                                                ></Form.Control>
+                                                <div className='d-flex justify-content-between mb-3'>
                                                     <Form.Check
                                                         label='NEW'
                                                         name='NEW'
@@ -359,7 +359,7 @@ function ProductEditScreen({location, history}) {
                                                     />
                                                 </div>
 
-                                                <div className='d-flex justify-content-between'>
+                                                <div className='d-flex justify-content-between mb-3'>
                                                     <Form.Check
                                                         label='T-SHIRTS'
                                                         name='T-SHIRTS'
@@ -399,6 +399,14 @@ function ProductEditScreen({location, history}) {
                                                         // checked={isCheckedHandler('ACCESSORIES')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
+                                                </div>
+
+                                                <div className='d-flex justify-content-center'>
+                                                    <Button
+                                                        className='size-btn p-4'
+                                                        style={{width: 10 + '%', display: "flex"}}
+                                                        onClick={confirmCategories}
+                                                    ><i id='confirm-icon' className="fa-solid fa-check fa-2xl"></i></Button>
                                                 </div>
                                             </motion.div>
                                         </Form.Group>

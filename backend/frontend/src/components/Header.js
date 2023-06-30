@@ -40,7 +40,7 @@ function Header() {
                 <motion.div variants={reveal} initial='hiddenVariantY' animate='revealedVariantY' transition={{
                     ease: 'easeIn',
                     type: 'spring',
-                    staggerChildren: .1,
+                    staggerChildren: .25,
                     duration: 1,
                     delayChildren: animationStart - .25
                 }}>

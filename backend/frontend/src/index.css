@@ -215,7 +215,7 @@ img {
     cursor: pointer;
 }
 
-button, select, option, table, input, a, .cart-sub-total, .checkout-steps, p, font, .list-group-item {
+button, select, option, table, input, a, .cart-sub-total, .checkout-steps, p, font, .list-group-item, .preorder-product::after {
     font-family: 'Helvetica_Light', sans-serif !important;
     font-weight: lighter;
 }
@@ -349,10 +349,10 @@ button.active {
 
 .new-product::before {
     position: absolute;
-    padding: .1rem .25rem .25rem .25rem;
+    padding: .2rem .25rem .25rem .25rem;
     font-size: .75rem;
     font-weight: 700;
-    content: "new";
+    content: "NEW";
     color: var(--first-color);
     background-color: var(--third-color);
     border-radius: 1rem;
@@ -369,10 +369,10 @@ button.active {
 
 .preorder-product::after {
     position: absolute;
-    padding: .1rem .25rem .25rem .25rem;
+    padding: .2rem .25rem .25rem .25rem;
     font-size: .75rem;
-    font-weight: 700;
-    content: "Предзаказ";
+    font-weight: normal;
+    content: "PREORDER";
     color: var(--first-color);
     background-color: rgb(100, 100, 100);
     border-radius: 1rem;
