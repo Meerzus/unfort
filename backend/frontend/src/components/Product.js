@@ -32,7 +32,6 @@ function Product({product}) {
                 onClick={linkHandler}
                 to={`/product/${product._id}/`}
             >
-                {/*navigate('../user', { replace: true })*/}
                 <Card.Img src={product.mainimg} className="rounded-3 product-img"/>
             </Link>
             <Card.Body>
@@ -83,7 +82,6 @@ function Product({product}) {
                                         : "far fa-star"
                             }></i></span>
                         </span>
-                        <span className="mx-2"><i className="fas fa-user"></i> {product.numReviews}</span>
                     </div>
                 </Card.Text>
                 <br/>

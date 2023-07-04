@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/base/views/order_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/base/views/order_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductEditScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductEditScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +49,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GitHub/unfort/backend/frontend/build/static&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/WEB/django-tinkoff-merchant-master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -256,7 +256,9 @@
       <workItem from="1688055870473" duration="3980000" />
       <workItem from="1688060978214" duration="3249000" />
       <workItem from="1688105210329" duration="4589000" />
-      <workItem from="1688144714936" duration="3417000" />
+      <workItem from="1688144714936" duration="4579000" />
+      <workItem from="1688452705625" duration="2201000" />
+      <workItem from="1688462503648" duration="1887000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>

@@ -476,20 +476,6 @@ function ProductScreen() {
                                                             : "far fa-star"
                                                 }></i></motion.span>
                                             </motion.span>
-                                            <motion.span
-                                                className="mx-2"
-                                                variants={reveal}
-                                                initial='hiddenVariantX'
-                                                animate='revealedVariantX'
-                                                transition={{
-                                                    ease: 'easeIn',
-                                                    type: 'spring',
-                                                    staggerChildren: .25,
-                                                    duration: 1,
-                                                    delayChildren: animationStart,
-                                                    delay: animationStart + .5
-                                                }}
-                                            ><motion.i variants={reveal} className="fas fa-user"></motion.i> {product.numReviews}</motion.span>
                                         </ListGroup.Item>
 
                                         <ListGroup.Item className='description-group-item'>
