@@ -4,8 +4,6 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
-from backend.backend.settings import TERMINAL_KEY, TERMINAL_PASSWORD
-
 from base.models import Product, Order, OrderItem, ShippingAddress
 from base.serializers import ProductSerializer, OrderSerializer
 
@@ -35,6 +33,8 @@ def addOrderItems(request):
         # (2) Create Shipping Address
         shipping = ShippingAddress.objects.create(
             order=order,
+            fullName=data['shippingAddress']['fullName'],
+            phoneNumber=data['shippingAddress']['phoneNumber'],
             address=data['shippingAddress']['address'],
             city=data['shippingAddress']['city'],
             postalCode=data['shippingAddress']['postalCode'],
@@ -100,23 +100,14 @@ def getOrderById(request, pk):
                         status=status.HTTP_400_BAD_REQUEST)
 
 
-terminal_key = settings.TERMINALKEY
-secret_key = settings.TERMINALPASSWORD
+terminal_key = '1687356961617DEMO'
+secret_key = '73z0hrpj2t58vwiv'
 
 
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def updateOrderToPaid(request, pk):
     order = Order.objects.get(_id=pk)
-
-    # values = {
-    #     'Amount': str(cert.price * 100) + '.00',
-    #     # *100 потому что указывается сумма в копейках/ и в других методах почему то идёт  сразу с .00 а здесь без. глюк матрицы тинькофф...
-    #     'Description': str(cert.product.title) + ' (' + str(cert.count) + ') шт.',  # The order description
-    #     'OrderId': str(cert.number_cert),
-    #     'Password': secret_key,
-    #     'TerminalKey': terminal_key
-    # }
 
     order.isPaid = True
     order.paidAt = datetime.now()
