@@ -947,6 +947,7 @@ footer .col-md-3, footer .col-md-4 {
 
 .description-group-item {
     word-wrap: break-word;
+    line-height: 1.5;
 }
 
 .order-table tbody {

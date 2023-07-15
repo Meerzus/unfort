@@ -4,20 +4,11 @@
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/PrivacyScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/PrivacyScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/1.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/1.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/10.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/10.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/11.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/11.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/2.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/2.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/3.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/3.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/4.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/4.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/5.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/5.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/6.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/6.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/7.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/7.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/8.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/8.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/9.webp" beforeDir="false" afterPath="$PROJECT_DIR$/resources/imgs/Новая папка — копия (8)/9.webp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +269,8 @@
       <workItem from="1689348180935" duration="6926000" />
       <workItem from="1689410471009" duration="1943000" />
       <workItem from="1689419195838" duration="1517000" />
-      <workItem from="1689426890315" duration="2766000" />
+      <workItem from="1689426890315" duration="3608000" />
+      <workItem from="1689441181757" duration="4182000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>

@@ -16,11 +16,17 @@ import {animationStart, reveal} from "../utils/animation";
 import axios from "axios";
 import {sha256} from "js-sha256";
 
+import {Telegraf} from "telegraf";
+import {message} from "telegraf/filters";
+
 
 function OrderScreen({match}) {
     const { id } = useParams();
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
+    const tgToken = '6375899567:AAEL9i_83NDSPRm8aIPmWlHH9pFOW_HFcuI'
+    const bot = new Telegraf(tgToken)
 
     const [sdkReady, setSdkReady] = useState(false)
     const [paymentReady, setPaymentReady] = useState(false)
@@ -63,6 +69,12 @@ function OrderScreen({match}) {
 
     if (!loading && !error) {
         order.itemsPrice = order.orderItems.reduce((acc, item) => acc + item.qty * item.price, 0) * ((100 - sale)/100)
+
+        bot.on('message', msg => {
+            const chatId = '-957139795'
+            // console.log(msg)
+            // bot.sendMessage()
+        })
     }
 
     useEffect(() => {

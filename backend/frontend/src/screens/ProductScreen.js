@@ -425,9 +425,10 @@ function ProductScreen() {
                                             </ListGroup.Item>
                                         </motion.div>
 
-                                        <ListGroup.Item style={{border: 0}}>
+                                        <ListGroup.Item style={{border: 0, paddingTop: 0, paddingBottom: 0}}>
                                             <motion.span
-                                                className="my-3 rating"
+                                                style={{width: 32 + '%'}}
+                                                className="rating"
                                                 variants={reveal}
                                                 initial='hiddenVariantX'
                                                 animate='revealedVariantX'
@@ -497,7 +498,7 @@ function ProductScreen() {
                                                         <motion.div
                                                             variants={reveal}
                                                             key={desc}
-                                                            className='mb-2'
+                                                            className='mb-3'
                                                         >{desc}</motion.div>
                                                     ))
                                                 )}
