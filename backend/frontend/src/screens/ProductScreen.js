@@ -41,9 +41,9 @@ function ProductScreen() {
           if(track?.dataset.mouseDownAt === "0") return;
 
           const mouseDelta = parseFloat(track?.dataset.mouseDownAt) - e.clientX,
-                maxDelta = window.innerWidth / 2;
+                maxDelta = window.innerWidth / 5;
 
-          const percentage = (mouseDelta / maxDelta) * -100,
+          const percentage = (mouseDelta / maxDelta) * -20,
                 nextPercentageUnconstrained = parseFloat(track?.dataset.prevPercentage) + percentage,
                 nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -796);
 
@@ -55,7 +55,7 @@ function ProductScreen() {
 
           for(const image of track?.getElementsByClassName("product-screen-img")) {
             image.animate({
-              objectPosition: `${60 + (nextPercentage / 12.5)}% center`,
+              objectPosition: `${60 + (nextPercentage / 50)}% center`,
             }, { duration: 1200, fill: "forwards"});
           }
         }
@@ -114,9 +114,9 @@ function ProductScreen() {
           if(track?.dataset.mouseDownAt === "0") return;
 
           const mouseDelta = parseFloat(track?.dataset.mouseDownAt) - e.clientX,
-                maxDelta = window.innerWidth / 10;
+                maxDelta = window.innerWidth / 5;
 
-          const percentage = (mouseDelta / maxDelta) * -100,
+          const percentage = (mouseDelta / maxDelta) * -75,
                 nextPercentageUnconstrained = parseFloat(track?.dataset.prevPercentage) + percentage,
                 nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -694);
 
@@ -128,7 +128,7 @@ function ProductScreen() {
 
           for(const image of track?.getElementsByClassName("product-screen-img")) {
             image.animate({
-              objectPosition: `${60 + (nextPercentage / 7.5)}% center`,
+              objectPosition: `${60 + (nextPercentage / 37.5)}% center`,
             }, { duration: 1200, fill: "forwards"});
           }
         }
@@ -187,11 +187,11 @@ function ProductScreen() {
           if(track?.dataset.mouseDownAt === "0") return;
 
           const mouseDelta = parseFloat(track?.dataset.mouseDownAt) - e.clientX,
-                maxDelta = window.innerWidth / 10;
+                maxDelta = window.innerWidth / 7.5;
 
-          const percentage = (mouseDelta / maxDelta) * -75,
+          const percentage = (mouseDelta / maxDelta) * -100,
                 nextPercentageUnconstrained = parseFloat(track?.dataset.prevPercentage) + percentage,
-                nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -694);
+                nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -693);
 
           track.dataset.percentage = nextPercentage;
 
@@ -201,7 +201,7 @@ function ProductScreen() {
 
           for(const image of track?.getElementsByClassName("product-screen-img")) {
             image.animate({
-              objectPosition: `${60 + (nextPercentage / 40)}% center`,
+              objectPosition: `${60 + (nextPercentage / 42.5)}% center`,
             }, { duration: 1200, fill: "forwards"});
           }
         }
