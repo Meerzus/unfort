@@ -10,6 +10,7 @@ from base.serializers import ProductSerializer, OrderSerializer
 from rest_framework import status
 
 from datetime import datetime
+import requests
 
 
 @api_view(['POST'])
@@ -100,20 +101,25 @@ def getOrderById(request, pk):
                         status=status.HTTP_400_BAD_REQUEST)
 
 
-terminal_key = '1687356961617DEMO'
-secret_key = '73z0hrpj2t58vwiv'
-
-
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def updateOrderToPaid(request, pk):
     order = Order.objects.get(_id=pk)
+    serializer = OrderSerializer(order, many=False)
 
     order.isPaid = True
     order.paidAt = datetime.now()
     order.save()
 
-    return Response('Order was paid')
+    tTOKEN = "6375899567:AAEL9i_83NDSPRm8aIPmWlHH9pFOW_HFcuI"
+    chat_id = "-957139795"
+    message = 'Новый заказ! Номер заказа ' + str(order._id) \
+              + '. Сумма заказа: ' + str(round(order.totalPrice)) \
+              + '. От ' + str(order.user)
+    url = f"https://api.telegram.org/bot{tTOKEN}/sendMessage?chat_id={chat_id}&text={message}"
+    # print(requests.get(url).json())
+
+    return requests.get(url).json()
 
 
 @api_view(['PUT'])

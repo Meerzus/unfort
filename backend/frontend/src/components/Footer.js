@@ -77,13 +77,11 @@ function Footer() {
             outer.appendChild(inner);
 
             element.appendChild(outer);
-
-            console.log('mouseover')
         });
     }
 
-    const unfortHoverHandler = () => {
-        const element = document.getElementById("unfort-link"),
+    const unfortFooterHoverHandler = () => {
+        const element = document.getElementById("unfort-link-footer"),
             text = element && element?.innerText.split("");
 
         if (element) {
@@ -114,14 +112,48 @@ function Footer() {
             outer.appendChild(inner);
 
             element.appendChild(outer);
+        });
+    }
 
-            console.log('mouseover')
+    const unfortHeaderHoverHandler = () => {
+        const element = document.getElementById("unfort-link-header"),
+            text = element && element?.innerText.split("");
+
+        if (element) {
+            element.innerText = "";
+        }
+
+        text && text.forEach((value, index) => {
+            const outer = document.createElement("span");
+
+            outer.className = "outer";
+
+            const inner = document.createElement("span");
+
+            inner.className = "inner";
+
+            inner.style.animationDelay = `${rand(-5000, 0)}ms`;
+
+            const letter = document.createElement("span");
+
+            letter.className = "letter";
+
+            letter.innerText = value;
+
+            letter.style.animationDelay = `${index * 1000 }ms`;
+
+            inner.appendChild(letter);
+
+            outer.appendChild(inner);
+
+            element.appendChild(outer);
         });
     }
 
     useEffect(() => {
         emailHoverHandler()
-        unfortHoverHandler()
+        unfortFooterHoverHandler()
+        unfortHeaderHoverHandler()
     })
 
     return (
@@ -146,7 +178,7 @@ function Footer() {
                                 >
                                     <div className="line">
                                         <a
-                                            id="unfort-link"
+                                            id="unfort-link-footer"
                                             href='/'
                                             className="word fancy mailto"
                                         >
@@ -224,41 +256,37 @@ function Footer() {
                                     <Row>
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <LinkContainer className="text-center" to='/copyright'>
-                                                    <Nav.Link className="cursor footer-vk">
-                                                        <i className="fa-brands fa-vk fa-2xl"></i>
-                                                    </Nav.Link>
-                                                </LinkContainer>
+                                                <a href="https://vk.com/unfort_4u" target='_blank'
+                                                   className='text-center cursor footer-vk nav-link'>
+                                                    <i className="fa-brands fa-vk fa-2xl"></i>
+                                                </a>
                                             </motion.div>
                                         </Col>
 
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <LinkContainer className="text-center" to='/copyright'>
-                                                    <Nav.Link className="cursor footer-telegram">
-                                                        <i className="fa-brands fa-telegram fa-2xl"></i>
-                                                    </Nav.Link>
-                                                </LinkContainer>
+                                                <a href="https://vk.com/unfort_4u" target='_blank'
+                                                   className='text-center cursor footer-telegram nav-link'>
+                                                    <i className="fa-brands fa-telegram fa-2xl"></i>
+                                                </a>
                                             </motion.div>
                                         </Col>
 
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <LinkContainer className="text-center" to='/copyright'>
-                                                    <Nav.Link className="cursor footer-instagram">
-                                                        <i className="fa-brands fa-instagram fa-2xl"></i>
-                                                    </Nav.Link>
-                                                </LinkContainer>
+                                                <a href="https://vk.com/unfort_4u" target='_blank'
+                                                   className='text-center cursor footer-instagram nav-link'>
+                                                    <i className="fa-brands fa-instagram fa-2xl"></i>
+                                                </a>
                                             </motion.div>
                                         </Col>
 
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <LinkContainer className="text-center" to='/copyright'>
-                                                    <Nav.Link className="cursor footer-tiktok">
-                                                        <i className="fa-brands fa-tiktok fa-xl"></i>
-                                                    </Nav.Link>
-                                                </LinkContainer>
+                                                <a href="https://vk.com/unfort_4u" target='_blank'
+                                                   className='text-center cursor footer-tiktok nav-link'>
+                                                    <i className="fa-brands fa-tiktok fa-xl"></i>
+                                                </a>
                                             </motion.div>
                                         </Col>
                                     </Row>

@@ -41,9 +41,7 @@ function App() {
   return (
     <Router>
         <Header/>
-        <motion.main
-
-        >
+        <motion.main>
             <Routes>
                 <Route path='/' element={<HomeScreen/>} exact/>
                 <Route path='/login' element={<LoginScreen/>}/>

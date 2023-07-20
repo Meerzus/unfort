@@ -13,6 +13,7 @@ import {animationStart, reveal} from "../utils/animation";
 function RegisterScreen({location, history}) {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [emailError, setEmailError] = useState(false)
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [message, setMessage] = useState('')
@@ -32,13 +33,21 @@ function RegisterScreen({location, history}) {
         }
     }, [userInfo, redirect, navigate])
 
+    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
     const submitHandler = (e) => {
         e.preventDefault()
 
         if (password !== confirmPassword) {
             setMessage('Введенные пароли не совпадают!')
         } else {
-            dispatch(register(name, email, password))
+            if (!re.test(String(email).toLowerCase())) {
+                setEmail(' ')
+                setEmailError(true)
+            } else {
+                dispatch(register(name, email, password))
+                setEmailError(false)
+            }
         }
     }
 
@@ -108,6 +117,7 @@ function RegisterScreen({location, history}) {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                 ></Form.Control>
+                                {emailError && <div style={{color: 'red'}}>Некорректный Email</div>}
                             </motion.div>
                         </Form.Group>
 

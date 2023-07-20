@@ -16,8 +16,7 @@ import {animationStart, reveal} from "../utils/animation";
 import axios from "axios";
 import {sha256} from "js-sha256";
 
-import {Telegraf} from "telegraf";
-import {message} from "telegraf/filters";
+// const telegramApi = require('node-telegram-bot-api')
 
 
 function OrderScreen({match}) {
@@ -25,8 +24,8 @@ function OrderScreen({match}) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const tgToken = '6375899567:AAEL9i_83NDSPRm8aIPmWlHH9pFOW_HFcuI'
-    const bot = new Telegraf(tgToken)
+    // const tgToken = '6375899567:AAEL9i_83NDSPRm8aIPmWlHH9pFOW_HFcuI'
+    // const bot = new telegramApi(tgToken, {polling: true})
 
     const [sdkReady, setSdkReady] = useState(false)
     const [paymentReady, setPaymentReady] = useState(false)
@@ -70,11 +69,11 @@ function OrderScreen({match}) {
     if (!loading && !error) {
         order.itemsPrice = order.orderItems.reduce((acc, item) => acc + item.qty * item.price, 0) * ((100 - sale)/100)
 
-        bot.on('message', msg => {
-            const chatId = '-957139795'
-            // console.log(msg)
-            // bot.sendMessage()
-        })
+        // bot.on('message', msg => {
+        //     const chatId = '-957139795'
+        //     console.log(msg)
+        //     bot.sendMessage()
+        // })
     }
 
     useEffect(() => {
@@ -90,24 +89,24 @@ function OrderScreen({match}) {
         } else if (!order.isPaid) {
             axios
                 .post('https://securepay.tinkoff.ru/v2/Init', {
-                    TerminalKey: "1680349104054",
-                    Amount: Number(order.totalPrice) * 100,
+                    TerminalKey: "1687356961617",
+                    Amount: Number(Math.round(order.totalPrice)) * 100,
                     OrderId: order._id,
-                    Description: "Подарочная карта на 1400.00 рублей",
+                    Description: order._id,
                     DATA: {
                         Phone: userInfo.phoneNumber,
                         Email: userInfo.email
                     },
                     Receipt: {
-                        Email: "a@test.com",
+                        Email: userInfo.email,
                         Phone: (cart.shippingAddress.phoneNumber).replace('8', '+7'),
-                        EmailCompany: "b@test.ru",
+                        EmailCompany: "unfort@mail.ru",
                         Taxation: "osn",
                         Items: [{
                             Name: `Заказ: ${order._id}`,
-                            Price: Number(order.totalPrice) * 100,
+                            Price: Number(Math.round(order.totalPrice)) * 100,
                             Quantity: 1.00,
-                            Amount: Number(order.totalPrice) * 100,
+                            Amount: Number(Math.round(order.totalPrice)) * 100,
                             PaymentMethod: "full_prepayment",
                             PaymentObject: "commodity",
                             Tax: "vat10"
@@ -121,35 +120,12 @@ function OrderScreen({match}) {
                     setPaymentReady(true)
                     if (initResponse.data.Details === `Заказ ${order._id} был оплачен.`) {
                         console.log('oplacheno')
-                        // order.isPaid = true
                         dispatch(payOrder(order._id, initResponse.data))
-                        // order.paidAt = new Date().toLocaleString("ru", options)
                     }
-                    const concat = `1000054pxsokesn9tjy0z4e1680349104054`
+                    const concat = `73z0hrpj2t58vwiv` + `${initResponse.data.PaymentId}` + `${initResponse.data.TerminalKey}`
                     const token = sha256(concat)
                     console.log(concat)
                     console.log(token)
-                    axios
-                        .post('https://securepay.tinkoff.ru/v2/GetState', {
-                            // TerminalKey: "1687356961617DEMO",
-                            // PaymentId: initResponse.data.PaymentId,
-                            // // Amount: initResponse.data.Amount,
-                            // // OrderId: "55",
-                            // Token: token
-                            TerminalKey: "1680349104054",
-                            PaymentId: initResponse.data.PaymentId,
-                            // Amount: 10000,
-                            // OrderId: "55",
-                            Token: token
-                            // Token: "cfb1c2a8d10f11a6016eb3110b3e334174ac22f37fe4ca34d22ca3b244d179aa"
-                        })
-                        .then((getStateResponse) => {
-                            console.log(getStateResponse.data)
-                            console.log((cart.shippingAddress.phoneNumber).replace('8', '+7'))
-                        })
-                        .catch((getStateError) => {
-                            console.error(getStateError)
-                        })
                 })
                 .catch((initError) => {
                     console.error(initError)
@@ -163,94 +139,6 @@ function OrderScreen({match}) {
     }
 
     const handleToggle = () => setIsDelivered(!isDelivered);
-
-    // Tinkoff.Link({
-    //     terminalkey: '1687356961617DEMO',
-    //     frame: 'true',
-    //     language: 'ru',
-    //     amount: order.totalPrice,
-    //     order: order._id,
-    //     description: order.shippingAddress,
-    //     name: order.user.name,
-    //     email: order.user.email,
-    //     phone: order.user.phone
-    // }, link => {
-    //     // navigate(link)
-    //     // return link
-    //     console.log(link) // => https://securepay.tinkoff.ru/xo7L8v
-    // })
-
-    // const tinkoffForm = (order) => {
-    //     Tinkoff.Link({
-    //         terminalkey: '1687356961617DEMO',
-    //         frame: 'true',
-    //         language: 'ru',
-    //         amount: order.totalPrice,
-    //         order: order._id,
-    //         description: order.shippingAddress,
-    //         name: order.user.name,
-    //         email: order.user.email,
-    //         phone: order.user.phone
-    //     }, link => {
-    //         // navigate(link)
-    //         setGetLink(link)
-    //          // => https://securepay.tinkoff.ru/xo7L8v
-    //     })
-    //     let form;
-    //     // return link
-    //      form = {
-    //         terminalkey: '1680349104054DEMO',
-    //         frame: 'true',
-    //         language: 'ru',
-    //         amount: order.totalPrice,
-    //         order: order._id,
-    //         description: order.shippingAddress,
-    //         name: order.user.name,
-    //         email: order.user.email,
-    //         phone: order.user.phone
-    //     }
-    //     return console.log(getLink)
-    //     // return form
-    // }
-
-    // http://meerzus1.pythonanywhere.com/succsess?Success=true&ErrorCode=0&Message=None&Details=&Amount=100&MerchantEmail=support%40unfort.ru&MerchantName=Unfort&OrderId=44&PaymentId=2915184438&TranDate=&BackUrl=http%3A%2F%2Fmeerzus1.pythonanywhere.com%2F&CompanyName=%D0%98%D0%9F+%D0%9C%D0%98%D0%9B%D0%AC%D0%9A%D0%9E%D0%92%D0%98%D0%A7+%D0%98%D0%9B%D0%AC%D0%AF+%D0%9C%D0%98%D0%A5%D0%90%D0%99%D0%9B%D0%9E%D0%92%D0%98%D0%A7&EmailReq=support%40unfort.ru&PhonesReq=9139376454
-
-    // const successPaymentHandler = (paymentResult) => {
-    //     Tinkoff.Link({
-    //         terminalkey: '1687356961617DEMO',
-    //         frame: 'true',
-    //         language: 'ru',
-    //         amount: order.totalPrice,
-    //         order: order._id,
-    //         description: order.shippingAddress,
-    //         name: order.user.name,
-    //         email: order.user.email,
-    //         phone: order.user.phone
-    //     }, link => {
-    //         setGetLink(link)
-    //     })
-    //     setPaymentReady(true)
-    //     dispatch(payOrder(id, paymentResult))
-    //
-    //     let tLink = getLink
-    //
-    //     return console.log(tLink)
-    // }
-
-    // let form = {
-    //     terminalkey: '1680349104054DEMO',
-    //     frame: 'true',
-    //     language: 'ru',
-    //     amount: order.totalPrice,
-    //     order: order._id,
-    //     description: order.shippingAddress,
-    //     name: order.user.name,
-    //     email: order.user.email,
-    //     phone: order.user.phone
-    // }
-
-    // const paidDate = new Date(order.paidAt.substring(0, 10))
-    // const deliveredDate = new Date(order.deliveredAt.substring(0, 10))
 
     const options = {
         year: 'numeric',
@@ -411,7 +299,7 @@ function OrderScreen({match}) {
                                         <motion.div variants={reveal}>
                                             <Row>
                                                 <Col>Скидка</Col>
-                                                <Col>₽{order.itemsPrice - order.totalPrice}</Col>
+                                                <Col>₽{order.itemsPrice - Math.round(order.totalPrice)}</Col>
                                             </Row>
                                         </motion.div>
                                     </ListGroup.Item>
@@ -430,7 +318,7 @@ function OrderScreen({match}) {
                                             <Row>
                                                 <Col>Сумма</Col>
                                                 <Col>
-                                                    ₽{order.totalPrice}
+                                                    ₽{Math.round(order.totalPrice)}
                                                 </Col>
                                             </Row>
                                         </motion.div>
@@ -452,39 +340,18 @@ function OrderScreen({match}) {
                                                 {/*<Tinkoff.Pay form={form} onClose={() => console.log('close')} />*/}
                                                 <Row>
                                                     <Button
-                                                    variant='dark'
-                                                    className='size-btn'
-                                                    type='button'
-                                                    // onClick={successPaymentHandler}
+                                                        variant='dark'
+                                                        className='size-btn'
+                                                        type='button'
+                                                        // onClick={successPaymentHandler}
+                                                        href={`${getLink}`}
+                                                        target='_blank'
                                                     >
                                                         Купить
                                                     </Button>
+                                                    {/*<a className='size-btn' href={`${getLink}`}>купить</a>*/}
                                                 </Row>
                                             </motion.div>
-
-                                            {
-                                                // Tinkoff.Link({
-                                                //     terminalkey: '1687356961617DEMO',
-                                                //     frame: 'true',
-                                                //     language: 'ru',
-                                                //     amount: order.totalPrice,
-                                                //     order: order._id,
-                                                //     description: order.shippingAddress,
-                                                //     name: order.user.name,
-                                                //     email: order.user.email,
-                                                //     phone: order.user.phone
-                                                // }, link => {
-                                                //         console.log(link) // => https://securepay.tinkoff.ru/xo7L8v
-                                                //     }
-                                                // )
-                                            }
-
-                                            {
-                                                paymentReady &&
-                                                <div>
-                                                    <a href={`${getLink}`}>купить</a>
-                                                </div>
-                                            }
                                         </ListGroup.Item>
                                     )}
                                 </ListGroup>

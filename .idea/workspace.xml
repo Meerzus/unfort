@@ -3,12 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/base/views/order_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/base/views/order_views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ShippingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ShippingScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -270,7 +281,11 @@
       <workItem from="1689410471009" duration="1943000" />
       <workItem from="1689419195838" duration="1517000" />
       <workItem from="1689426890315" duration="3608000" />
-      <workItem from="1689441181757" duration="4182000" />
+      <workItem from="1689441181757" duration="5191000" />
+      <workItem from="1689667927469" duration="3678000" />
+      <workItem from="1689686324356" duration="11735000" />
+      <workItem from="1689757094296" duration="2659000" />
+      <workItem from="1689834008561" duration="26542000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>

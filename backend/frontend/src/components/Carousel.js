@@ -5,29 +5,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {listProducts} from "../actions/productActions";
 import Product from "./Product";
 
-function Carousel({windowInnerWidth, product, products}) {
+function Carousel({product, products}) {
 
     const filtered = products
 
     let keyword = window.location.search
 
     const alikeIds = product?.description2?.split(';')
-    // console.log(product?.description2?.split(';') && 'alikeIds ', product?.description2?.split(';'))
 
     const alikeForYou = []
 
     for (let i in product?.description2?.split(';')) {
-        // console.log(product?.description2?.split(';'))
-        for (let y in filtered && filtered) {
-            console.log(filtered)
+        for (let y in filtered) {
             if (Number(filtered[y]?._id) === Number(product?.description2?.split(';')[i])) {
                 filtered[y] && alikeForYou?.push(filtered[y])
-                // console.log('done')
-            } else console.log('not done')
+            }
         }
     }
 
-    // console.log(alikeForYou && 'alikeForYou: ', alikeForYou)
 
     return (
         <div>
