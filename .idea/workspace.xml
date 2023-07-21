@@ -4,13 +4,6 @@
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.1aa712c5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.1aa712c5.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.935000fe.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.935000fe.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.935000fe.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +269,7 @@
       <workItem from="1689667927469" duration="3678000" />
       <workItem from="1689686324356" duration="11735000" />
       <workItem from="1689757094296" duration="2659000" />
-      <workItem from="1689834008561" duration="27845000" />
+      <workItem from="1689834008561" duration="30419000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>
