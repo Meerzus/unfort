@@ -162,6 +162,8 @@ img {
 .popup-card-img {
     display: flex;
     width: 100%;
+    background-image: url("../public/images/popup_banner.webp");
+    background-size: cover;
     height: 20vh;
     border-radius: 1vmax;
 }
