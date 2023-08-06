@@ -51,7 +51,7 @@ function App() {
                 <Route path='/payment' element={<PaymentScreen/>}/>
                 <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
 
-                <Route path='/success' element={<SuccessPage/>}/>
+                {/*<Route path='/success' element={<SuccessPage/>}/>*/}
                 {/*<Route path='/fail' element={<FailPage/>}/>*/}
 
                 <Route path='/about' element={<AboutScreen/>}/>

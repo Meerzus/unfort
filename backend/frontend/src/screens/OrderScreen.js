@@ -4,10 +4,6 @@ import {Button, Row, Col, ListGroup, Image, Card, Container, Form} from "react-b
 import {useDispatch, useSelector} from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-// import Tinkoff from 'react-tinkoff-pay'
-
-import FormContainer from "../components/FormContainer";
-import {addToCart} from "../actions/cartActions";
 import {getOrderDetails, payOrder, deliverOrder} from "../actions/orderActions";
 import {ORDER_PAY_RESET, ORDER_DELIVER_RESET, ORDER_PAY_SUCCESS} from "../constants/orderConstants";
 
@@ -16,16 +12,11 @@ import {animationStart, reveal} from "../utils/animation";
 import axios from "axios";
 import {sha256} from "js-sha256";
 
-// const telegramApi = require('node-telegram-bot-api')
-
 
 function OrderScreen({match}) {
     const { id } = useParams();
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    // const tgToken = '6375899567:AAEL9i_83NDSPRm8aIPmWlHH9pFOW_HFcuI'
-    // const bot = new telegramApi(tgToken, {polling: true})
 
     const [sdkReady, setSdkReady] = useState(false)
     const [paymentReady, setPaymentReady] = useState(false)
@@ -51,8 +42,6 @@ function OrderScreen({match}) {
     const [tryCoupon, setTryCoupon] = useState('')
     const [sale, setSale] = useState(0)
 
-    // 1680349104054DEMO
-
     const tinkoffScript = () => {
         setSdkReady(true)
     }
@@ -68,12 +57,6 @@ function OrderScreen({match}) {
 
     if (!loading && !error) {
         order.itemsPrice = order.orderItems.reduce((acc, item) => acc + item.qty * item.price, 0) * ((100 - sale)/100)
-
-        // bot.on('message', msg => {
-        //     const chatId = '-957139795'
-        //     console.log(msg)
-        //     bot.sendMessage()
-        // })
     }
 
     useEffect(() => {
@@ -151,12 +134,6 @@ function OrderScreen({match}) {
 
     let paidDate = order && new Date(Date.parse(order.paidAt) - 420 * 60000).toLocaleString("ru", options)
     let deliveredDate = order && new Date(Date.parse(order.deliveredAt) - 420 * 60000).toLocaleString("ru", options)
-
-    // let success = document.querySelector('iframe[name="pay-form-iframe"]');
-    // let success1 = success.querySelector('eacq-pf-root[id="initial-form"]')
-    // console.log(success)
-    // console.log(success1)
-    // console.log(order)
 
 
     return loading ? (
@@ -324,32 +301,21 @@ function OrderScreen({match}) {
                                         </motion.div>
                                     </ListGroup.Item>
 
-                                    {/*<ListGroup.Item>*/}
-                                    {/*    <Row>*/}
-                                    {/*        <Button variant='dark' className='size-btn' type='button' onClick={() => {}}>*/}
-                                    {/*            Купить*/}
-                                    {/*        </Button>*/}
-                                    {/*    </Row>*/}
-                                    {/*</ListGroup.Item>*/}
-
                                     {!order.isPaid && (
                                         <ListGroup.Item>
                                             {loadingPay && <Loader/>}
 
                                             <motion.div variants={reveal}>
-                                                {/*<Tinkoff.Pay form={form} onClose={() => console.log('close')} />*/}
                                                 <Row>
                                                     <Button
                                                         variant='dark'
                                                         className='size-btn'
                                                         type='button'
-                                                        // onClick={successPaymentHandler}
                                                         href={`${getLink}`}
                                                         target='_blank'
                                                     >
                                                         Купить
                                                     </Button>
-                                                    {/*<a className='size-btn' href={`${getLink}`}>купить</a>*/}
                                                 </Row>
                                             </motion.div>
                                         </ListGroup.Item>

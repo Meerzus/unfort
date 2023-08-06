@@ -333,24 +333,27 @@ function ProductScreen() {
         }
     }
 
-    const heightS = [0, 150]
-    const heightM = [151, 175]
-    const heightL = [176, 190]
-    const weightS = [0, 50]
-    const weightM = [51, 60]
-    const weightL = [51, 70]
+    const heightS = [150, 173]
+    const heightM = [174, 178]
+    const heightL = [179, 184]
+    const weightS = [40, 66]
+    const weightM = [67, 77]
+    const weightL = [78, 85]
     const [yourHeight, setYourHeight] = useState(0)
     const [yourWeight, setYourWeight] = useState(0)
-    const [yourSize, setYourSize] = useState('')
 
     const countYourSize = () => {
         if (yourHeight <= 0 || yourWeight <= 0) {
             setSize('')
+        } else if ((yourHeight >= 0 && yourHeight <= heightS[0]) && (yourWeight >= 0 && yourWeight <= weightS[0])) {
+            setSize('S')
         } else if ((yourHeight >= heightS[0] && yourHeight <= heightS[1]) && (yourWeight >= weightS[0] && yourWeight <= weightS[1])) {
             setSize('S')
         } else if ((yourHeight >= heightM[0] && yourHeight <= heightM[1]) && (yourWeight >= weightM[0] && yourWeight <= weightM[1])) {
             setSize('M')
         } else if ((yourHeight >= heightL[0] && yourHeight <= heightL[1]) && (yourWeight >= weightL[0] && yourWeight <= weightL[1])) {
+            setSize('L')
+        } else if (yourHeight >= heightL[1] || yourWeight >= weightL[1]) {
             setSize('L')
         }
         console.log(yourHeight)
@@ -429,7 +432,7 @@ function ProductScreen() {
                                 </Col>
                             </motion.div>
 
-                            <Col md={6}>
+                            <Col md={6} id='prod-desc'>
                                 <motion.div>
                                     <Card className='border-0'>
                                         <ListGroup variant="flush" className='list-group-flush'>
@@ -496,7 +499,7 @@ function ProductScreen() {
                                                                                 }}
                                                                                 className='mb-2'
                                                                                 type='number'
-                                                                                placeholder='Ваш рост'
+                                                                                placeholder='Рост'
                                                                                 onChange={(e) => setYourHeight(e.target.value)}
                                                                             ></Form.Control>
                                                                             <Form.Control
@@ -505,7 +508,7 @@ function ProductScreen() {
                                                                                     fontSize: 1 + 'rem'
                                                                             }}
                                                                                 type='number'
-                                                                                placeholder='Ваш вес'
+                                                                                placeholder='Вес'
                                                                                 onChange={(e) => setYourWeight(e.target.value)}
                                                                             ></Form.Control>
                                                                         </div>
@@ -517,7 +520,7 @@ function ProductScreen() {
                                                                                 id='sizeCalc'
                                                                                 onClick={countYourSize}
                                                                             >
-                                                                                <i className="fa-solid fa-calculator fa-2xl"></i>
+                                                                                <i className="fa-solid fa-calculator fa-xl"></i>
                                                                             </Button>
                                                                         </div>
                                                                     </Form.Group>
@@ -689,7 +692,7 @@ function ProductScreen() {
                                                         <motion.div
                                                             variants={reveal}
                                                             key={desc}
-                                                            className='mb-3'
+                                                            className='mb-0'
                                                         >{desc}</motion.div>
                                                     ))
                                                 )}

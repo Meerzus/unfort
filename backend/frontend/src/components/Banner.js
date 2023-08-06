@@ -6,6 +6,7 @@ import {animationStart} from "../utils/animation";
 function Banner() {
 
     const w = window.innerWidth
+    const h = window.innerHeight
 
     console.log(w)
 
@@ -13,13 +14,15 @@ function Banner() {
 
     useEffect(() => {
         if (w >= 1920) {
+            setHeight(100)
+        } else if (w >= 1024) {
             setHeight(95)
+        } else if (w >= 910) {
+            setHeight(85)
         } else if (w >= 768) {
             setHeight(40)
-        } else if (w >= 414) {
-            setHeight(30)
-        } else if (w >= 390) {
-            setHeight(25)
+        } else {
+            setHeight(27.5)
         }
     }, [height])
 

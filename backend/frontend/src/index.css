@@ -190,10 +190,10 @@ img {
 .popup-card .popup-card-btn {
     display: flex;
     position: absolute;
-    width: calc(100% - 2rem);
-    /*width: 100%;*/
-    bottom: 1rem;
-    border-radius: .25vmax .25vmax 1vmax 1vmax !important;
+    width: 100%;
+    font-size: 1.5rem;
+    bottom: -1rem;
+    border-radius: 0 0 1vmax 1vmax !important;
     border: white solid 0 !important;
 }
 
@@ -223,7 +223,7 @@ img {
 .banner {
     background-image: url("../public/images/banner.webp");
     background-position: center center;
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -897,7 +897,7 @@ li[class='active page-item active'] .page-link {
     animation-fill-mode: both;
 }
 
-footer .col-md-3, footer .col-md-4 {
+footer .col-md-1, footer .col-md-2, footer .col-md-3, footer .col-md-4, footer .col-md-5, footer .col-md-6 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -910,7 +910,7 @@ footer .col-md-3, footer .col-md-4 {
 
 .mailto {
     color: rgba(255, 255, 255, 0.6) !important;
-    font-size: 2rem !important;
+    /*font-size: 1.4rem !important;*/
     text-transform: uppercase;
     transition-duration: .25s;
 }
@@ -1063,6 +1063,7 @@ footer .col-md-3, footer .col-md-4 {
 .calc-submit {
     display: flex;
     height: 75%;
+    width: 25%;
     justify-content: center;
     align-items: center;
 }
@@ -1081,7 +1082,7 @@ footer .col-md-3, footer .col-md-4 {
 
     .popup-card {
         width: 50vw;
-        height: 54vh;
+        height: 60vh;
         padding: 1rem;
     }
 
@@ -1101,9 +1102,9 @@ footer .col-md-3, footer .col-md-4 {
     .popup-card ul {
         display: block;
         position: absolute;
-        margin-top: 31vh;
+        margin-top: 33vh;
         left: 5%;
-        font-size: 1.1rem;
+        font-size: 1.25rem;
     }
 
     #popup-close-btn {
@@ -1136,7 +1137,6 @@ footer .col-md-3, footer .col-md-4 {
 }
 
 @media (max-width: 991px) {
-
     .admin-menu {
         left: 0 !important;
     }
@@ -1201,18 +1201,23 @@ footer .col-md-3, footer .col-md-4 {
 
     .popup-card {
         width: 50vw;
-        height: 54vh;
+        height: 100vh;
         padding: 1rem;
     }
 
     .popup-card h4 {
+        margin-top: 33vh;
         scale: 1.25;
+    }
+
+    .popup-card-img {
+        height: 32vh;
     }
 
     .popup-card p {
         display: flex;
         position: absolute;
-        margin-top: 27vh;
+        margin-top: 40vh;
         font-size: 1.25rem;
         font-weight: bold;
         scale: 1;
@@ -1221,9 +1226,9 @@ footer .col-md-3, footer .col-md-4 {
     .popup-card ul {
         display: block;
         position: absolute;
-        margin-top: 31vh;
+        margin-top: 47.5vh;
         left: 5%;
-        font-size: 1.1rem;
+        font-size: 1.35rem;
     }
 
     #popup-close-btn {
@@ -1233,21 +1238,38 @@ footer .col-md-3, footer .col-md-4 {
 }
 
 @media (max-width: 775px) {
+    .calc-input {
+        width: 70%;
+    }
+
+    #sizeCalc {
+        padding: .5rem;
+    }
+
+    .image-track {
+        margin-bottom: 1rem;
+    }
+
     .popup-card {
-        width: 50vw;
-        height: 54vh;
+        width: 60vw;
+        height: 100vh;
         padding: 1rem;
     }
 
     .popup-card h4 {
-        scale: 1;
+        margin-top: 33vh;
+        scale: 1.25;
+    }
+
+    .popup-card-img {
+        height: 32vh;
     }
 
     .popup-card p {
         display: flex;
         position: absolute;
-        margin-top: 27vh;
-        font-size: 1rem;
+        margin-top: 40vh;
+        font-size: 1.25rem;
         font-weight: bold;
         scale: 1;
     }
@@ -1255,9 +1277,9 @@ footer .col-md-3, footer .col-md-4 {
     .popup-card ul {
         display: block;
         position: absolute;
-        margin-top: 31vh;
+        margin-top: 47.5vh;
         left: 5%;
-        font-size: 1rem;
+        font-size: 1.35rem;
     }
 
     #popup-close-btn {
@@ -1266,10 +1288,21 @@ footer .col-md-3, footer .col-md-4 {
     }
 }
 
+@media (max-width: 737px) {
+    .calc-input {
+        width: 70%;
+        /*margin-bottom: .25rem;*/
+    }
+
+    #sizeCalc {
+        padding: 2.5rem;
+    }
+}
+
 @media (max-width: 590px) {
     .popup-card {
         width: 50vw;
-        height: 54vh;
+        height: 75vh;
         padding: 1rem;
     }
 
@@ -1302,42 +1335,47 @@ footer .col-md-3, footer .col-md-4 {
 }
 
 @media (max-width: 535px) {
+    #prod-desc .card {
+        width: 100% !important;
+        height: 400px !important;
+    }
+
     .card {
-        width: 45vw !important;
-        height: 36vh !important;
-        font-size: .1rem !important;
+        width: 350px !important;
+        height: 500px !important;
+        font-size: .2rem !important;
     }
 
     .product-title {
         min-height: 2rem;
-        font-size: 1rem !important;
+        font-size: 2rem !important;
     }
 
     .card-text h3 {
-        font-size: 1rem !important;
+        font-size: 3rem !important;
         bottom: 0;
     }
 
     .card-text span {
-        font-size: 1rem !important;
+        font-size: 2.25rem !important;
     }
 
     .rating span {
-        font-size: .75rem !important;
+        font-size: 1rem !important;
     }
 
     .products {
         display: grid;
         justify-content: space-around;
-        grid-template-columns: repeat(auto-fit, minmax(11.5rem, 7.5rem));
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 10rem));
         grid-column-gap: 1rem;
         grid-row-gap: 1rem;
         margin: 1rem 0;
     }
 
     .popup-card {
-        width: 75vw;
-        height: 54vh;
+        width: 100vw;
+        height: 85vh;
         padding: 1rem;
     }
 
@@ -1349,157 +1387,24 @@ footer .col-md-3, footer .col-md-4 {
     .popup-card p {
         display: flex;
         position: absolute;
-        margin-top: 26vh;
+        margin-top: 37vh;
         font-size: 1.2rem;
         font-weight: bold;
-        scale: .9;
-    }
-
-    .popup-card ul {
-        display: block;
-        position: absolute;
-        margin-top: 30vh;
-        left: 5%;
-        font-size: 1rem;
-    }
-
-    #popup-close-btn {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-}
-
-@media (max-width: 423px) {
-    .popup-card {
-        width: 75vw;
-        height: 54vh;
-        padding: 1rem;
-    }
-
-    .popup-card h4 {
-        font-size: 1.25rem;
         scale: 1;
     }
 
-    .popup-card p {
-        display: flex;
-        position: absolute;
-        margin-top: 26vh;
-        font-size: 1rem;
-        font-weight: bold;
-        scale: .9;
-    }
-
     .popup-card ul {
         display: block;
         position: absolute;
-        margin-top: 30vh;
+        margin-top: 40vh;
         left: 5%;
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
     #popup-close-btn {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
-    .card {
-        width: 40vw !important;
-        height: 36vh !important;
-        font-size: .1rem !important;
-    }
-
-    .product-title {
-        min-height: 2rem;
-        font-size: 1rem !important;
-    }
-
-    .card-text h3 {
-        font-size: 1rem !important;
-        bottom: 0;
-    }
-
-    .card-text span {
-        font-size: 1rem !important;
-    }
-
-    .rating span {
-        font-size: .75rem !important;
-    }
-
-    .products {
-        display: grid;
-        justify-content: space-around;
-        grid-template-columns: repeat(auto-fit, minmax(10.5rem, 7.5rem));
-        grid-column-gap: 1rem;
-        grid-row-gap: 1rem;
-        margin: 1rem 0;
+        right: 1rem;
+        width: 25px;
+        height: 25px;
     }
 }
 
-@media (max-width: 390px) {
-    .card {
-        width: 45vw !important;
-        height: 36vh !important;
-        font-size: .1rem !important;
-    }
-
-    .product-title {
-        min-height: 2rem;
-        font-size: 1rem !important;
-    }
-
-    .card-text h3 {
-        font-size: 1rem !important;
-        bottom: 0;
-    }
-
-    .card-text span {
-        font-size: 1rem !important;
-    }
-
-    .rating span {
-        font-size: .75rem !important;
-    }
-
-    .products {
-        display: grid;
-        justify-content: space-around;
-        grid-template-columns: repeat(auto-fit, minmax(10.9rem, 7.5rem));
-        grid-column-gap: 1rem;
-        grid-row-gap: 1rem;
-        margin: 1rem 0;
-    }
-
-    .popup-card {
-        width: 75vw;
-        height: 54vh;
-        padding: 1rem;
-    }
-
-    .popup-card h4 {
-        scale: .9;
-    }
-
-    .popup-card p {
-        display: flex;
-        position: absolute;
-        margin-top: 26vh;
-        font-size: .7rem;
-        font-weight: bold;
-        scale: .9;
-    }
-
-    .popup-card ul {
-        display: block;
-        position: absolute;
-        margin-top: 29vh;
-        left: 5%;
-        font-size: 1rem;
-    }
-
-    #popup-close-btn {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-}

@@ -11,6 +11,8 @@ import {animationStart, reveal} from "../utils/animation";
 function Footer() {
     const navigate = useNavigate()
 
+    const w = window.innerWidth
+
     const email = 'unfort@email.com'
 
     const about = () => {
@@ -163,7 +165,7 @@ function Footer() {
                 <Navbar.Collapse id="basic-navbar-nav" className="flex-column">
                     <Nav className="flex-column">
                         <Row>
-                            <Col md={3}>
+                            <Col md={3} style={{fontSize: 2 + 'rem'}}>
                                 <motion.div
                                     variants={reveal}
                                     initial='hiddenVariantX'
@@ -188,7 +190,7 @@ function Footer() {
                                 </motion.div>
                             </Col>
 
-                            <Col md={5}>
+                            <Col md={w >= 1200 ? 5 : 6}>
                                 <motion.div
                                     variants={reveal}
                                     initial='hiddenVariantY'
@@ -293,7 +295,9 @@ function Footer() {
                                 </motion.div>
                             </Col>
 
-                            <Col md={4}>
+                            <Col md={w >= 1200 ? 4 : 3}
+                                 style={w < 768 ? {fontSize: 1.5 + 'rem'} : w < 992 ? {fontSize: 1 + 'rem'} : w < 1200 ? {fontSize: 1.4 + 'rem'} : {fontSize: 2 + 'rem'}}
+                            >
                                 <motion.div
                                     variants={reveal}
                                     initial='hiddenVariantX'

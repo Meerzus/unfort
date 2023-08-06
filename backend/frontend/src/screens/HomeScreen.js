@@ -77,6 +77,7 @@ function HomeScreen() {
                     duration: 1,
                     delay: 2
                 }}
+                onClick={popupHandler}
             ></motion.div>
             <motion.div
                 className='popup-card'
@@ -88,7 +89,6 @@ function HomeScreen() {
                     delay: 2
                 }}
             >
-                {/*<Image className='popup-card-img' src='popup_banner.webp'/>*/}
                 <div className='popup-card-img'></div>
                 <h4>WELCOME TO THE FAMILY</h4>
                 <p className='mb-5'>Будь в курсе закрытой информации:</p>
