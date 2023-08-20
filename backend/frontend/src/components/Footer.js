@@ -276,7 +276,7 @@ function Footer() {
 
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <a href="https://instagram.com/unfort.4u?igshid=NTc4MTIwNjQ2YQ=="
+                                                <a href="https://instagram.com/unfort.4u"
                                                    target='_blank'
                                                    className='text-center cursor footer-instagram nav-link'>
                                                     <i className="fa-brands fa-instagram fa-2xl"></i>
