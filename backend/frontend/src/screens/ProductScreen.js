@@ -24,10 +24,13 @@ function ProductScreen() {
     const [rating, setRating] = useState(0)
     const [comment, setComment] = useState('')
 
+    const [trackLimit, setTrackLimit] = useState(0)
+
     const windowInnerWidth = document.documentElement.clientWidth
     const windowInnerHeight = document.documentElement.clientHeight
 
     if ((windowInnerWidth <= 896 && windowInnerHeight <= 414) || (windowInnerWidth <= 414 && windowInnerHeight <= 896)) {
+
         const track = document.getElementById("image-track");
 
         const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
@@ -60,17 +63,17 @@ function ProductScreen() {
           }
         }
 
-        window.onmousedown = e => handleOnDown(e);
-
-        window.ontouchstart = e => handleOnDown(e.touches[0]);
-
-        window.onmouseup = e => handleOnUp(e);
-
-        window.ontouchend = e => handleOnUp(e.touches[0]);
-
-        window.onmousemove = e => handleOnMove(e);
-
-        window.ontouchmove = e => handleOnMove(e.touches[0]);
+        // window.onmousedown = e => handleOnDown(e);
+        //
+        // window.ontouchstart = e => handleOnDown(e.touches[0]);
+        //
+        // window.onmouseup = e => handleOnUp(e);
+        //
+        // window.ontouchend = e => handleOnUp(e.touches[0]);
+        //
+        // window.onmousemove = e => handleOnMove(e);
+        //
+        // window.ontouchmove = e => handleOnMove(e.touches[0]);
 
         const pic = document.getElementById('image-track')
         const fullPics = document.getElementById('fullscreen')
@@ -101,6 +104,7 @@ function ProductScreen() {
             })
         }
     } else if ((windowInnerWidth <= 768 && windowInnerHeight <= 1024) || (windowInnerWidth <= 1024 && windowInnerHeight <= 768)) {
+
         const track = document.getElementById("image-track");
 
         const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
@@ -133,17 +137,17 @@ function ProductScreen() {
           }
         }
 
-        window.onmousedown = e => handleOnDown(e);
-
-        window.ontouchstart = e => handleOnDown(e.touches[0]);
-
-        window.onmouseup = e => handleOnUp(e);
-
-        window.ontouchend = e => handleOnUp(e.touches[0]);
-
-        window.onmousemove = e => handleOnMove(e);
-
-        window.ontouchmove = e => handleOnMove(e.touches[0]);
+        // window.onmousedown = e => handleOnDown(e);
+        //
+        // window.ontouchstart = e => handleOnDown(e.touches[0]);
+        //
+        // window.onmouseup = e => handleOnUp(e);
+        //
+        // window.ontouchend = e => handleOnUp(e.touches[0]);
+        //
+        // window.onmousemove = e => handleOnMove(e);
+        //
+        // window.ontouchmove = e => handleOnMove(e.touches[0]);
 
         const pic = document.getElementById('image-track')
         const fullPics = document.getElementById('fullscreen')
@@ -252,11 +256,73 @@ function ProductScreen() {
 
     useEffect(() => {
         fetchProducts()
+        const track = document.getElementById("image-track")
+        track.dataset.percentage = 0
+        if ((windowInnerWidth <= 896 && windowInnerHeight <= 414) || (windowInnerWidth <= 414 && windowInnerHeight <= 896)) {
+            setTrackLimit(-796)
+        } else if ((windowInnerWidth <= 768 && windowInnerHeight <= 1024) || (windowInnerWidth <= 1024 && windowInnerHeight <= 768)) {
+            setTrackLimit(-694)
+        } else {
+            setTrackLimit(-693)
+        }
     }, [])
 
     const fetchProducts = async () => {
         const {data} = await axios.get('/api/products/')
         setProducts(data)
+    }
+
+    const [leftBtnLimit, setLeftBtnLimit] = useState(true)
+    const [rightBtnLimit, setRightBtnLimit] = useState(false)
+
+    const trackLeft = () => {
+        const track = document.getElementById("image-track");
+
+        if (Number(track.dataset.percentage) < 0) {
+            track.dataset.percentage = Number(track.dataset.percentage) + 200
+            setLeftBtnLimit(false)
+            setRightBtnLimit(false)
+            if (track.dataset.percentage > -60 && track.dataset.percentage > 0) {
+                track.dataset.percentage = 0
+                setLeftBtnLimit(true)
+                setRightBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.percentage)}%, 0%)`
+            }, { duration: 1000, fill: "forwards" });
+
+            for(const image of track?.getElementsByClassName("product-screen-img")) {
+                image.animate({
+                    objectPosition: `${60 + (Number(track.dataset.percentage) / 25)}% center`,
+                }, { duration: 1000, fill: "forwards"});
+            }
+            console.log(60 + (Number(track.dataset.percentage) / 25))
+        }
+    }
+
+    const trackRight = () => {
+        const track = document.getElementById("image-track");
+
+        if (Number(track.dataset.percentage) >= trackLimit) {
+            track.dataset.percentage = Number(track.dataset.percentage) - 200
+            setRightBtnLimit(false)
+            setLeftBtnLimit(false)
+            if (track.dataset.percentage < trackLimit) {
+                track.dataset.percentage = trackLimit
+                setRightBtnLimit(true)
+                setLeftBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.percentage)}%, 0%)`
+            }, { duration: 1000, fill: "forwards" });
+
+            for(const image of track?.getElementsByClassName("product-screen-img")) {
+                image.animate({
+                    objectPosition: `${60 + (Number(track.dataset.percentage) / 25)}% center`,
+                }, { duration: 1000, fill: "forwards"});
+            }
+            console.log(60 + (Number(track.dataset.percentage) / 25))
+        }
     }
 
     const dispatch = useDispatch()
@@ -356,8 +422,6 @@ function ProductScreen() {
         } else if (yourHeight >= heightL[1] || yourWeight >= weightL[1]) {
             setSize('L')
         }
-        console.log(yourHeight)
-        console.log(yourWeight)
     }
 
 
@@ -430,6 +494,11 @@ function ProductScreen() {
                                     <motion.img variants={reveal} src={product.preview9} id={product.preview9} className="product-screen-img" draggable="false"/>
                                     <motion.img variants={reveal} src={product.preview10} id={product.preview10} className="product-screen-img" draggable="false"/>
                                 </Col>
+
+                                <div className='img-track-btns'>
+                                    <button onClick={trackLeft} disabled={leftBtnLimit}><i className="fa-solid fa-arrow-left"></i></button>
+                                    <button onClick={trackRight} disabled={rightBtnLimit}><i className="fa-solid fa-arrow-right"></i></button>
+                                </div>
                             </motion.div>
 
                             <Col md={6} id='prod-desc'>

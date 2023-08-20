@@ -36,6 +36,11 @@ function ProfileScreen({history}) {
 
     const navigate = useNavigate();
 
+    const [trackLimit, setTrackLimit] = useState(0)
+
+    const windowInnerWidth = document.documentElement.clientWidth
+    const windowInnerHeight = document.documentElement.clientHeight
+
     useEffect(() => {
         if (!userInfo) {
             navigate('/login')
@@ -52,6 +57,14 @@ function ProfileScreen({history}) {
                 setName(user.name)
                 setEmail(user.email)
             }
+        }
+        const track = document.getElementById("table")
+        if ((windowInnerWidth <= 896 && windowInnerHeight <= 414) || (windowInnerWidth <= 414 && windowInnerHeight <= 896)) {
+            setTrackLimit(-67.5)
+        } else if ((windowInnerWidth <= 768 && windowInnerHeight <= 1024) || (windowInnerWidth <= 1024 && windowInnerHeight <= 768)) {
+            setTrackLimit(-57)
+        } else {
+            setTrackLimit(-19)
         }
     }, [dispatch, userInfo, navigate, user, success])
 
@@ -70,6 +83,48 @@ function ProfileScreen({history}) {
             setMessage('')
         }
     }
+
+    const [leftBtnLimit, setLeftBtnLimit] = useState(true)
+    const [rightBtnLimit, setRightBtnLimit] = useState(false)
+
+    const trackLeft = () => {
+        const track = document.getElementById("table");
+
+        if (Number(track.dataset.position) < 0) {
+            track.dataset.position = Number(track.dataset.position) + 25
+            setLeftBtnLimit(false)
+            setRightBtnLimit(false)
+            if (track.dataset.position > -60 && track.dataset.position > 0) {
+                track.dataset.position = 0
+                setLeftBtnLimit(true)
+                setRightBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.position)}%, 0%)`
+            }, { duration: 300, fill: "forwards" });
+            console.log(60 + (Number(track.dataset.position) / 25))
+        }
+    }
+
+    const trackRight = () => {
+        const track = document.getElementById("table");
+
+        if (Number(track.dataset.position) >= trackLimit) {
+            track.dataset.position = Number(track.dataset.position) - 25
+            setRightBtnLimit(false)
+            setLeftBtnLimit(false)
+            if (track.dataset.position < trackLimit) {
+                track.dataset.position = trackLimit
+                setRightBtnLimit(true)
+                setLeftBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.position)}%, 0%)`
+            }, { duration: 300, fill: "forwards" });
+            console.log(60 + (Number(track.dataset.position) / 25))
+        }
+    }
+
     return (loading || loadingOrders) ?
         (<Loader/>) :
         (
@@ -91,7 +146,6 @@ function ProfileScreen({history}) {
                             }}
                         >Мой Профиль</motion.h2>
                         {message && <Message variant='danger'>{message}</Message>}
-                        {/*{loading && <Loader/>}*/}
                         {error && <Message variant='danger'>{error}</Message>}
                         {
                             (!error && !loading) &&
@@ -174,7 +228,7 @@ function ProfileScreen({history}) {
                             </motion.div>
                         }
                     </Col>
-                    <Col md={9}>
+                    <Col md={9} className='overflow-hidden'>
                         <motion.h2
                             className='text-center'
                             variants={reveal}
@@ -208,7 +262,12 @@ function ProfileScreen({history}) {
                                         delay: animationStart
                                     }}
                                 >
-                                    <Table striped responsive className='table-sm text-center overflow-hidden'>
+                                    <div className='img-track-btns'>
+                                        <button onClick={trackLeft} disabled={leftBtnLimit}><i className="fa-solid fa-arrow-left"></i></button>
+                                        <button onClick={trackRight} disabled={rightBtnLimit}><i className="fa-solid fa-arrow-right"></i></button>
+                                    </div>
+                                    <Table striped responsive className='table-sm text-center' data-position="0"
+                                           id='table'>
                                         <thead>
                                             <tr>
                                                 <motion.th variants={reveal}>ID</motion.th>

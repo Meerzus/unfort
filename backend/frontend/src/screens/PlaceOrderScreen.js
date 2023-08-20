@@ -163,7 +163,7 @@ function PlaceOrderScreen({history}) {
                     </Col>
 
                     <Col md={4}>
-                        <Card>
+                        <div>
                             <ListGroup variant='flush'>
                                 <ListGroup.Item>
                                     <motion.h2 variants={reveal}>Итог</motion.h2>
@@ -251,7 +251,7 @@ function PlaceOrderScreen({history}) {
                                     </motion.div>
                                 </ListGroup.Item>
                             </ListGroup>
-                        </Card>
+                        </div>
                     </Col>
                 </Row>
             </motion.div>

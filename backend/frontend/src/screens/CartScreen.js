@@ -276,10 +276,10 @@ function CartScreen(location, history) {
                         </ListGroup>
                     )}
                 </Col>
-                <Col md={4}>
+                <Col md={4} className='mb-3'>
                     {
                         cartItems.length !== 0 && (
-                            <Card className='border-0'>
+                            <div>
                                 <ListGroup variant='flush'>
                                     <ListGroup.Item className='pt-0'>
                                         <motion.h1
@@ -361,7 +361,7 @@ function CartScreen(location, history) {
                                         </Button>
                                     </motion.div>
                                 </ListGroup.Item>
-                            </Card>
+                            </div>
                         )
                     }
                 </Col>

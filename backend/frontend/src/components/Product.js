@@ -91,7 +91,7 @@ function Product({product}) {
                 >
                     {
                         product.countInStock === 0 ?
-                            <span className='fs-5 fw-light' style={{color: 'red'}}>Нет в наличии</span> : <span>₽ {product.price}</span>
+                            <span className='fs-5 fw-light' style={{color: 'red'}}>Sold Out</span> : <span>₽ {product.price}</span>
                     }
                 </Card.Text>
             </Card.Body>

@@ -3,23 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.72c4383f.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.72c4383f.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.ce9bfb7f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.ce9bfb7f.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.ce9bfb7f.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Product.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/CartScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/CartScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/OrderListScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/OrderListScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/OrderScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/PlaceOrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/PlaceOrderScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductListScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductListScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProfileScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProfileScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/UserListScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/UserListScreen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +286,10 @@
       <workItem from="1689961855944" duration="101000" />
       <workItem from="1690023079464" duration="1091000" />
       <workItem from="1691072797974" duration="10161000" />
-      <workItem from="1691315036209" duration="3466000" />
+      <workItem from="1691315036209" duration="4728000" />
+      <workItem from="1692362173792" duration="4432000" />
+      <workItem from="1692436547584" duration="17861000" />
+      <workItem from="1692539781641" duration="5717000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>

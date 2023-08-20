@@ -16,7 +16,7 @@ function Filter({setActiveFilter, activeFilter, setFiltered, products}) {
 
     return (
         <div className="filter-container">
-            <Table striped responsive className='table-sm text-center overflow-hidden filter-table'>
+            <Table striped responsive className='table-sm text-center filter-table'>
                 <tr>
                     <td>
                         <button className={activeFilter === "0" ? "active product-filter" : "product-filter"} onClick={() => setActiveFilter("0")}>ALL</button>

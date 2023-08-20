@@ -25,17 +25,72 @@ function UserListScreen() {
     const userDelete = useSelector(state => state.userDelete)
     const {success: successDelete} = userDelete
 
+    const [trackLimit, setTrackLimit] = useState(0)
+
+    const windowInnerWidth = document.documentElement.clientWidth
+    const windowInnerHeight = document.documentElement.clientHeight
+
     useEffect(() => {
         if (userInfo && userInfo.isAdmin) {
             dispatch(listUsers())
         } else {
             navigate('/')
         }
+
+        const track = document.getElementById("table")
+        if ((windowInnerWidth <= 896 && windowInnerHeight <= 414) || (windowInnerWidth <= 414 && windowInnerHeight <= 896)) {
+            setTrackLimit(-67.5)
+        } else if ((windowInnerWidth <= 768 && windowInnerHeight <= 1024) || (windowInnerWidth <= 1024 && windowInnerHeight <= 768)) {
+            setTrackLimit(-57)
+        } else {
+            setTrackLimit(0)
+        }
     }, [dispatch, navigate, successDelete, userInfo])
 
     const deleteHandler = (id) => {
         if (window.confirm('sure?')) {
             dispatch(deleteUser(id))
+        }
+    }
+
+    const [leftBtnLimit, setLeftBtnLimit] = useState(true)
+    const [rightBtnLimit, setRightBtnLimit] = useState(false)
+
+    const trackLeft = () => {
+        const track = document.getElementById("table");
+
+        if (Number(track.dataset.position) < 0) {
+            track.dataset.position = Number(track.dataset.position) + 25
+            setLeftBtnLimit(false)
+            setRightBtnLimit(false)
+            if (track.dataset.position > -60 && track.dataset.position > 0) {
+                track.dataset.position = 0
+                setLeftBtnLimit(true)
+                setRightBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.position)}%, 0%)`
+            }, { duration: 1000, fill: "forwards" });
+            console.log(60 + (Number(track.dataset.position) / 25))
+        }
+    }
+
+    const trackRight = () => {
+        const track = document.getElementById("table");
+
+        if (Number(track.dataset.position) >= trackLimit) {
+            track.dataset.position = Number(track.dataset.position) - 25
+            setRightBtnLimit(false)
+            setLeftBtnLimit(false)
+            if (track.dataset.position < trackLimit) {
+                track.dataset.position = trackLimit
+                setRightBtnLimit(true)
+                setLeftBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.position)}%, 0%)`
+            }, { duration: 1000, fill: "forwards" });
+            console.log(60 + (Number(track.dataset.position) / 25))
         }
     }
 
@@ -72,12 +127,16 @@ function UserListScreen() {
                     delay: animationStart
                 }}
             >
+                <div className='img-track-btns'>
+                    <button onClick={trackLeft} disabled={leftBtnLimit}><i className="fa-solid fa-arrow-left"></i></button>
+                    <button onClick={trackRight} disabled={rightBtnLimit}><i className="fa-solid fa-arrow-right"></i></button>
+                </div>
                 <Table
                     striped
                     bordered
                     hover
                     responsive
-                    className='table-sm text-center overflow-hidden'
+                    className='table-sm text-center' data-position="0" id='table'
                 >
                     <thead>
                         <tr>

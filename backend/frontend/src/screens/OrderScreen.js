@@ -72,7 +72,7 @@ function OrderScreen({match}) {
         } else if (!order.isPaid) {
             axios
                 .post('https://securepay.tinkoff.ru/v2/Init', {
-                    TerminalKey: "1687356961617",
+                    TerminalKey: "1680349104054",
                     Amount: Number(Math.round(order.totalPrice)) * 100,
                     OrderId: order._id,
                     Description: order._id,
@@ -105,7 +105,7 @@ function OrderScreen({match}) {
                         console.log('oplacheno')
                         dispatch(payOrder(order._id, initResponse.data))
                     }
-                    const concat = `73z0hrpj2t58vwiv` + `${initResponse.data.PaymentId}` + `${initResponse.data.TerminalKey}`
+                    const concat = `pxsokesn9tjy0z4e` + `${initResponse.data.PaymentId}` + `${initResponse.data.TerminalKey}`
                     const token = sha256(concat)
                     console.log(concat)
                     console.log(token)
@@ -257,7 +257,7 @@ function OrderScreen({match}) {
                         </Col>
 
                         <Col md={4}>
-                            <Card>
+                            <div>
                                 <ListGroup variant='flush'>
                                     <ListGroup.Item>
                                         <motion.h2 variants={reveal}>Итог</motion.h2>
@@ -321,7 +321,7 @@ function OrderScreen({match}) {
                                         </ListGroup.Item>
                                     )}
                                 </ListGroup>
-                            </Card>
+                            </div>
                         </Col>
                     </Row>
                 </motion.div>

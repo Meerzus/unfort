@@ -267,7 +267,7 @@ function Footer() {
 
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <a href="https://vk.com/unfort_4u" target='_blank'
+                                                <a href="https://t.me/unfort_4u" target='_blank'
                                                    className='text-center cursor footer-telegram nav-link'>
                                                     <i className="fa-brands fa-telegram fa-2xl"></i>
                                                 </a>
@@ -276,7 +276,8 @@ function Footer() {
 
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <a href="https://vk.com/unfort_4u" target='_blank'
+                                                <a href="https://instagram.com/unfort.4u?igshid=NTc4MTIwNjQ2YQ=="
+                                                   target='_blank'
                                                    className='text-center cursor footer-instagram nav-link'>
                                                     <i className="fa-brands fa-instagram fa-2xl"></i>
                                                 </a>
@@ -285,7 +286,8 @@ function Footer() {
 
                                         <Col>
                                             <motion.div variants={reveal}>
-                                                <a href="https://vk.com/unfort_4u" target='_blank'
+                                                <a href="https://www.tiktok.com/@unfort.4u?_t=8f00u29wiBe&_r=1"
+                                                   target='_blank'
                                                    className='text-center cursor footer-tiktok nav-link'>
                                                     <i className="fa-brands fa-tiktok fa-xl"></i>
                                                 </a>
