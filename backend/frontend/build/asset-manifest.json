@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.d83e7be8.css",
-    "main.js": "/static/js/main.3b74251d.js",
+    "main.css": "/static/css/main.72107a82.css",
+    "main.js": "/static/js/main.fe253c65.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
-    "static/media/banner.webp": "/static/media/banner.9943e9f313a9f42db033.webp",
+    "static/media/banner.webp": "/static/media/banner.06130775c031a29b622f.webp",
+    "static/media/popup-banner.webp": "/static/media/popup-banner.19384b77aecc5e3174ac.webp",
     "static/media/helvetica_bold.otf": "/static/media/helvetica_bold.899889c95eb3c6b47ce3.otf",
     "static/media/helvetica_regular.otf": "/static/media/helvetica_regular.da7db66db5a8e54a8308.otf",
     "static/media/helvetica_light.otf": "/static/media/helvetica_light.677f82c0f6e45b4eeaf2.otf",
     "static/media/monasgrotesk-bold.otf": "/static/media/monasgrotesk-bold.1bee93235b7fd7e060dc.otf",
-    "static/media/popup_banner.webp": "/static/media/popup_banner.39fc427043724a3a5c53.webp",
     "index.html": "/index.html",
-    "main.d83e7be8.css.map": "/static/css/main.d83e7be8.css.map",
-    "main.3b74251d.js.map": "/static/js/main.3b74251d.js.map",
+    "main.72107a82.css.map": "/static/css/main.72107a82.css.map",
+    "main.fe253c65.js.map": "/static/js/main.fe253c65.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d83e7be8.css",
-    "static/js/main.3b74251d.js"
+    "static/css/main.72107a82.css",
+    "static/js/main.fe253c65.js"
   ]
 }
