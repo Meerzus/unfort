@@ -82,7 +82,7 @@ function OrderScreen({match}) {
                     },
                     Receipt: {
                         Email: userInfo.email,
-                        Phone: (cart.shippingAddress.phoneNumber).replace('8', '+7'),
+                        Phone: (cart.shippingAddress.phoneNumber)?.replace('8', '+7'),
                         EmailCompany: "unfort@mail.ru",
                         Taxation: "osn",
                         Items: [{
@@ -115,6 +115,7 @@ function OrderScreen({match}) {
                 })
             setSdkReady(true)
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, order, id, successPay, successDeliver])
 
     const deliverHandler = () => {

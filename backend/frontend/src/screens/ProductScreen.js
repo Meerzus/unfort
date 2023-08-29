@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useParams, useNavigate, Navigate} from "react-router-dom";
+import {Link, useParams, useNavigate} from "react-router-dom";
 import {Button, Card, Col, Container, Image, ListGroup, Row, Form} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {listProductDetails, createProductReview} from "../actions/productActions";
@@ -11,14 +11,11 @@ import {motion} from "framer-motion";
 import Size from "../components/Size";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import Product from "../components/Product";
 import {animationStart, reveal} from "../utils/animation";
 
 import Carousel from "../components/Carousel";
 
 function ProductScreen() {
-    // const productList = useSelector(state => state.productList)
-    // const {products} = productList
     const navigate = useNavigate();
     const [qty, setQty] = useState(1)
     const [rating, setRating] = useState(0)
@@ -62,18 +59,6 @@ function ProductScreen() {
             }, { duration: 1200, fill: "forwards"});
           }
         }
-
-        // window.onmousedown = e => handleOnDown(e);
-        //
-        // window.ontouchstart = e => handleOnDown(e.touches[0]);
-        //
-        // window.onmouseup = e => handleOnUp(e);
-        //
-        // window.ontouchend = e => handleOnUp(e.touches[0]);
-        //
-        // window.onmousemove = e => handleOnMove(e);
-        //
-        // window.ontouchmove = e => handleOnMove(e.touches[0]);
 
         const pic = document.getElementById('image-track')
         const fullPics = document.getElementById('fullscreen')
@@ -137,18 +122,6 @@ function ProductScreen() {
           }
         }
 
-        // window.onmousedown = e => handleOnDown(e);
-        //
-        // window.ontouchstart = e => handleOnDown(e.touches[0]);
-        //
-        // window.onmouseup = e => handleOnUp(e);
-        //
-        // window.ontouchend = e => handleOnUp(e.touches[0]);
-        //
-        // window.onmousemove = e => handleOnMove(e);
-        //
-        // window.ontouchmove = e => handleOnMove(e.touches[0]);
-
         const pic = document.getElementById('image-track')
         const fullPics = document.getElementById('fullscreen')
         const fullClose = document.getElementById('fullCloseBtn')
@@ -210,18 +183,6 @@ function ProductScreen() {
           }
         }
 
-        window.onmousedown = e => {
-            handleOnDown(e);
-            window.onmouseup = e => handleOnUp(e);
-            window.onmousemove = e => handleOnMove(e);
-        }
-
-        window.ontouchstart = e => {
-            handleOnDown(e.touches[0]);
-            window.ontouchend = e => handleOnUp(e.touches[0]);
-            window.ontouchmove = e => handleOnMove(e.touches[0]);
-        }
-
         const pic = document.getElementById('image-track')
         const fullPics = document.getElementById('fullscreen')
         const fullClose = document.getElementById('fullCloseBtn')
@@ -252,6 +213,42 @@ function ProductScreen() {
         }
     }
 
+    var trackLeft = () => {
+        const track = document.getElementById("image-track");
+
+        if (Number(track.dataset.percentage) < 0) {
+            track.dataset.percentage = Number(track.dataset.percentage) + 100
+            setLeftBtnLimit(false)
+            setRightBtnLimit(false)
+            if (track.dataset.percentage > -60 && track.dataset.percentage >= 0) {
+                track.dataset.percentage = 0
+                setLeftBtnLimit(true)
+                setRightBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.percentage)}%, 0%)`
+            }, { duration: 750, fill: "forwards" });
+        }
+    }
+
+    var trackRight = () => {
+        const track = document.getElementById("image-track");
+
+        if (Number(track.dataset.percentage) >= trackLimit) {
+            track.dataset.percentage = Number(track.dataset.percentage) - 100
+            setRightBtnLimit(false)
+            setLeftBtnLimit(false)
+            if (track.dataset.percentage < trackLimit) {
+                track.dataset.percentage = trackLimit
+                setRightBtnLimit(true)
+                setLeftBtnLimit(false)
+            }
+            track?.animate({
+                transform: `translate(${Number(track.dataset.percentage)}%, 0%)`
+            }, { duration: 750, fill: "forwards" });
+        }
+    }
+
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -259,11 +256,11 @@ function ProductScreen() {
         const track = document.getElementById("image-track")
         track.dataset.percentage = 0
         if ((windowInnerWidth <= 896 && windowInnerHeight <= 414) || (windowInnerWidth <= 414 && windowInnerHeight <= 896)) {
-            setTrackLimit(-796)
+            setTrackLimit(-900)
         } else if ((windowInnerWidth <= 768 && windowInnerHeight <= 1024) || (windowInnerWidth <= 1024 && windowInnerHeight <= 768)) {
-            setTrackLimit(-694)
+            setTrackLimit(-900)
         } else {
-            setTrackLimit(-693)
+            setTrackLimit(-900)
         }
     }, [])
 
@@ -274,56 +271,6 @@ function ProductScreen() {
 
     const [leftBtnLimit, setLeftBtnLimit] = useState(true)
     const [rightBtnLimit, setRightBtnLimit] = useState(false)
-
-    const trackLeft = () => {
-        const track = document.getElementById("image-track");
-
-        if (Number(track.dataset.percentage) < 0) {
-            track.dataset.percentage = Number(track.dataset.percentage) + 200
-            setLeftBtnLimit(false)
-            setRightBtnLimit(false)
-            if (track.dataset.percentage > -60 && track.dataset.percentage > 0) {
-                track.dataset.percentage = 0
-                setLeftBtnLimit(true)
-                setRightBtnLimit(false)
-            }
-            track?.animate({
-                transform: `translate(${Number(track.dataset.percentage)}%, 0%)`
-            }, { duration: 1000, fill: "forwards" });
-
-            for(const image of track?.getElementsByClassName("product-screen-img")) {
-                image.animate({
-                    objectPosition: `${60 + (Number(track.dataset.percentage) / 25)}% center`,
-                }, { duration: 1000, fill: "forwards"});
-            }
-            console.log(60 + (Number(track.dataset.percentage) / 25))
-        }
-    }
-
-    const trackRight = () => {
-        const track = document.getElementById("image-track");
-
-        if (Number(track.dataset.percentage) >= trackLimit) {
-            track.dataset.percentage = Number(track.dataset.percentage) - 200
-            setRightBtnLimit(false)
-            setLeftBtnLimit(false)
-            if (track.dataset.percentage < trackLimit) {
-                track.dataset.percentage = trackLimit
-                setRightBtnLimit(true)
-                setLeftBtnLimit(false)
-            }
-            track?.animate({
-                transform: `translate(${Number(track.dataset.percentage)}%, 0%)`
-            }, { duration: 1000, fill: "forwards" });
-
-            for(const image of track?.getElementsByClassName("product-screen-img")) {
-                image.animate({
-                    objectPosition: `${60 + (Number(track.dataset.percentage) / 25)}% center`,
-                }, { duration: 1000, fill: "forwards"});
-            }
-            console.log(60 + (Number(track.dataset.percentage) / 25))
-        }
-    }
 
     const dispatch = useDispatch()
 
@@ -342,6 +289,14 @@ function ProductScreen() {
 
     const { id } = useParams();
 
+    const loadHandler = () => {
+        const body = document.querySelector('.card').addEventListener('load', () => {
+            window. scrollTo(0, 0)
+        })
+    }
+
+    const result = document.getElementById('result')
+
     useEffect(() =>{
         if (successProductReview) {
             setRating(0)
@@ -349,6 +304,7 @@ function ProductScreen() {
             dispatch({type: PRODUCT_CREATE_REVIEW_RESET})
         }
         dispatch(listProductDetails(id))
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     },[dispatch, successProductReview])
 
     const addToCartHandler = () => {
@@ -399,31 +355,84 @@ function ProductScreen() {
         }
     }
 
-    const heightS = [150, 173]
-    const heightM = [174, 178]
-    const heightL = [179, 184]
-    const weightS = [40, 66]
-    const weightM = [67, 77]
-    const weightL = [78, 85]
+    const heightM = [175, 185]
+    const weightM = [60, 75]
     const [yourHeight, setYourHeight] = useState(0)
     const [yourWeight, setYourWeight] = useState(0)
 
     const countYourSize = () => {
         if (yourHeight <= 0 || yourWeight <= 0) {
             setSize('')
-        } else if ((yourHeight >= 0 && yourHeight <= heightS[0]) && (yourWeight >= 0 && yourWeight <= weightS[0])) {
-            setSize('S')
-        } else if ((yourHeight >= heightS[0] && yourHeight <= heightS[1]) && (yourWeight >= weightS[0] && yourWeight <= weightS[1])) {
-            setSize('S')
-        } else if ((yourHeight >= heightM[0] && yourHeight <= heightM[1]) && (yourWeight >= weightM[0] && yourWeight <= weightM[1])) {
-            setSize('M')
-        } else if ((yourHeight >= heightL[0] && yourHeight <= heightL[1]) && (yourWeight >= weightL[0] && yourWeight <= weightL[1])) {
+            setTimeout(() => {result.style.display = 'none'}, 1)
+        } else if (yourHeight < heightM[0]) {
+            if (yourWeight < weightM[0]) {
+                setSize('S')
+            } else if (yourWeight >= weightM[0]) {
+                 setSize('M')
+            }
+            setTimeout(() => {result.style.display = 'flex'}, 1)
+        } else if (yourHeight >= heightM[0] && yourHeight <= heightM[1]) {
+            if (yourWeight < weightM[0]) {
+                setSize('S')
+            } else if (yourWeight >= weightM[0] && yourWeight <= weightM[1]) {
+                setSize('M')
+            } else if (yourWeight >= weightM[1]) {
+                setSize('L')
+            }
+            setTimeout(() => {result.style.display = 'flex'}, 1)
+        } else if (yourHeight > heightM[1] || yourWeight > weightM[1]) {
             setSize('L')
-        } else if (yourHeight >= heightL[1] || yourWeight >= weightL[1]) {
-            setSize('L')
+            setTimeout(() => {result.style.display = 'flex'}, 1)
         }
     }
 
+    const [calcView, setCalcView] = useState(true)
+    const calcHandler = () => {
+        setCalcView(!calcView)
+        const calcText = document.querySelector('.showCalc')
+        const calculator = document.querySelector('.product-calc')
+        const arrowDown = document.querySelector('.fa-sort-down')
+
+        if (calcView === true) {
+            if (size) {
+                setTimeout(() => {result.style.display = 'flex'}, 249)
+            } else if (size === '') {
+                setTimeout(() => {result.style.display = 'none'}, 249)
+            }
+
+            calculator.animate({
+                height: '100%',
+                opacity: '1'
+            }, 250)
+
+            arrowDown.animate({
+                transform: 'rotate(180deg)'
+            }, 250)
+
+            setTimeout(() => {calculator.style.height = '100%'}, 249)
+            setTimeout(() => {calculator.style.opacity = '1'}, 249)
+            setTimeout(() => {arrowDown.style.transform = 'rotate(180deg)'}, 249)
+        } else {
+            if (size) {
+                setTimeout(() => {result.style.display = 'none'}, 249)
+            } else if (size === '') {
+                setTimeout(() => {result.style.display = 'none'}, 249)
+            }
+
+            calculator.animate({
+                height: '0',
+                opacity: '0'
+            }, 250)
+
+            arrowDown.animate({
+                transform: 'rotate(0deg)'
+            }, 250)
+
+            setTimeout(() => {calculator.style.height = '0'}, 249)
+            setTimeout(() => {calculator.style.opacity = '0'}, 249)
+            setTimeout(() => {arrowDown.style.transform = 'rotate(0deg)'}, 249)
+        }
+    }
 
     return (
         <div>
@@ -482,7 +491,7 @@ function ProductScreen() {
                                     delay: animationStart
                                 }}
                             >
-                                <Col md={6} id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+                                <Col id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
                                     <motion.img variants={reveal} src={product.preview1} id={product.preview1} className="product-screen-img" draggable="false"/>
                                     <motion.img variants={reveal} src={product.preview2} id={product.preview2} className="product-screen-img" draggable="false"/>
                                     <motion.img variants={reveal} src={product.preview3} id={product.preview3} className="product-screen-img" draggable="false"/>
@@ -503,9 +512,81 @@ function ProductScreen() {
 
                             <Col md={6} id='prod-desc'>
                                 <motion.div>
-                                    <Card className='border-0'>
-                                        <ListGroup variant="flush" className='list-group-flush'>
-                                            <motion.div className='rounded-top'
+                                    <Card>
+                                        <ListGroup className='border-0 list-group-flush'>
+                                            <motion.div variants={reveal} className='border-0'>
+                                                <ListGroup.Item style={{border: 0}}>
+                                                    <motion.h1
+                                                        id='product-title'
+                                                        variants={reveal}
+                                                        initial='hiddenVariantX'
+                                                        animate='revealedVariantX'
+                                                        transition={{
+                                                            ease: 'easeIn',
+                                                            type: 'spring',
+                                                            staggerChildren: .25,
+                                                            duration: 1,
+                                                            delayChildren: animationStart,
+                                                            delay: animationStart
+                                                        }}
+                                                    >{product.name}</motion.h1>
+                                                </ListGroup.Item>
+                                            </motion.div>
+                                            <div id="product-rating" style={{paddingLeft: '1rem'}}>
+                                                <motion.span
+                                                    style={{width: 32 + '%'}}
+                                                    className="rating d-flex justify-content-left"
+                                                    variants={reveal}
+                                                    initial='hiddenVariantX'
+                                                    animate='revealedVariantX'
+                                                    transition={{
+                                                        ease: 'easeIn',
+                                                        type: 'spring',
+                                                        staggerChildren: .1,
+                                                        duration: 1,
+                                                        delayChildren: animationStart,
+                                                        delay: animationStart
+                                                    }}
+                                                >
+                                                    <motion.span variants={reveal}> <i className={
+                                                        product.rating >= 1
+                                                            ? "fas fa-star d-flex justify-content-center"
+                                                            : product.rating >= 0.5
+                                                                ? "fas fa-star-half-alt d-flex justify-content-center"
+                                                                : "far fa-star d-flex justify-content-center"
+                                                    }></i></motion.span>
+                                                    <motion.span variants={reveal}> <i className={
+                                                        product.rating >= 2
+                                                            ? "fas fa-star d-flex justify-content-center"
+                                                            : product.rating >= 1.5
+                                                                ? "fas fa-star-half-alt d-flex justify-content-center"
+                                                                : "far fa-star d-flex justify-content-center"
+                                                    }></i></motion.span>
+                                                    <motion.span variants={reveal}> <i className={
+                                                        product.rating >= 3
+                                                            ? "fas fa-star d-flex justify-content-center"
+                                                            : product.rating >= 2.5
+                                                                ? "fas fa-star-half-alt d-flex justify-content-center"
+                                                                : "far fa-star d-flex justify-content-center"
+                                                    }></i></motion.span>
+                                                    <motion.span variants={reveal}> <i className={
+                                                        product.rating >= 4
+                                                            ? "fas fa-star d-flex justify-content-center"
+                                                            : product.rating >= 3.5
+                                                                ? "fas fa-star-half-alt d-flex justify-content-center"
+                                                                : "far fa-star d-flex justify-content-center"
+                                                    }></i></motion.span>
+                                                    <motion.span variants={reveal}> <i className={
+                                                        product.rating >= 5
+                                                            ? "fas fa-star d-flex justify-content-center"
+                                                            : product.rating >= 4.5
+                                                                ? "fas fa-star-half-alt d-flex justify-content-center"
+                                                                : "far fa-star d-flex justify-content-center"
+                                                    }></i></motion.span>
+                                                </motion.span>
+                                            </div>
+                                            <motion.div
+                                                id="product-price"
                                                 variants={reveal}
                                                 initial='hiddenVariantX'
                                                 animate='revealedVariantX'
@@ -520,9 +601,8 @@ function ProductScreen() {
                                             >
                                                 <ListGroup.Item variant="flush">
                                                     <Row>
-                                                        <motion.Col variants={reveal}>Цена: </motion.Col>
-                                                        <motion.Col variants={reveal}>
-                                                            <strong>₽ {product.price}</strong>
+                                                        <motion.Col variants={reveal} className='d-flex justify-content-left'>
+                                                            <h4>{product.price} ₽</h4>
                                                         </motion.Col>
                                                     </Row>
                                                 </ListGroup.Item>
@@ -542,8 +622,13 @@ function ProductScreen() {
                                                 }}
                                             >
                                                 <ListGroup.Item variant="flush">
-                                                    <Row>
-                                                        <Col md={7}>
+                                                    <Row style={{minHeight: '8rem'}} id='calcRow'>
+                                                        <Col md={4} style={{
+                                                            display: "flex",
+                                                            flexDirection: "column",
+                                                            justifyContent: "center",
+                                                            alignItems: "center"
+                                                        }}>
                                                             <Size variants={reveal} product={product} setSize={setSize} size={size} qtySize={qtySize} setQtySize={setQtySize}/>
                                                             <motion.div variants={reveal} className='product-size'>
                                                                 <Button
@@ -556,9 +641,16 @@ function ProductScreen() {
                                                                 </Button>
                                                             </motion.div>
                                                         </Col>
-                                                        <Col md={5}>
+                                                        <Col>
                                                             <motion.div variants={reveal} style={{height: 100 + '%'}}>
-                                                                <Form style={{height: 100 + '%'}}>
+                                                                <div className='showCalc'
+                                                                     onClick={calcHandler}
+                                                                     style={{zIndex: 3}}
+                                                                >
+                                                                    <h4 style={{zIndex: 2}}>Подобрать размер</h4><i
+                                                                    className="fas fa-sort-down fa-lg mx-2" style={{zIndex: 2}}></i>
+                                                                </div>
+                                                                <Form style={{zIndex: 1}}>
                                                                     <Form.Group className='product-calc'>
                                                                         <div className='calc-input'>
                                                                             <Form.Control
@@ -566,7 +658,7 @@ function ProductScreen() {
                                                                                     height: 30 + 'px',
                                                                                     fontSize: 1 + 'rem'
                                                                                 }}
-                                                                                className='mb-2'
+                                                                                className='mb-1'
                                                                                 type='number'
                                                                                 placeholder='Рост'
                                                                                 onChange={(e) => setYourHeight(e.target.value)}
@@ -594,6 +686,9 @@ function ProductScreen() {
                                                                         </div>
                                                                     </Form.Group>
                                                                 </Form>
+                                                                <div className='justify-content-center' id='result'>
+                                                                    <span>Ваш результат: {size}</span>
+                                                                </div>
                                                             </motion.div>
                                                         </Col>
                                                     </Row>
@@ -670,80 +765,9 @@ function ProductScreen() {
                                 </motion.div>
                                 <motion.div variants={reveal} initial='hiddenVariantX' animate='revealedVariantX'>
                                     <ListGroup variant="flush">
-                                        <motion.div variants={reveal} className='border-0'>
-                                            <ListGroup.Item style={{border: 0}}>
-                                                <motion.h3
-                                                    variants={reveal}
-                                                    initial='hiddenVariantX'
-                                                    animate='revealedVariantX'
-                                                    transition={{
-                                                        ease: 'easeIn',
-                                                        type: 'spring',
-                                                        staggerChildren: .25,
-                                                        duration: 1,
-                                                        delayChildren: animationStart,
-                                                        delay: animationStart
-                                                    }}
-                                                >{product.name}</motion.h3>
-                                            </ListGroup.Item>
-                                        </motion.div>
-
-                                        <ListGroup.Item style={{border: 0, paddingTop: 0, paddingBottom: 0}}>
-                                            <motion.span
-                                                style={{width: 32 + '%'}}
-                                                className="rating"
-                                                variants={reveal}
-                                                initial='hiddenVariantX'
-                                                animate='revealedVariantX'
-                                                transition={{
-                                                    ease: 'easeIn',
-                                                    type: 'spring',
-                                                    staggerChildren: .1,
-                                                    duration: 1,
-                                                    delayChildren: animationStart,
-                                                    delay: animationStart
-                                                }}
-                                            >
-                                                <motion.span variants={reveal}> <i className={
-                                                    product.rating >= 1
-                                                        ? "fas fa-star"
-                                                        : product.rating >= 0.5
-                                                            ? "fas fa-star-half-alt"
-                                                            : "far fa-star"
-                                                }></i></motion.span>
-                                                <motion.span variants={reveal}> <i className={
-                                                    product.rating >= 2
-                                                        ? "fas fa-star"
-                                                        : product.rating >= 1.5
-                                                            ? "fas fa-star-half-alt"
-                                                            : "far fa-star"
-                                                }></i></motion.span>
-                                                <motion.span variants={reveal}> <i className={
-                                                    product.rating >= 3
-                                                        ? "fas fa-star"
-                                                        : product.rating >= 2.5
-                                                            ? "fas fa-star-half-alt"
-                                                            : "far fa-star"
-                                                }></i></motion.span>
-                                                <motion.span variants={reveal}> <i className={
-                                                    product.rating >= 4
-                                                        ? "fas fa-star"
-                                                        : product.rating >= 3.5
-                                                            ? "fas fa-star-half-alt"
-                                                            : "far fa-star"
-                                                }></i></motion.span>
-                                                <motion.span variants={reveal}> <i className={
-                                                    product.rating >= 5
-                                                        ? "fas fa-star"
-                                                        : product.rating >= 4.5
-                                                            ? "fas fa-star-half-alt"
-                                                            : "far fa-star"
-                                                }></i></motion.span>
-                                            </motion.span>
-                                        </ListGroup.Item>
-
                                         <ListGroup.Item className='description-group-item'>
-                                            <motion.div className='border-top'
+                                            <motion.div
+                                                id="product-desc"
                                                 variants={reveal}
                                                 initial='hiddenVariantX'
                                                 animate='revealedVariantX'

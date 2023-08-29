@@ -18,6 +18,7 @@ function ProductEditScreen({location, history}) {
     const [name, setName] = useState('')
     const [price, setPrice] = useState(0)
     const [mainimg, setMainimg] = useState('')
+    const [secImg, setSecImg] = useState('')
     const [preview1, setPreview1] = useState('')
     const [preview2, setPreview2] = useState('')
     const [preview3, setPreview3] = useState('')
@@ -65,6 +66,7 @@ function ProductEditScreen({location, history}) {
                 setName(product.name)
                 setPrice(product.price)
                 setMainimg(product.mainimg)
+                setSecImg(product.secImg)
                 setPreview1(product.preview1)
                 setPreview2(product.preview2)
                 setPreview3(product.preview3)
@@ -91,6 +93,7 @@ function ProductEditScreen({location, history}) {
                 setNumReviews(product.numReviews)
             }
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, product, id, navigate, successUpdate])
 
     const submitHandler = (e) => {
@@ -100,6 +103,7 @@ function ProductEditScreen({location, history}) {
             name,
             price,
             mainimg,
+            secImg,
             preview1,
             preview2,
             preview3,
@@ -130,20 +134,22 @@ function ProductEditScreen({location, history}) {
 
     const uploadImageHandler = async (e) => {
         const mainImg = e.target.files[0]
-        const prev1 = e.target.files[1]
-        const prev2 = e.target.files[2]
-        const prev3 = e.target.files[3]
-        const prev4 = e.target.files[4]
-        const prev5 = e.target.files[5]
-        const prev6 = e.target.files[6]
-        const prev7 = e.target.files[7]
-        const prev8 = e.target.files[8]
-        const prev9 = e.target.files[9]
-        const prev10 = e.target.files[10]
-        const prodSize = e.target.files[11]
+        const secImg = e.target.files[1]
+        const prev1 = e.target.files[2]
+        const prev2 = e.target.files[3]
+        const prev3 = e.target.files[4]
+        const prev4 = e.target.files[5]
+        const prev5 = e.target.files[6]
+        const prev6 = e.target.files[7]
+        const prev7 = e.target.files[8]
+        const prev8 = e.target.files[9]
+        const prev9 = e.target.files[10]
+        const prev10 = e.target.files[11]
+        const prodSize = e.target.files[12]
 
         const formData = new FormData()
         formData.append('mainimg', mainImg)
+        formData.append('secImg', secImg)
         formData.append('preview1', prev1)
         formData.append('preview2', prev2)
         formData.append('preview3', prev3)
@@ -166,6 +172,7 @@ function ProductEditScreen({location, history}) {
 
             const {data} = await axios.post('/api/products/upload/', formData, config)
             setMainimg(mainImg)
+            setSecImg(secImg)
             setPreview1(prev1)
             setPreview2(prev2)
             setPreview3(prev3)

@@ -1,9 +1,8 @@
-import React from 'react';
-import {Container, Nav, Navbar, Row, NavDropdown} from "react-bootstrap";
+import React, {useEffect} from 'react';
+import {Nav, Navbar, NavDropdown} from "react-bootstrap";
 import {LinkContainer} from "react-router-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../actions/userActions";
-import SearchBox from "./SearchBox";
 import {useNavigate} from "react-router-dom";
 
 import {motion} from "framer-motion";
@@ -25,9 +24,24 @@ function Header() {
 
     const navigate = useNavigate()
 
-    const linkHandler = () => {
-        navigate(`/`)
-        navigate(0)
+    const extraMenuHandler = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '0'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '0'}, 249)
+    }
+
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
     }
 
     return (
@@ -46,87 +60,100 @@ function Header() {
                 }}>
                     <header>
                         <Navbar bg="black" variant="dark" expand="lg">
-                          <Container>
-                            <LinkContainer
-                                onClick={linkHandler}
-                                to='/'
-                            >
-                                <Navbar.Brand className='unfort-logo'>
-                                    <motion.div variants={reveal}>
-                                        <a
-                                            id="unfort-link-header"
-                                            href='/'
-                                            className="word fancy mailto"
-                                        >
-                                            unfort
-                                        </a>
-                                    </motion.div>
-                                    {/*<motion.svg variants={reveal} viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-                                    {/*    <path d="M363.699 5.64236C226.14 45.9876 115.445 139.509 52.1508 268.67C2.21305 370.092 -12.4104 485.652 10.6579 596.564C28.1444 680.9 66.4203 759.373 121.915 824.664C137.106 842.627 166.362 871.425 168.05 870.284C168.894 869.856 169.597 868.003 169.597 866.292C169.597 856.313 179.021 830.652 189.71 811.833C212.215 771.916 259.193 723.73 312.361 685.951C402.942 621.37 518.419 576.035 617.439 565.771C642.194 563.347 691.001 564.773 708.723 568.764C755.42 578.886 784.817 601.981 793.397 635.056C796.632 647.887 796.069 667.133 792.131 683.385C783.129 719.025 758.937 755.806 717.303 796.864C673.56 839.918 622.924 874.846 557.098 907.493C488.178 941.565 425.024 961.667 360.746 970.22C344.008 972.359 341.476 972.929 342.742 974.212C343.023 974.497 350.9 977.063 360.183 979.772C478.917 1014.85 606.27 1004.03 717.584 949.406C767.938 924.743 808.166 896.088 848.111 856.741C908.542 797.325 953.195 723.407 977.93 641.839C1002.67 560.272 1006.68 473.694 989.609 390.134C984.546 365.185 975.403 333.251 973.434 333.679C972.731 333.821 971.324 338.241 970.48 343.373C965.781 371.52 951.026 396.929 929.028 414.756C907.031 432.582 879.329 441.579 851.206 440.03C832.639 439.033 821.106 436.324 806.056 428.911C791.779 421.935 779.046 412.097 768.627 399.992C758.207 387.888 750.317 373.767 745.434 358.485C740.511 343.516 739.245 314.29 742.621 298.181C757.952 225.046 837.422 184.843 904.935 216.065C909.91 218.339 914.748 220.91 919.423 223.763C921.673 225.474 923.924 226.614 924.346 226.187C924.768 225.759 919.985 217.918 913.797 208.651C866.066 137.658 801.369 80.0771 725.742 41.283C702.253 29.1652 669.2 14.9089 667.793 16.3346C667.371 16.7622 666.949 29.4503 666.808 44.4194C666.386 80.3451 661.323 108.573 648.242 147.492C624.893 216.635 585.51 287.203 531.781 355.633C417.007 501.76 270.024 592.287 178.458 573.184C142.732 565.628 117.696 540.252 107.568 501.047C103.349 484.795 102.364 451.435 105.459 427.77C115.445 351.356 158.204 256.552 221.92 170.302C267.211 108.858 320.378 53.4008 372.701 13.1982C380.578 7.21053 387.47 1.79315 388.314 1.08034C390.986 -1.34322 382.125 0.367546 363.699 5.64236Z" fill="white"/>*/}
-                                    {/*</motion.svg>*/}
-                                </Navbar.Brand>
-                            </LinkContainer>
-                            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                            <Navbar.Collapse className='navbar-container' id="basic-navbar-nav">
-                                <Nav
-
+                            <button id='header-btn' onClick={extraMenuHandler}>
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className='extra-menu'>
+                                <button
+                                    id="extra-close-btn"
+                                    onClick={extraMenuClose}
                                 >
-                                    {userInfo ? (
-                                        <motion.div variants={reveal}>
-                                            <NavDropdown title={userInfo.name} id='username'>
-                                                <LinkContainer to='/profile'>
-                                                    <NavDropdown.Item>
-                                                        Профиль
-                                                    </NavDropdown.Item>
-                                                </LinkContainer>
-                                                <NavDropdown.Item onClick={logoutHandler}>
-                                                    Выйти
-                                                </NavDropdown.Item>
-                                            </NavDropdown>
-                                        </motion.div>
-                                    ) : (
-                                        <motion.div variants={reveal}>
-                                            <LinkContainer className='nav-login' to='/login'>
-                                                <Nav.Link><motion.i className="far fa-user" variants={reveal}></motion.i></Nav.Link>
-                                            </LinkContainer>
-                                        </motion.div>
-                                    )}
-
-                                    {
-                                        (userInfo && userInfo.isAdmin) && (
+                                    <i className="fa-solid fa-xmark fa-xl"></i>
+                                </button>
+                                <div className='extra-container'>
+                                    <div id="extra-user">
+                                        {userInfo ? (
                                             <motion.div variants={reveal}>
-                                                <NavDropdown className='admin-menu' title='Админ' id='admin-menu'>
-                                                    <LinkContainer to='/admin/userlist'>
+                                                <NavDropdown title={userInfo.name} id='username'>
+                                                    <LinkContainer to='/profile'>
                                                         <NavDropdown.Item>
-                                                            Пользователи
+                                                            Профиль
                                                         </NavDropdown.Item>
                                                     </LinkContainer>
-
-                                                    <LinkContainer to='/admin/productlist'>
-                                                        <NavDropdown.Item>
-                                                            Товары
-                                                        </NavDropdown.Item>
-                                                    </LinkContainer>
-
-                                                    <LinkContainer to='/admin/orderlist'>
-                                                        <NavDropdown.Item>
-                                                            Заказы
-                                                        </NavDropdown.Item>
-                                                    </LinkContainer>
+                                                    <NavDropdown.Item onClick={logoutHandler}>
+                                                        Выйти
+                                                    </NavDropdown.Item>
                                                 </NavDropdown>
                                             </motion.div>
-                                        )
-                                    }
+                                        ) : (
+                                            <motion.div variants={reveal}>
+                                                <LinkContainer className='nav-login' to='/login'>
+                                                    <Nav.Link><motion.i className="far fa-user" variants={reveal}></motion.i></Nav.Link>
+                                                </LinkContainer>
+                                            </motion.div>
+                                        )}
+                                        {
+                                            (userInfo && userInfo.isAdmin) && (
+                                                <motion.div variants={reveal}>
+                                                    <NavDropdown className='admin-menu' title='Админ' id='admin-menu'>
+                                                        <LinkContainer to='/admin/userlist'>
+                                                            <NavDropdown.Item>
+                                                                Пользователи
+                                                            </NavDropdown.Item>
+                                                        </LinkContainer>
 
-                                    <motion.div  variants={reveal}>
-                                        <LinkContainer className='nav-cart' to='/cart'>
-                                            <Nav.Link><i className="fas fa-shopping-cart">
-                                                <span className='cart-qty'>{cartItems.reduce((acc, item) => acc + item.qty, 0)}</span></i></Nav.Link>
-                                        </LinkContainer>
+                                                        <LinkContainer to='/admin/productlist'>
+                                                            <NavDropdown.Item>
+                                                                Товары
+                                                            </NavDropdown.Item>
+                                                        </LinkContainer>
+
+                                                        <LinkContainer to='/admin/orderlist'>
+                                                            <NavDropdown.Item>
+                                                                Заказы
+                                                            </NavDropdown.Item>
+                                                        </LinkContainer>
+                                                    </NavDropdown>
+                                                </motion.div>
+                                            )
+                                        }
+                                    </div>
+                                    <LinkContainer className="text-center" to='/'>
+                                        <Nav.Link className="cursor">CATALOG</Nav.Link>
+                                    </LinkContainer>
+                                    <LinkContainer className="text-center" to='/delivery'>
+                                        <Nav.Link className="cursor">DELIVERY</Nav.Link>
+                                    </LinkContainer>
+                                    <LinkContainer className="text-center" to='/return'>
+                                        <Nav.Link className="cursor">RETURN</Nav.Link>
+                                    </LinkContainer>
+                                    <LinkContainer className="text-center" to='/about'>
+                                        <Nav.Link className="cursor">ABOUT US</Nav.Link>
+                                    </LinkContainer>
+                                    <LinkContainer className="text-center" to='/support'>
+                                        <Nav.Link className="cursor">SUPPORT</Nav.Link>
+                                    </LinkContainer>
+                                </div>
+                            </div>
+                            <div className='unfort-brand'>
+                                <Navbar.Brand className='unfort-logo'>
+                                    <motion.div variants={reveal}>
+                                        <a href='/'>
+                                            <svg width="200" height="35" viewBox="0 0 443 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M55.5302 0.720723H69.254V18.2883C69.254 21.5616 67.7732 24.4595 64.8116 26.982C61.9029 29.5045 57.8836 31.4715 52.7536 32.8829C47.6237 34.2943 41.8856 35 35.5393 35C29.193 35 23.2962 34.2943 17.849 32.8829C12.4546 31.4715 8.14442 29.5045 4.91838 26.982C1.69235 24.4294 0.0528859 21.5465 0 18.3333V0.720723H13.8032V18.6486C13.8032 21.0811 15.0196 23.033 17.4523 24.5045C19.8851 25.976 22.7674 27.027 26.0992 27.6577C29.431 28.2583 32.6041 28.5586 35.6186 28.5586C38.3687 28.5586 41.2774 28.2583 44.3448 27.6577C47.4122 27.027 50.03 25.976 52.1983 24.5045C54.4195 23.033 55.5302 21.0811 55.5302 18.6486V0.720723ZM92.317 34.0541H78.9105V0.720723L92.317 34.0541ZM134.917 24.3694V0.720723H148.324V34.0541H134.917L92.317 10.3604V34.0541H78.9105V0.720723H92.317L134.917 24.3694ZM218.561 0.720723V6.84685H171.916V13.6036H211.898V19.5045H171.916V34.0541H158.509V0.720723H218.561ZM256.582 0C263.458 0 269.645 0.750753 275.145 2.25225C280.698 3.75376 285.035 5.84084 288.155 8.51351C291.275 11.1862 292.836 14.1892 292.836 17.5225C292.836 20.8258 291.275 23.7988 288.155 26.4414C285.035 29.0841 280.725 31.1712 275.225 32.7027C269.724 34.2042 263.537 34.955 256.662 34.955C249.998 34.955 243.863 34.2042 238.257 32.7027C232.651 31.1712 228.209 29.0841 224.93 26.4414C221.651 23.7688 220.012 20.7958 220.012 17.5225C220.012 14.2192 221.651 11.2312 224.93 8.55856C228.209 5.88589 232.625 3.7988 238.178 2.2973C243.784 0.765768 249.919 0 256.582 0ZM256.582 28.7387C260.443 28.7387 264.092 28.3033 267.53 27.4324C270.967 26.5616 273.744 25.2853 275.859 23.6036C277.975 21.8919 279.032 19.8649 279.032 17.5225C279.032 15.2102 277.948 13.1982 275.78 11.4865C273.664 9.77478 270.862 8.46847 267.371 7.56757C263.933 6.66667 260.284 6.21622 256.424 6.21622C252.299 6.21622 248.517 6.66667 245.08 7.56757C241.695 8.46847 238.998 9.75976 236.988 11.4414C234.978 13.1231 233.974 15.1201 233.974 17.4324C233.974 19.8048 235.005 21.8468 237.067 23.5586C239.183 25.2402 241.959 26.5315 245.397 27.4324C248.835 28.3033 252.563 28.7387 256.582 28.7387ZM351.503 33.964L336.986 20.6579H314.219V33.964H301.88V0.630633H342.539C347.457 0.630633 354.884 1.25187 355.288 1.31579C358.247 1.78454 360.669 2.83717 360.669 2.83717C360.669 2.83717 364.173 4.88644 365.108 6.25822C366.185 7.83717 366.185 9.62068 366.185 10.5263C366.185 11.432 365.996 12.9688 365.108 14.4161C364.301 15.7319 362.687 16.6758 360.669 17.7056C358.651 18.7353 354.212 19.9424 349.234 20.6579L366.723 33.964H351.503ZM352.732 10.5263C352.732 9.15296 352.292 8.44637 351.503 7.83717C350.31 6.91612 348.561 6.53858 346.544 6.25822C344.526 5.97787 342.777 5.86349 340.624 5.86349C331.823 5.86349 323.021 5.78947 314.219 5.78947V14.7368H340.624C343.798 14.7368 344.826 14.6746 346.544 14.4161C348.292 14.153 350.176 13.7582 351.503 12.9688C352.328 12.1793 352.732 11.8997 352.732 10.5263ZM375.043 7.07207L373.315 0.720723H443L375.043 7.07207ZM443 0.720723V7.20721H414.48V34.0541H401.835V7.20721H373.315V0.720723H443Z" fill="white"/>
+                                            </svg>
+                                        </a>
                                     </motion.div>
-                                </Nav>
-                            </Navbar.Collapse>
-                          </Container>
+                                </Navbar.Brand>
+                            </div>
+                            <motion.div variants={reveal} id='cart'>
+                                <LinkContainer className='nav-cart' to='/cart'>
+                                    <Nav.Link>
+                                        <i className="fa-solid fa-bag-shopping"></i>
+                                        <i className='cart-qty fa-solid'>{cartItems.reduce((acc, item) => acc + item.qty, 0)}</i>
+                                    </Nav.Link>
+                                </LinkContainer>
+                            </motion.div>
                         </Navbar>
                     </header>
                 </motion.div>

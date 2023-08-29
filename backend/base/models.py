@@ -9,6 +9,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, null=True, blank=True)
     size = models.CharField(max_length=200, null=True, blank=True)
     mainimg = models.ImageField(null=True, blank=True)
+    secImg = models.ImageField(null=True, blank=True)
     preview1 = models.ImageField(null=True, blank=True)
     preview2 = models.ImageField(null=True, blank=True)
     preview3 = models.ImageField(null=True, blank=True)

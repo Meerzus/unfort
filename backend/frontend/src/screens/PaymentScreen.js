@@ -8,18 +8,6 @@ import CheckoutSteps from "../components/CheckoutSteps";
 import {savePaymentMethod} from "../actions/cartActions";
 
 function PaymentScreen({history}) {
-    // Tinkoff.Link({
-    //     terminalkey: '1680349104054DEMO',
-    //     language: 'ru',
-    //     amount: '513',
-    //     order: '1',
-    //     description: '',
-    //     name: 'Георгий Алексеевич',
-    //     email: 'JsusDev@yandex.ru',
-    //     phone: '79055594564'
-    // }, link => {
-    //     console.log(link) // => https://securepay.tinkoff.ru/xo7L8v
-    // })
 
     const cart = useSelector(state => state.cart)
     const {shippingAddress} = cart
@@ -38,6 +26,11 @@ function PaymentScreen({history}) {
             navigate('/placeorder')
         }
     }
+
+    useEffect(() =>{
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, [])
+
     return (
         <FormContainer>
             <CheckoutSteps step1 step2 step3/>

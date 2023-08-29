@@ -56,6 +56,7 @@ function CartScreen(location, history) {
         if (productId) {
             dispatch(addToCart(productId, qty, size, sale))
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, productId, qty, size])
 
     const removeFromCartHandler = (id, size) => {

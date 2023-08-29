@@ -8,8 +8,6 @@ function Banner() {
     const w = window.innerWidth
     const h = window.innerHeight
 
-    console.log(w)
-
     const [height, setHeight] = useState(0)
 
     useEffect(() => {

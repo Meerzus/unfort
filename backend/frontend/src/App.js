@@ -24,7 +24,6 @@ import OrderScreen from "./screens/OrderScreen";
 import OrderListScreen from "./screens/OrderListScreen";
 
 import {motion} from "framer-motion";
-import {animationStart} from "./utils/animation";
 
 import AboutScreen from "./screens/AboutScreen";
 import SupportScreen from "./screens/SupportScreen";
@@ -33,8 +32,7 @@ import ReturnScreen from "./screens/ReturnScreen";
 import ContractScreen from "./screens/ContractScreen";
 import PrivacyScreen from "./screens/PrivacyScreen";
 
-import SuccessPage from "./screens/SuccessPage";
-// import FailPage from "./screens/FailPage";
+import GoUpArrow from "./components/GoUpArrow";
 
 
 function App() {
@@ -50,9 +48,6 @@ function App() {
                 <Route path='/shipping' element={<ShippingScreen/>}/>
                 <Route path='/payment' element={<PaymentScreen/>}/>
                 <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
-
-                {/*<Route path='/success' element={<SuccessPage/>}/>*/}
-                {/*<Route path='/fail' element={<FailPage/>}/>*/}
 
                 <Route path='/about' element={<AboutScreen/>}/>
                 <Route path='/support' element={<SupportScreen/>}/>
@@ -74,6 +69,9 @@ function App() {
                 <Route path='/admin/product/:id/edit' element={<ProductEditScreen/>}/>
             </Routes>
         </motion.main>
+        {
+            (window.innerWidth > 767) && <GoUpArrow/>
+        }
         <Footer/>
     </Router>
   );

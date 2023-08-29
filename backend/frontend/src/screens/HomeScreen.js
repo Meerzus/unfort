@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Row, Col, Container, Image, Button} from 'react-bootstrap';
+import {Container, Button} from 'react-bootstrap';
 import Product from "../components/Product";
 import {useDispatch, useSelector} from "react-redux";
 import {listProducts} from "../actions/productActions";
@@ -9,6 +9,7 @@ import Filter from "../components/Filter";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Paginate from "../components/Paginate";
+import RunningStroke from "../components/RunningStroke";
 
 import {motion, AnimatePresence} from "framer-motion";
 import {useNavigate} from "react-router-dom";
@@ -17,7 +18,6 @@ function HomeScreen() {
     const dispatch = useDispatch()
     const productList = useSelector(state => state.productList)
     const {error, loading, products, page, pages} = productList
-    const navigate = useNavigate
 
     let keyword = window.location.search
 
@@ -27,6 +27,7 @@ function HomeScreen() {
     useEffect(() => {
         dispatch(listProducts(keyword))
         setFiltered(products)
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, keyword])
 
     const popupHandler = () => {
@@ -90,21 +91,24 @@ function HomeScreen() {
                 }}
             >
                 <div className='popup-card-img'></div>
-                <h4>WELCOME TO THE FAMILY</h4>
-                <p className='mb-5'>Будь в курсе закрытой информации:</p>
-                <ul className='mb-5'>
-                    <li className='mb-1'>Новинок</li>
-                    <li className='mb-1'>Новостей</li>
-                    <li className='mb-1'>Скидок</li>
-                    <li className='mb-1'>Розыгрышей</li>
+                <div id='popup-card-body'>
+                    <h4>WELCOME TO THE FAMILY</h4>
+                    <p>Будь в курсе закрытой информации:</p>
+                </div>
+                <ul>
+                    <li>Новинок</li>
+                    <li>Новостей</li>
+                    <li>Скидок</li>
+                    <li>Розыгрышей</li>
                 </ul>
                 <Button
                     className='size-btn btn btn-dark popup-card-btn'
-                    href='https://vk.com/unfort_4u'
+                    href='https://t.me/+8h0qPRLvvu9hOWIy'
                     target='_blank'
                 >ПОДПИСАТЬСЯ</Button>
             </motion.div>
             <Banner/>
+            <RunningStroke/>
             <Filter
                 products={products}
                 setFiltered={setFiltered}
@@ -126,6 +130,7 @@ function HomeScreen() {
                         }
                     </AnimatePresence>
                 </motion.div>
+                <br/>
                 {
                     Number(filtered.length) > 4 &&
                     <Paginate

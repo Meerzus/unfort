@@ -111,6 +111,7 @@ def uploadImage(request):
     product = Product.objects.get(_id=product_id)
 
     product.mainimg = request.FILES.get('mainimg')
+    product.secImg = request.FILES.get('secImg')
     product.preview1 = request.FILES.get('preview1')
     product.preview2 = request.FILES.get('preview2')
     product.preview3 = request.FILES.get('preview3')

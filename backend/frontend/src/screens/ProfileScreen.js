@@ -66,6 +66,7 @@ function ProfileScreen({history}) {
         } else {
             setTrackLimit(-19)
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, userInfo, navigate, user, success])
 
     const submitHandler = (e) => {
@@ -250,6 +251,7 @@ function ProfileScreen({history}) {
                                 </Message>
                             ) : (
                                 <motion.div
+                                    id='profile-screen'
                                     variants={reveal}
                                     initial='hiddenVariantX'
                                     animate='revealedVariantX'

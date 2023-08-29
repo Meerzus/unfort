@@ -9,7 +9,6 @@ import {animationStart, reveal} from "../utils/animation";
 import {Link} from "react-router-dom";
 
 function SuccessPage(props) {
-    // let loc = 'succsess?Success=true&ErrorCode=0&Message=None&Details=&Amount=100&MerchantEmail=support%40unfort.ru&MerchantName=Unfort&OrderId=44&PaymentId=2915184438&TranDate=&BackUrl=http%3A%2F%2Fmeerzus1.pythonanywhere.com%2F&CompanyName=ИП+МИЛЬКОВИЧ+ИЛЬЯ+МИХАЙЛОВИЧ&EmailReq=support%40unfort.ru&PhonesReq=9139376454'
 
     let loc = window.location.hash ? window?.location?.hash : ''
 

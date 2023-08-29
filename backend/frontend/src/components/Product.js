@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Card} from "react-bootstrap";
 import {Link, useNavigate} from "react-router-dom";
 
 import {motion} from "framer-motion";
+import {PRODUCT_CREATE_REVIEW_RESET} from "../constants/productConstants";
+import {listProductDetails} from "../actions/productActions";
 
 
 function Product({product}) {
@@ -11,6 +13,24 @@ function Product({product}) {
     const linkHandler = () => {
         navigate(`/product/${product._id}/`)
         navigate(0)
+        window.scrollTo(0, 0)
+    }
+
+    useEffect(() =>{
+        // hoverHandler()
+        // window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, [])
+
+    const productImgHover = () => {
+        let img = document.getElementById(`${product._id}`)
+        let img1 = img.getElementsByClassName('card-img')
+        img1[0].src = product.secImg
+    }
+
+    const productImgOut = () => {
+        let img = document.getElementById(`${product._id}`)
+        let img1 = img.getElementsByClassName('card-img')
+        img1[0].src = product.mainimg
     }
 
     return (
@@ -23,16 +43,21 @@ function Product({product}) {
             id={product._id}
             className={
                 product.category.includes('NEW') ?
-                "p-3 rounded-3 card new-product"
-                    : product.category.includes('PREORDER') ? "p-3 rounded-3 card preorder-product"
-                        : "p-3 rounded-3 card"
+                "rounded-3 card new-product"
+                    : product.category.includes('PREORDER') ? "rounded-3 card preorder-product"
+                        : "rounded-3 card"
         }
         >
             <Link
                 onClick={linkHandler}
                 to={`/product/${product._id}/`}
             >
-                <Card.Img src={product.mainimg} className="rounded-3 product-img"/>
+                <Card.Img
+                    src={product.mainimg}
+                    id='prod-img'
+                    onMouseOver={productImgHover}
+                    onMouseOut={productImgOut}
+                    className="rounded-3 product-img"/>
             </Link>
             <Card.Body>
                 <Link
@@ -84,7 +109,6 @@ function Product({product}) {
                         </span>
                     </div>
                 </Card.Text>
-                <br/>
                 <Card.Text
                     as="h3"
                     className={product.countInStock === 0 ? 'text-center' : ''}

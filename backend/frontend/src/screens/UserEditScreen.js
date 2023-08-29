@@ -41,6 +41,7 @@ function UserEditScreen({location, history}) {
                 setIsAdmin(user.isAdmin)
             }
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [user, id, successUpdate, navigate])
 
     const submitHandler = (e) => {

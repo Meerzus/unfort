@@ -63,6 +63,7 @@ function ProductListScreen() {
         } else {
             setTrackLimit(0)
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, navigate, userInfo, successDelete, successCreate, createdProduct, keyword])
 
     const deleteHandler = (id) => {
@@ -164,6 +165,7 @@ function ProductListScreen() {
                 </Col>
             </Row>
             <motion.div
+                id='product-list-screen'
                 variants={reveal}
                 initial='hiddenVariantX'
                 animate='revealedVariantX'

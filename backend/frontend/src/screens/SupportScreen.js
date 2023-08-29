@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import {Container} from "react-bootstrap";
 
@@ -6,6 +6,11 @@ import {motion} from "framer-motion";
 import {animationStart, reveal} from "../utils/animation";
 
 function SupportScreen() {
+
+    useEffect(() =>{
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, [])
+
     return (
         <motion.div>
             <Container>

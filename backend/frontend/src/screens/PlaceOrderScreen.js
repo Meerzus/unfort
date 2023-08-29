@@ -61,7 +61,7 @@ function PlaceOrderScreen({history}) {
                 dispatch({type: ORDER_CREATE_RESET})
             }
         }
-
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [success, navigate])
 
     const placeOrder = () => {

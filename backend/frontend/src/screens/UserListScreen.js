@@ -45,6 +45,7 @@ function UserListScreen() {
         } else {
             setTrackLimit(0)
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, navigate, successDelete, userInfo])
 
     const deleteHandler = (id) => {
@@ -71,7 +72,6 @@ function UserListScreen() {
             track?.animate({
                 transform: `translate(${Number(track.dataset.position)}%, 0%)`
             }, { duration: 1000, fill: "forwards" });
-            console.log(60 + (Number(track.dataset.position) / 25))
         }
     }
 
@@ -90,7 +90,6 @@ function UserListScreen() {
             track?.animate({
                 transform: `translate(${Number(track.dataset.position)}%, 0%)`
             }, { duration: 1000, fill: "forwards" });
-            console.log(60 + (Number(track.dataset.position) / 25))
         }
     }
 
@@ -115,6 +114,7 @@ function UserListScreen() {
                 }}
             >Пользователи</motion.h1>
             <motion.div
+                id='user-list-screen'
                 variants={reveal}
                 initial='hiddenVariantX'
                 animate='revealedVariantX'
@@ -136,7 +136,7 @@ function UserListScreen() {
                     bordered
                     hover
                     responsive
-                    className='table-sm text-center' data-position="0" id='table'
+                    className='table-sm text-center mx-0' data-position="0" id='table'
                 >
                     <thead>
                         <tr>

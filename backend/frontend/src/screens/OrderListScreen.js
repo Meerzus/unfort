@@ -41,6 +41,7 @@ function OrderListScreen() {
         } else {
             setTrackLimit(0)
         }
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, navigate, userInfo])
 
     const [leftBtnLimit, setLeftBtnLimit] = useState(true)
@@ -105,6 +106,7 @@ function OrderListScreen() {
                 }}
             >Заказы</motion.h1>
             <motion.div
+                id='order-list-screen'
                 variants={reveal}
                 initial='hiddenVariantX'
                 animate='revealedVariantX'

@@ -118,6 +118,11 @@ function ShippingScreen({history}) {
             setInfoSourceError(false)
         }
     }
+
+    useEffect(() =>{
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, [])
+
     return (
         <FormContainer>
             <motion.div
