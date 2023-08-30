@@ -55,7 +55,18 @@ function ProductEditScreen({location, history}) {
 
     const navigate = useNavigate();
 
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
+    }
+
     useEffect(() => {
+        extraMenuClose()
         if (successUpdate) {
             dispatch({type: PRODUCT_UPDATE_RESET})
             navigate('/admin/productlist')

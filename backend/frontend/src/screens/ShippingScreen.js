@@ -119,7 +119,18 @@ function ShippingScreen({history}) {
         }
     }
 
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
+    }
+
     useEffect(() =>{
+        extraMenuClose()
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [])
 

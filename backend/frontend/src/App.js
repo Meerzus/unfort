@@ -36,45 +36,45 @@ import GoUpArrow from "./components/GoUpArrow";
 
 
 function App() {
-  return (
-    <Router>
-        <Header/>
-        <motion.main>
-            <Routes>
-                <Route path='/' element={<HomeScreen/>} exact/>
-                <Route path='/login' element={<LoginScreen/>}/>
-                <Route path='/register' element={<RegisterScreen/>}/>
-                <Route path='/profile' element={<ProfileScreen/>}/>
-                <Route path='/shipping' element={<ShippingScreen/>}/>
-                <Route path='/payment' element={<PaymentScreen/>}/>
-                <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
+    return (
+        <Router>
+            <Header/>
+            <motion.main>
+                <Routes>
+                    <Route path='/' element={<HomeScreen/>} exact/>
+                    <Route path='/login' element={<LoginScreen/>}/>
+                    <Route path='/register' element={<RegisterScreen/>}/>
+                    <Route path='/profile' element={<ProfileScreen/>}/>
+                    <Route path='/shipping' element={<ShippingScreen/>}/>
+                    <Route path='/payment' element={<PaymentScreen/>}/>
+                    <Route path='/placeorder' element={<PlaceOrderScreen/>}/>
 
-                <Route path='/about' element={<AboutScreen/>}/>
-                <Route path='/support' element={<SupportScreen/>}/>
-                <Route path='/delivery' element={<DeliveryScreen/>}/>
-                <Route path='/return' element={<ReturnScreen/>}/>
-                <Route path='/contract' element={<ContractScreen/>}/>
-                <Route path='/privacy' element={<PrivacyScreen/>}/>
+                    <Route path='/about' element={<AboutScreen/>}/>
+                    <Route path='/support' element={<SupportScreen/>}/>
+                    <Route path='/delivery' element={<DeliveryScreen/>}/>
+                    <Route path='/return' element={<ReturnScreen/>}/>
+                    <Route path='/contract' element={<ContractScreen/>}/>
+                    <Route path='/privacy' element={<PrivacyScreen/>}/>
 
-                <Route path='/order/:id' element={<OrderScreen/>}/>
-                <Route path='/admin/orderlist/' element={<OrderListScreen/>}/>
+                    <Route path='/order/:id' element={<OrderScreen/>}/>
+                    <Route path='/admin/orderlist/' element={<OrderListScreen/>}/>
 
-                <Route path='/product/:id/' element={<ProductScreen/>}/>
-                <Route path='/cart/:id?' element={<CartScreen/>}/>
+                    <Route path='/product/:id/' element={<ProductScreen/>}/>
+                    <Route path='/cart/:id?' element={<CartScreen/>}/>
 
-                <Route path='/admin/userlist' element={<UserListScreen/>}/>
-                <Route path='/admin/user/:id/edit' element={<UserEditScreen/>}/>
+                    <Route path='/admin/userlist' element={<UserListScreen/>}/>
+                    <Route path='/admin/user/:id/edit' element={<UserEditScreen/>}/>
 
-                <Route path='/admin/productlist' element={<ProductListScreen/>}/>
-                <Route path='/admin/product/:id/edit' element={<ProductEditScreen/>}/>
-            </Routes>
-        </motion.main>
-        {
-            (window.innerWidth > 767) && <GoUpArrow/>
-        }
-        <Footer/>
-    </Router>
-  );
+                    <Route path='/admin/productlist' element={<ProductListScreen/>}/>
+                    <Route path='/admin/product/:id/edit' element={<ProductEditScreen/>}/>
+                </Routes>
+            </motion.main>
+            {
+                (window.innerWidth > 767) && <GoUpArrow/>
+            }
+            <Footer/>
+        </Router>
+    );
 }
 
 export default App;

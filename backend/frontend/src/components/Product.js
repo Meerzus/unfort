@@ -16,11 +16,6 @@ function Product({product}) {
         window.scrollTo(0, 0)
     }
 
-    useEffect(() =>{
-        // hoverHandler()
-        // window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-    }, [])
-
     const productImgHover = () => {
         let img = document.getElementById(`${product._id}`)
         let img1 = img.getElementsByClassName('card-img')
@@ -115,7 +110,7 @@ function Product({product}) {
                 >
                     {
                         product.countInStock === 0 ?
-                            <span className='fs-5 fw-light' style={{color: 'red'}}>Sold Out</span> : <span>₽ {product.price}</span>
+                            <span className='fs-5 fw-light' style={{color: 'red'}}>SOLD OUT</span> : <span>₽ {product.price}</span>
                     }
                 </Card.Text>
             </Card.Body>

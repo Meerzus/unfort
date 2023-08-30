@@ -59,7 +59,18 @@ function OrderScreen({match}) {
         order.itemsPrice = order.orderItems.reduce((acc, item) => acc + item.qty * item.price, 0) * ((100 - sale)/100)
     }
 
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
+    }
+
     useEffect(() => {
+        extraMenuClose()
         if (!userInfo) {
             navigate('/login')
         }

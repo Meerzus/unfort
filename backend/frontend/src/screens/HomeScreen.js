@@ -24,7 +24,18 @@ function HomeScreen() {
     const [filtered, setFiltered] = useState([])
     const [activeFilter, setActiveFilter] = useState("0")
 
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
+    }
+
     useEffect(() => {
+        extraMenuClose()
         dispatch(listProducts(keyword))
         setFiltered(products)
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});

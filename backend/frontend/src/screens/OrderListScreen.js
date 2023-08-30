@@ -27,7 +27,18 @@ function OrderListScreen() {
     const windowInnerWidth = document.documentElement.clientWidth
     const windowInnerHeight = document.documentElement.clientHeight
 
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
+    }
+
     useEffect(() => {
+        extraMenuClose()
         if (userInfo && userInfo.isAdmin) {
             dispatch(listOrders())
         } else {

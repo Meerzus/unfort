@@ -198,43 +198,11 @@ img {
 #popup-card a[role='button'] {
     display: flex;
     position: absolute;
-    bottom: -1rem;
-    width: 30rem;
+    bottom: -1.5rem;
+    width: 100%;
     border-radius: 0 0 1rem 1rem !important;
     border: none !important;
 }
-
-/*.popup-card h4 {*/
-/*    display: flex;*/
-/*    position: absolute;*/
-/*    margin-top: 16rem;*/
-/*    font-size: 1.5rem;*/
-/*}*/
-
-/*.popup-card p {*/
-/*    display: flex;*/
-/*    position: absolute;*/
-/*    margin-top: 18rem;*/
-/*    font-size: 1rem;*/
-/*}*/
-
-/*.popup-card ul {*/
-/*    display: block;*/
-/*    position: absolute;*/
-/*    margin-top: 20rem;*/
-/*    left: 5%;*/
-/*    font-size: 1rem;*/
-/*}*/
-
-/*.popup-card .popup-card-btn {*/
-/*    display: flex;*/
-/*    position: absolute;*/
-/*    width: 100%;*/
-/*    font-size: 1.5rem;*/
-/*    bottom: -1rem;*/
-/*    border-radius: 0 0 1rem 1rem !important;*/
-/*    border: white solid 0 !important;*/
-/*}*/
 
 #popup-close-btn {
     display: flex;
@@ -1560,12 +1528,10 @@ nav {
 
     .popup-card {
         width: 20rem;
-        height: 23rem;
-        padding: 1rem;
+        height: auto;
     }
 
     .popup-card h4 {
-        margin-top: 10.5rem;
         scale: 1;
         font-size: 1rem;
     }
@@ -1576,8 +1542,6 @@ nav {
 
     .popup-card p {
         display: flex;
-        position: absolute;
-        margin-top: 11.5rem;
         font-size: 1rem;
         font-weight: bold;
         scale: 1;
@@ -1585,10 +1549,7 @@ nav {
 
     .popup-card ul {
         display: block;
-        position: absolute;
-        margin-top: 14rem;
-        left: 5%;
-        font-size: .75rem;
+        font-size: .8rem;
     }
 
     #popup-close-btn {
@@ -1817,12 +1778,12 @@ nav {
 
     #prod-desc .card {
         width: 100% !important;
-        height: 400px !important;
+        height: auto !important;
     }
 
-    .card.rounded-3.p-3 {
-        width: 200px !important;
-        height: 300px !important;
+    .products .card {
+        width: 150px !important;
+        height: auto !important;
     }
 
     .product-title {
@@ -1863,8 +1824,8 @@ nav {
 
     .products {
         display: grid;
-        justify-content: space-around;
-        grid-template-columns: repeat(auto-fit, minmax(0px, 180px));
+        justify-content: space-evenly;
+        grid-template-columns: repeat(auto-fit, minmax(0px, 150px));
         grid-column-gap: 0;
         grid-row-gap: 1.5rem;
         margin: .5rem 0;

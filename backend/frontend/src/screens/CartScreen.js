@@ -52,7 +52,18 @@ function CartScreen(location, history) {
     const userLogin = useSelector(state => state.userLogin)
     const {loading, userInfo, error} = userLogin
 
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
+    }
+
     useEffect(() => {
+        extraMenuClose()
         if (productId) {
             dispatch(addToCart(productId, qty, size, sale))
         }

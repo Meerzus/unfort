@@ -251,7 +251,18 @@ function ProductScreen() {
 
     const [products, setProducts] = useState([])
 
+    const extraMenuClose = () => {
+        const menu = document.querySelector('.extra-menu')
+
+        menu.animate({
+            left: '-16rem'
+        }, 250)
+
+        setTimeout(() => {menu.style.left = '-16rem'}, 249)
+    }
+
     useEffect(() => {
+        extraMenuClose()
         fetchProducts()
         const track = document.getElementById("image-track")
         track.dataset.percentage = 0
@@ -752,12 +763,16 @@ function ProductScreen() {
                                                 }}
                                             >
                                                 <ListGroup.Item className="d-grid gap-2" variant="flush">
-                                                    <Button onClick={() => {
+                                                    <Button style={{color: 'red !important'}} onClick={() => {
                                                         addToCartHandler()
                                                         product.size = size
                                                     }} variant='dark' className='size-btn' type='button' disabled={
                                                         ((product?.countInStock === 0 || !size) && !product?.category?.includes('ACCESSORIES'))
-                                                    }>Добавить в корзину</Button>
+                                                    }>{
+                                                        product?.countInStock === 0
+                                                            ? 'SOLD OUT'
+                                                            : 'Добавить в корзину'
+                                                    }</Button>
                                                 </ListGroup.Item>
                                             </motion.div>
                                         </ListGroup>
