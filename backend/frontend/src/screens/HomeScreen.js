@@ -42,13 +42,8 @@ function HomeScreen() {
     }, [dispatch, keyword])
 
     const popupHandler = () => {
-        const popUpBtn = document.getElementById('popup-close-btn')
         const popupBackground = document.getElementById('popup-background')
         const popupCard = document.getElementById('popup-card')
-
-        popUpBtn.animate({
-            top: '-10rem'
-        }, 250)
 
         popupBackground.animate({
             opacity: '0'
@@ -58,7 +53,6 @@ function HomeScreen() {
             transform: "translate(-12.5vw, 100vh) scale(.5)"
         }, 250)
 
-        setTimeout(() => {popUpBtn.style.display = 'none'}, 200)
         setTimeout(() => {popupBackground.style.display = 'none'}, 200)
         setTimeout(() => {popupCard.style.display = 'none'}, 200)
     }
@@ -69,18 +63,6 @@ function HomeScreen() {
         <Message variant='danger'>{error}</Message>
     ) : (
         <div>
-            <motion.button
-                id="popup-close-btn"
-                animate={{top: 2 + 'rem'}}
-                transition={{
-                    type: "spring",
-                    duration: .75,
-                    delay: 2.1
-                }}
-                onClick={popupHandler}
-            >
-                <i className="fa-solid fa-xmark fa-xl"></i>
-            </motion.button>
             <motion.div
                 className='popup-background'
                 id='popup-background'
@@ -112,11 +94,13 @@ function HomeScreen() {
                     <li>Скидок</li>
                     <li>Розыгрышей</li>
                 </ul>
-                <Button
-                    className='size-btn btn btn-dark popup-card-btn'
-                    href='https://t.me/+8h0qPRLvvu9hOWIy'
-                    target='_blank'
-                >ПОДПИСАТЬСЯ</Button>
+                <div id='btn-holder'>
+                    <Button
+                        className='size-btn btn btn-dark popup-card-btn'
+                        href='https://t.me/+8h0qPRLvvu9hOWIy'
+                        target='_blank'
+                    >ПОДПИСАТЬСЯ</Button>
+                </div>
             </motion.div>
             <Banner/>
             <RunningStroke/>

@@ -12,8 +12,6 @@ function Product({product}) {
 
     const linkHandler = () => {
         navigate(`/product/${product._id}/`)
-        navigate(0)
-        window.scrollTo(0, 0)
     }
 
     const productImgHover = () => {
@@ -110,7 +108,7 @@ function Product({product}) {
                 >
                     {
                         product.countInStock === 0 ?
-                            <span className='fs-5 fw-light' style={{color: 'red'}}>SOLD OUT</span> : <span>₽ {product.price}</span>
+                            <span className='fs-7 fw-light' style={{color: 'red'}}>SOLD OUT</span> : <span>₽ {product.price}</span>
                     }
                 </Card.Text>
             </Card.Body>

@@ -29,7 +29,7 @@ function Banner() {
             layout
             initial={{height: 0}}
             animate={{height: height + 'vh'}}
-            transition={{delay: animationStart - 1, duration: 2.5, type: 'spring'}}
+            transition={{delay: animationStart - 1, duration: 2, ease: [1, .5, 1, 1]}}
             className="banner"
         >
         </motion.div>

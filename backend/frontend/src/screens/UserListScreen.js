@@ -6,8 +6,6 @@ import {useDispatch, useSelector} from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import {listUsers, deleteUser} from "../actions/userActions";
-import {userListReducer} from "../reducers/userReducers";
-import loader from "../components/Loader";
 
 import {motion} from "framer-motion";
 import {animationStart, reveal} from "../utils/animation";

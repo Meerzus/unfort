@@ -24,7 +24,7 @@ function AboutScreen() {
 
     return (
         <motion.div>
-            <Container>
+            <Container id='info' className='about-us'>
                 <motion.div
                     variants={reveal}
                     initial='hiddenVariantY'
@@ -37,7 +37,7 @@ function AboutScreen() {
                         delayChildren: animationStart,
                         delay: animationStart
                     }}
-                    className='text-center mb-3'
+                    className='text-center my-3'
                 >
                     <motion.h1>О нас</motion.h1>
                 </motion.div>

@@ -633,11 +633,11 @@ function ProductScreen() {
                                                 }}
                                             >
                                                 <ListGroup.Item variant="flush">
-                                                    <Row style={{minHeight: '8rem'}} id='calcRow'>
+                                                    <Row style={{height: 'auto'}} id='calcRow'>
                                                         <Col md={4} style={{
                                                             display: "flex",
                                                             flexDirection: "column",
-                                                            justifyContent: "center",
+                                                            justifyContent: "end",
                                                             alignItems: "center"
                                                         }}>
                                                             <Size variants={reveal} product={product} setSize={setSize} size={size} qtySize={qtySize} setQtySize={setQtySize}/>
@@ -658,7 +658,7 @@ function ProductScreen() {
                                                                      onClick={calcHandler}
                                                                      style={{zIndex: 3}}
                                                                 >
-                                                                    <h4 style={{zIndex: 2}}>Подобрать размер</h4><i
+                                                                    <h4 style={{zIndex: 2, fontSize: '1.1rem', margin: 0}}>Подобрать размер</h4><i
                                                                     className="fas fa-sort-down fa-lg mx-2" style={{zIndex: 2}}></i>
                                                                 </div>
                                                                 <Form style={{zIndex: 1}}>

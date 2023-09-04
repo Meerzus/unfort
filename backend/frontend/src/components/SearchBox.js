@@ -18,9 +18,7 @@ function SearchBox() {
             window.location.reload()
             console.log(keyword)
         } else {
-            // navigate(navigate(navigate.location.pathname))
             navigate('/')
-            navigate(0)
         }
     }
 

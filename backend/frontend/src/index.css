@@ -30,6 +30,12 @@
     font-weight: normal;
 }
 
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url(../public/HelveticaNeueBoldCondensed.ttf);
+    font-weight: normal;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -38,6 +44,7 @@ html {
     min-width: 100vw;
     scroll-behavior: smooth;
     overflow-x: hidden !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
 }
 
 *, *:before, *:after {
@@ -49,13 +56,13 @@ html {
 h1 {
     font-size: 1.8rem;
     /*padding: 1rem 0;*/
-    font-family: 'Helvetica_Bold', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 h2 {
     font-size: 1.4rem;
     padding: .5rem 0;
-    font-family: 'Helvetica_Bold', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 .list-group-item h1 {
@@ -84,17 +91,17 @@ a {
 body {
     overflow-x: hidden !important;
     -webkit-font-smoothing: antialiased;
-    font-family: 'Helvetica', sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
     font-weight: normal;
 }
 
 h5 {
-    font-family: 'Helvetica_Light', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     font-weight: lighter;
 }
 
 h4 {
-    font-family: 'Helvetica_Light', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     font-weight: lighter;
 }
 
@@ -107,11 +114,10 @@ img {
 }
 
 .unfort-icon {
-    width: 200px;
-    height: 200px;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     display: block;
-    margin: 25vh auto auto auto;
 }
 
 .unfort-logo {
@@ -123,12 +129,19 @@ img {
     position: relative;
     justify-content: center !important;
     align-items: center !important;
-    /*left: calc(50vw - 1.25vmax);*/
 }
 
 .unfort-icon svg {
-    width: 100%;
-    height: 100%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    position: absolute !important;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    margin: 0 0 !important;
     animation: loader 1s infinite;
 }
 
@@ -160,7 +173,7 @@ img {
     left: 50%;
     top: 200%;
     transform: translate(-50%, -50%);
-    border-radius: 1rem 1rem 0 0;
+    border-radius: .5rem;
     scale: 1;
 }
 
@@ -170,7 +183,7 @@ img {
     background-size: cover;
     background-position: center;
     height: 15rem;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: .5rem .5rem 0 0;
     margin-bottom: .25rem;
 }
 
@@ -180,28 +193,33 @@ img {
     align-items: center;
 }
 
-#popup-card-body p {
-    margin: 0 !important;
+#popup-card-body h4 {
+    margin: 1rem 0 !important;
 }
 
-#popup-card-body ul {
+#popup-card-body p {
+    margin-bottom: 1rem !important;
+}
+
+.popup-card ul {
     display: flex;
     flex-direction: column;
     justify-content: left;
-    margin: 0 !important;
+    margin-bottom: 1rem !important;
 }
 
-#popup-card-body h4 {
-    margin: 0 !important;
+#btn-holder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 #popup-card a[role='button'] {
     display: flex;
-    position: absolute;
-    bottom: -1.5rem;
-    width: 100%;
-    border-radius: 0 0 1rem 1rem !important;
-    border: none !important;
+    width: 50%;
+    border-radius: .5rem !important;
+    border: .1rem solid black !important;
 }
 
 #popup-close-btn {
@@ -245,9 +263,9 @@ img {
 }
 
 .product-title {
-    min-height: 3rem;
+    height: auto;
     color: #232323;
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     margin: 1rem 0 0 0 !important;
 }
 
@@ -314,7 +332,7 @@ img {
 }
 
 button, select, option, table, input, a, .cart-sub-total, .checkout-steps, p, font, .list-group-item, .preorder-product::after {
-    font-family: 'Helvetica_Light', sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
     font-weight: lighter;
 }
 
@@ -323,7 +341,7 @@ button, select, option, table, input, a, .cart-sub-total, .checkout-steps, p, fo
 }
 
 thead, label, .cart-total, h6, strong, .card-body {
-    font-family: 'Helvetica', sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
     font-weight: bold !important;
 }
 
@@ -346,7 +364,6 @@ button.active {
 
 .image-track {
     overflow: hidden;
-    padding: 0 !important;
     display: flex;
     position: relative;
 }
@@ -817,7 +834,7 @@ li[class='active page-item active'] .page-link {
 
 .card {
     z-index: 1 !important;
-    font-family: 'Helvetica', sans-serif !important;
+    font-family: 'Helvetica Neue', sans-serif !important;
     font-weight: normal;
     border: none !important;
 }
@@ -928,6 +945,14 @@ li[class='active page-item active'] .page-link {
     width: 5rem !important;
     height: 30%;
 }
+
+    .card-text {
+        display: flex;
+        height: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+    }
 
 @keyframes socials {
     0% {
@@ -1192,10 +1217,23 @@ footer .col-md-1, footer .col-md-2, footer .col-md-3, footer .col-md-4, footer .
     display: flex;
     position: absolute;
     top: 0;
+    left: 0;
     justify-content: space-between;
     align-items: center;
 
-    padding: .25rem;
+    padding: 1rem;
+}
+
+.btn-light {
+    background: none !important;
+    border: .1rem solid black !important;
+
+    transition: 250ms !important;
+}
+
+.btn-light:hover {
+    background: black !important;
+    color: white !important;
 }
 
 #profile-screen .img-track-btns {
@@ -1499,6 +1537,24 @@ nav {
     transition-duration: 250ms;
 }
 
+.about-us {
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.support {
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1400px) {
     #calcRow {
         flex-direction: column;
@@ -1559,6 +1615,52 @@ nav {
 }
 
 @media (max-width: 991px) {
+
+    #info h1 {
+        font-size: 1.25rem !important;
+    }
+
+    #info h2 {
+        font-size: 1rem !important;
+    }
+
+    #info h3 {
+        font-size: .9rem !important;
+    }
+
+    #info h4 {
+        font-size: .8rem !important;
+    }
+
+    #info h5 {
+        font-size: .7rem !important;
+    }
+
+    #info h6 {
+        font-size: .6rem !important;
+    }
+
+    .support-info {
+        margin-right: .5rem;
+    }
+
+    .text-left {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler-icon, .fa-bag-shopping {
+        scale: .75;
+        margin: 0;
+    }
+
+    .showCalc h4 {
+        margin-bottom: .5rem !important;
+    }
+
+    .unfort-brand svg {
+        scale: .65;
+    }
+
     .line div {
         display: flex;
         justify-content: center;
@@ -1569,8 +1671,8 @@ nav {
     }
 
     .filter-container {
-        height: 2.5rem;
-        margin: 2.5vmax 0;
+        height: 2.25rem;
+        margin: 0 0 .5rem 0;
     }
 
     .filter-container button {
@@ -1715,6 +1817,23 @@ nav {
     #socials-d {
         width: 50vw;
     }
+
+    .running-stroke {
+        height: 2rem;
+    }
+
+    .running-inner {
+        font-size: .5rem;
+    }
+
+    .running-inner span {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .running-inner svg {
+        scale: .75;
+    }
 }
 
 @media (max-width: 775px) {
@@ -1804,7 +1923,7 @@ nav {
     .card-text span {
         display: flex;
         justify-content: center;
-        font-size: 1rem !important;
+        font-size: .75rem !important;
     }
 
     h3[class='card-text'] {
