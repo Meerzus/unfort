@@ -45,6 +45,7 @@ html {
     scroll-behavior: smooth;
     overflow-x: hidden !important;
     font-family: 'Helvetica Neue', sans-serif !important;
+    font-weight: bold !important;
 }
 
 *, *:before, *:after {
@@ -92,7 +93,7 @@ body {
     overflow-x: hidden !important;
     -webkit-font-smoothing: antialiased;
     font-family: 'Helvetica Neue', sans-serif !important;
-    font-weight: normal;
+    font-weight: bold !important;
 }
 
 h5 {
@@ -333,7 +334,7 @@ img {
 
 button, select, option, table, input, a, .cart-sub-total, .checkout-steps, p, font, .list-group-item, .preorder-product::after {
     font-family: 'Helvetica Neue', sans-serif !important;
-    font-weight: lighter;
+    font-weight: bold !important;
 }
 
 .list-group-item {
@@ -903,6 +904,11 @@ li[class='active page-item active'] .page-link {
     justify-content: center;
     align-items: center;
     height: 2rem;
+}
+
+.row {
+    font-family: 'Helvetica Neue', sans-serif !important;
+    font-weight: bold !important;
 }
 
 .footer-row-first {
@@ -1539,20 +1545,39 @@ nav {
 
 .about-us {
     width: 100vw;
-    height: calc(100vh - 4rem);
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    margin-top: 5rem;
 }
 
 .support {
     width: 100vw;
-    height: calc(100vh - 4rem);
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    margin-top: 5rem;
+}
+
+.extra-background {
+    display: none;
+    position: absolute;
+
+    left: 15rem;
+    top: 0;
+
+    width: 120vw;
+    height: 100vh;
+
+    background: var(--second-color);
+
+    opacity: 0;
+
+    z-index: 999;
 }
 
 @media (max-width: 1400px) {
@@ -1823,7 +1848,7 @@ nav {
     }
 
     .running-inner {
-        font-size: .5rem;
+        font-size: .75rem;
     }
 
     .running-inner span {
@@ -1838,7 +1863,8 @@ nav {
 
 @media (max-width: 775px) {
     .calc-input {
-        width: 70%;
+        width: 50%;
+        margin-right: 1rem;
     }
 
     #sizeCalc {
@@ -1881,6 +1907,7 @@ nav {
     #product-desc div {
         display: flex;
         justify-content: center;
+        font-family: 'Helvetica Neue', sans-serif;
     }
 
     #product-price {

@@ -72,6 +72,8 @@ function App() {
             {
                 (window.innerWidth > 767) && <GoUpArrow/>
             }
+            <br/>
+            <br/>
             <Footer/>
         </Router>
     );

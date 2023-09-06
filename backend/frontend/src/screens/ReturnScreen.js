@@ -9,12 +9,18 @@ function ReturnScreen(props) {
 
     const extraMenuClose = () => {
         const menu = document.querySelector('.extra-menu')
+        const backGround = document.querySelector('.extra-background')
 
         menu.animate({
             left: '-16rem'
         }, 250)
 
+        backGround.animate({
+            opacity: '0'
+        }, 250)
+
         setTimeout(() => {menu.style.left = '-16rem'}, 249)
+        setTimeout(() => {backGround.style.display = 'none'}, 249)
     }
 
     useEffect(() =>{

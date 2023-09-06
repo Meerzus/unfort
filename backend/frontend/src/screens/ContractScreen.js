@@ -9,12 +9,18 @@ function ContractScreen() {
 
     const extraMenuClose = () => {
         const menu = document.querySelector('.extra-menu')
+        const backGround = document.querySelector('.extra-background')
 
         menu.animate({
             left: '-16rem'
         }, 250)
 
+        backGround.animate({
+            opacity: '0'
+        }, 250)
+
         setTimeout(() => {menu.style.left = '-16rem'}, 249)
+        setTimeout(() => {backGround.style.display = 'none'}, 249)
     }
 
     useEffect(() =>{
@@ -126,7 +132,7 @@ function ContractScreen() {
                         информацию:</motion.h5>
                     <motion.h5 variants={reveal} className='mx-1 mb-3 p-0'>4.2.1. фамилия, имя, отчество Покупателя
                         или указанного им лица (получателя);</motion.h5>
-                    <motion.h5 variants={reveal} className='mx-1 mb-1 p-0'>4.2.2. адрес, по которому следует доставить
+                    <motion.h5 variants={reveal} className='mx-1 mb-3 p-0'>4.2.2. адрес, по которому следует доставить
                         Товар (если доставка до адреса Покупателя);</motion.h5>
                     <motion.h5 variants={reveal} className='mx-1 mb-3 p-0'>4.2.3. адрес электронной почты;</motion.h5>
                     <motion.h5 variants={reveal} className='mx-1 mb-3 p-0'>4.2.4. контактный телефон.</motion.h5>
@@ -144,7 +150,7 @@ function ContractScreen() {
                         касающимся свойств и характеристик Товара, Покупатель может обратиться к Продавцу, посредством
                         отправки сообщения администратору официальной страницы Продавца в социальной сети Instagram<sup>* </sup>
                         https://www.instagram.com/unfort.4u или ВКонткате - https://vk.com/unfort_4u или отправив
-                        письмо на электронную почту «наша почта».</motion.h5>
+                        письмо на электронную почту support@unfort.ru.</motion.h5>
                     <motion.h5 variants={reveal} className='mx-1 mb-3 p-0'>4.8. Фотографии и макеты Товара,
                         представленные на сайте https://unfort.ru/, созданы в условиях специального освещения с
                         использованием профессионального оборудования, либо откорректированы в программе Photoshop,
@@ -215,7 +221,7 @@ function ContractScreen() {
                         Покупателю необходимо связаться с Продавцом посредством отправки сообщения администратору
                         официальной страницы Продавца в социальной сети
                         Instagram<sup>* </sup> - https://www.instagram.com/unfort.4u или ВКонткате - https://vk.com/unfort_4u или
-                        направив письмо на почту «наша почта».</motion.h5>
+                        направив письмо на почту support@unfort.ru.</motion.h5>
                     <motion.h5 variants={reveal} className='mx-1 mb-3 p-0'>6.3.2. Договор купли-продажи считается
                         расторгнутым автоматически, в случае непоступления полной оплаты стоимости Заказа.</motion.h5>
                     <motion.h5 variants={reveal} className='mx-1 mb-3 p-0'>6.4. Денежные средства, внесенные
@@ -263,7 +269,7 @@ function ContractScreen() {
                         претензий со стороны Покупателя он вправе обратиться к Продавцу посредством отправки сообщения
                         администратору официальной страницы Продавца в социальной сети Instagram<sup>* </sup> -
                         https://www.instagram.com/unfort.4u или ВКонткате - https://vk.com/unfort_4u или направив
-                        письмо на почту «наша почта».</motion.h5>
+                        письмо на почту support@unfort.ru.</motion.h5>
 
                     <motion.h4 variants={reveal} className='mx-1 mb-3 p-0'>Все Возникающее споры стороны будут
                         стараться решить путем переговоров, при не достижении соглашения, соответствующий спор

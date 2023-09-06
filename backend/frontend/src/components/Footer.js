@@ -9,35 +9,6 @@ import {animationStart, reveal} from "../utils/animation";
 
 
 function Footer() {
-    const navigate = useNavigate()
-
-    const w = window.innerWidth
-
-    const email = 'unfort@email.com'
-
-    const about = () => {
-        navigate('/about')
-    }
-
-    const support = () => {
-        navigate('/support')
-    }
-
-    const delivery = () => {
-        navigate('/delivery')
-    }
-
-    const reTurn = () => {
-        navigate('/return')
-    }
-
-    const contract = () => {
-        navigate('/contract')
-    }
-
-    const privacy = () => {
-        navigate('/privacy')
-    }
 
     const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -76,80 +47,8 @@ function Footer() {
         });
     }
 
-    const unfortFooterHoverHandler = () => {
-        const element = document.getElementById("unfort-link-footer"),
-            text = element && element?.innerText.split("");
-
-        if (element) {
-            element.innerText = "";
-        }
-
-        text && text.forEach((value, index) => {
-            const outer = document.createElement("span");
-
-            outer.className = "outer";
-
-            const inner = document.createElement("span");
-
-            inner.className = "inner";
-
-            inner.style.animationDelay = `${rand(-5000, 0)}ms`;
-
-            const letter = document.createElement("span");
-
-            letter.className = "letter";
-
-            letter.innerText = value;
-
-            letter.style.animationDelay = `${index * 1000 }ms`;
-
-            inner.appendChild(letter);
-
-            outer.appendChild(inner);
-
-            element.appendChild(outer);
-        });
-    }
-
-    const unfortHeaderHoverHandler = () => {
-        const element = document.getElementById("unfort-link-header"),
-            text = element && element?.innerText.split("");
-
-        if (element) {
-            element.innerText = "";
-        }
-
-        text && text.forEach((value, index) => {
-            const outer = document.createElement("span");
-
-            outer.className = "outer";
-
-            const inner = document.createElement("span");
-
-            inner.className = "inner";
-
-            inner.style.animationDelay = `${rand(-5000, 0)}ms`;
-
-            const letter = document.createElement("span");
-
-            letter.className = "letter";
-
-            letter.innerText = value;
-
-            letter.style.animationDelay = `${index * 1000 }ms`;
-
-            inner.appendChild(letter);
-
-            outer.appendChild(inner);
-
-            element.appendChild(outer);
-        });
-    }
-
     useEffect(() => {
         emailHoverHandler()
-        unfortFooterHoverHandler()
-        unfortHeaderHoverHandler()
     })
 
     return (
@@ -197,17 +96,17 @@ function Footer() {
                             FOR U
                         </motion.div>
                         <motion.div variants={reveal}>
-                            <LinkContainer className="text-center" to='/support' onClick={support}>
+                            <LinkContainer className="text-center" to='/support'>
                                 <Nav.Link className="cursor">SUPPORT</Nav.Link>
                             </LinkContainer>
                         </motion.div>
                         <motion.div variants={reveal}>
-                            <LinkContainer className="text-center" to='/delivery' onClick={delivery}>
+                            <LinkContainer className="text-center" to='/delivery'>
                                 <Nav.Link className="cursor">DELIVERY</Nav.Link>
                             </LinkContainer>
                         </motion.div>
                         <motion.div variants={reveal}>
-                            <LinkContainer className="text-center" to='/return' onClick={reTurn}>
+                            <LinkContainer className="text-center" to='/return'>
                                 <Nav.Link className="cursor">RETURN</Nav.Link>
                             </LinkContainer>
                         </motion.div>
@@ -231,17 +130,17 @@ function Footer() {
                             INFO
                         </motion.div>
                         <motion.div variants={reveal}>
-                            <LinkContainer className="text-center" to='/about' onClick={about}>
+                            <LinkContainer className="text-center" to='/about'>
                                 <Nav.Link className="cursor">ABOUT US</Nav.Link>
                             </LinkContainer>
                         </motion.div>
                         <motion.div variants={reveal}>
-                            <LinkContainer className="text-center" to='/contract' onClick={contract}>
+                            <LinkContainer className="text-center" to='/contract'>
                                 <Nav.Link className="cursor">CONTRACT OFFER</Nav.Link>
                             </LinkContainer>
                         </motion.div>
                         <motion.div variants={reveal}>
-                            <LinkContainer className="text-center" to='/privacy' onClick={privacy}>
+                            <LinkContainer className="text-center" to='/privacy'>
                                 <Nav.Link className="cursor">PRIVACY POLICY</Nav.Link>
                             </LinkContainer>
                         </motion.div>

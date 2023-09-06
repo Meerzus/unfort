@@ -26,22 +26,36 @@ function Header() {
 
     const extraMenuHandler = () => {
         const menu = document.querySelector('.extra-menu')
+        const backGround = document.querySelector('.extra-background')
+
+        setTimeout(() => {backGround.style.display = 'flex'}, 1)
 
         menu.animate({
             left: '0'
         }, 250)
 
+        backGround.animate({
+            opacity: '.75'
+        }, 250)
+
         setTimeout(() => {menu.style.left = '0'}, 249)
+        setTimeout(() => {backGround.style.opacity = '.75'}, 249)
     }
 
     const extraMenuClose = () => {
         const menu = document.querySelector('.extra-menu')
+        const backGround = document.querySelector('.extra-background')
 
         menu.animate({
             left: '-16rem'
         }, 250)
 
+        backGround.animate({
+            opacity: '0'
+        }, 250)
+
         setTimeout(() => {menu.style.left = '-16rem'}, 249)
+        setTimeout(() => {backGround.style.display = 'none'}, 249)
     }
 
     return (
@@ -64,12 +78,7 @@ function Header() {
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className='extra-menu'>
-                                <button
-                                    id="extra-close-btn"
-                                    onClick={extraMenuClose}
-                                >
-                                    <i className="fa-solid fa-xmark fa-xl"></i>
-                                </button>
+                                <div className='extra-background' onClick={extraMenuClose}></div>
                                 <div className='extra-container'>
                                     <div id="extra-user">
                                         {userInfo ? (

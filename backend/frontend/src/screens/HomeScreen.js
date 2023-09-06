@@ -26,12 +26,18 @@ function HomeScreen() {
 
     const extraMenuClose = () => {
         const menu = document.querySelector('.extra-menu')
+        const backGround = document.querySelector('.extra-background')
 
         menu.animate({
             left: '-16rem'
         }, 250)
 
+        backGround.animate({
+            opacity: '0'
+        }, 250)
+
         setTimeout(() => {menu.style.left = '-16rem'}, 249)
+        setTimeout(() => {backGround.style.display = 'none'}, 249)
     }
 
     useEffect(() => {
@@ -111,11 +117,6 @@ function HomeScreen() {
                 setActiveFilter={setActiveFilter}
             />
             <Container>
-                <Paginate
-                    page={page}
-                    pages={pages}
-                    keyword={keyword}
-                />
                 <motion.div layout className="products">
                     <AnimatePresence>
                         {
@@ -125,15 +126,6 @@ function HomeScreen() {
                         }
                     </AnimatePresence>
                 </motion.div>
-                <br/>
-                {
-                    Number(filtered.length) > 4 &&
-                    <Paginate
-                        page={page}
-                        pages={pages}
-                        keyword={keyword}
-                    />
-                }
             </Container>
         </div>
     );
