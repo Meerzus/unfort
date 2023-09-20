@@ -496,7 +496,7 @@ button.active {
     background-color: var(--third-color);
     border-radius: 0.5rem;
     box-shadow: 0 0 10px 0 rgba(189, 38, 76, 0);
-    right: 0;
+    left: 0;
     top: 0;
     opacity: 1;
     transition-duration: 500ms;
@@ -1370,7 +1370,7 @@ nav {
     left: -16rem;
     top: 0;
 
-    padding: 2rem 1rem;
+    padding: 0 1rem 2rem 1rem;
 
     z-index: 1001;
 }
@@ -1400,7 +1400,6 @@ nav {
 
 .extra-container {
     box-sizing: border-box;
-    margin-top: 2rem;
     align-items: center;
 
     padding: 0;
@@ -1578,6 +1577,29 @@ nav {
     opacity: 0;
 
     z-index: 999;
+}
+
+.fa-heart {
+    display: flex;
+    position: absolute;
+
+    color: var(--second-color);
+    font-size: 2rem;
+
+    cursor: pointer;
+
+    top: .5rem;
+    right: .5rem;
+
+    transition-duration: 250ms;
+}
+
+.fa-heart:hover {
+    scale: 1.1
+}
+
+.fa-heart:active {
+    scale: .9
 }
 
 @media (max-width: 1400px) {

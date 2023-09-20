@@ -1,10 +1,9 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Card} from "react-bootstrap";
 import {Link, useNavigate} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import {motion} from "framer-motion";
-import {PRODUCT_CREATE_REVIEW_RESET} from "../constants/productConstants";
-import {listProductDetails} from "../actions/productActions";
 
 
 function Product({product}) {
@@ -13,6 +12,8 @@ function Product({product}) {
     const linkHandler = () => {
         navigate(`/product/${product._id}/`)
     }
+
+    const dispatch = useDispatch()
 
     const productImgHover = () => {
         let img = document.getElementById(`${product._id}`)
@@ -25,6 +26,48 @@ function Product({product}) {
         let img1 = img.getElementsByClassName('card-img')
         img1[0].src = product.mainimg
     }
+
+    let likes = []
+
+    const liked = localStorage.getItem('likedItems')
+
+    const addToLike = () => {
+        let likedItem1 = document.getElementById(`${product._id}`)
+        let likedItem2 = likedItem1.getElementsByClassName('fa-heart')[0]
+
+        if (!(localStorage.likedItems.includes(product._id))) {
+            localStorage.likedItems = product._id + ', ' + localStorage.likedItems
+        } else if (localStorage.likedItems.includes(product._id)) {
+            localStorage.likedItems = localStorage.likedItems.replace(`${product._id}, `, '')
+        }
+
+        if (likedItem2.classList.contains('fa-regular')) {
+            likedItem1.classList.remove('liked')
+            likedItem2.classList.remove('fa-regular')
+            likedItem2.classList.add('fa-solid')
+        } else if (likedItem2.classList.contains('fa-solid')) {
+            likedItem1.classList.add('liked')
+            likedItem2.classList.remove('fa-solid')
+            likedItem2.classList.add('fa-regular')
+        }
+    }
+
+    const markAsLiked = () => {
+        let likedItem1 = document.getElementById(`${product._id}`)
+        let likedItem2 = likedItem1.getElementsByClassName('fa-heart')[0]
+
+        if (!(localStorage.likedItems.includes(product._id))) {
+            likedItem2.classList.remove('fa-solid')
+            likedItem2.classList.add('fa-regular')
+        } else if (localStorage.likedItems.includes(product._id)) {
+            likedItem2.classList.remove('fa-regular')
+            likedItem2.classList.add('fa-solid')
+        }
+    }
+
+    useEffect(() => {
+        markAsLiked()
+    }, [localStorage.likedItems])
 
     return (
         <motion.div
@@ -52,6 +95,7 @@ function Product({product}) {
                     onMouseOut={productImgOut}
                     className="rounded-3 product-img"/>
             </Link>
+            <i className="fa-regular fa-heart" id='like' onClick={addToLike}></i>
             <Card.Body>
                 <Link
                     onClick={linkHandler}

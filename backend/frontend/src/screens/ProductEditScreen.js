@@ -207,14 +207,7 @@ function ProductEditScreen({location, history}) {
         }
     }
 
-    const newDesc = (description) => {
-        if (description.includes(';') === true) {
-            description = description.split(';')
-            setDescription1(description)
-        }
-    }
-
-    let categoryArr = ['',]
+    let categoryArr = []
 
     const toggleHandler = (e) => {
         if (!(categoryArr.includes(e))) {
@@ -222,14 +215,6 @@ function ProductEditScreen({location, history}) {
         } else if (categoryArr.includes(e)) {
             const index = categoryArr.indexOf(e)
             delete categoryArr[index]
-        }
-    }
-
-    const isCheckedHandler = (value) => {
-        if (category.includes(value)) {
-            return true
-        } else {
-            return false
         }
     }
 
@@ -348,7 +333,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='NEW'
                                                         value='NEW'
-                                                        // checked={isCheckedHandler('NEW')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
 
@@ -358,7 +342,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='PREORDER'
                                                         value='PREORDER'
-                                                        // checked={isCheckedHandler('PREORDER')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
 
@@ -368,7 +351,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='HOODIES'
                                                         value='HOODIES'
-                                                        // checked={isCheckedHandler('HOODIES')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
 
@@ -378,7 +360,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='LONG'
                                                         value='LONG'
-                                                        // checked={isCheckedHandler('LONG')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
                                                 </div>
@@ -390,7 +371,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='T-SHIRTS'
                                                         value='T-SHIRTS'
-                                                        // checked={isCheckedHandler('T-SHIRTS')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
 
@@ -400,7 +380,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='PANTS'
                                                         value='PANTS'
-                                                        // checked={isCheckedHandler('PANTS')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
 
@@ -410,7 +389,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='SHORTS'
                                                         value='SHORTS'
-                                                        // checked={isCheckedHandler('SHORTS')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
 
@@ -420,7 +398,6 @@ function ProductEditScreen({location, history}) {
                                                         type='checkbox'
                                                         id='ACCESSORIES'
                                                         value='ACCESSORIES'
-                                                        // checked={isCheckedHandler('ACCESSORIES')}
                                                         onChange={(e) => toggleHandler(e.target.value)}
                                                     />
                                                 </div>
