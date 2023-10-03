@@ -3,13 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.c14353b0.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.c14353b0.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.3a6b98c9.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.3a6b98c9.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.3a6b98c9.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.b128906e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.b128906e.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.b128906e.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Product.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Product.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +310,7 @@
       <workItem from="1694338245097" duration="748000" />
       <workItem from="1694860385884" duration="1500000" />
       <workItem from="1695210072658" duration="629000" />
-      <workItem from="1696339645670" duration="9162000" />
+      <workItem from="1696339645670" duration="11815000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>
