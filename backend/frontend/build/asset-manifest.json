@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.c14353b0.css",
-    "main.js": "/static/js/main.3a6b98c9.js",
+    "main.css": "/static/css/main.e10e1845.css",
+    "main.js": "/static/js/main.b128906e.js",
     "static/js/787.cda612ba.chunk.js": "/static/js/787.cda612ba.chunk.js",
+    "static/media/2.webm": "/static/media/2.8bd40c92b59a6bd2f83a.webm",
     "static/media/banner.webp": "/static/media/banner.06130775c031a29b622f.webp",
     "static/media/popup-banner.webp": "/static/media/popup-banner.19384b77aecc5e3174ac.webp",
     "static/media/helvetica_bold.otf": "/static/media/helvetica_bold.899889c95eb3c6b47ce3.otf",
@@ -11,12 +12,12 @@
     "static/media/HelveticaNeueBoldCondensed.ttf": "/static/media/HelveticaNeueBoldCondensed.7ff1b25d7041efe11b45.ttf",
     "static/media/monasgrotesk-bold.otf": "/static/media/monasgrotesk-bold.1bee93235b7fd7e060dc.otf",
     "index.html": "/index.html",
-    "main.c14353b0.css.map": "/static/css/main.c14353b0.css.map",
-    "main.3a6b98c9.js.map": "/static/js/main.3a6b98c9.js.map",
+    "main.e10e1845.css.map": "/static/css/main.e10e1845.css.map",
+    "main.b128906e.js.map": "/static/js/main.b128906e.js.map",
     "787.cda612ba.chunk.js.map": "/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c14353b0.css",
-    "static/js/main.3a6b98c9.js"
+    "static/css/main.e10e1845.css",
+    "static/js/main.b128906e.js"
   ]
 }
