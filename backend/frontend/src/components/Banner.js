@@ -3,8 +3,7 @@ import React, {useState, useEffect} from 'react';
 import {motion} from "framer-motion";
 import {animationStart} from "../utils/animation";
 
-import Video from "../2.webm";
-import Video1 from "../1.mp4";
+import Video from "../1.mp4";
 
 
 function Banner() {
@@ -52,9 +51,8 @@ function Banner() {
             <button className='mute' onClick={muteHandler}>
                 <i id='mute-btn' className="fa-solid fa-volume-xmark"></i>
             </button>
-            <video preload='auto' className='video' autoPlay muted={muted} controls={false} loop>
-             <source src={Video} type="video/webm"/>
-             <source src={Video1} type="video/mp4"/>
+            <video preload="metadata" className='video' autoPlay muted={muted} controls={false} loop playsinline>
+             <source src={Video} type="video/mp4"/>
              Your browser does not support HTML5 video.
             </video>
         </motion.div>

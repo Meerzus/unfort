@@ -5,10 +5,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.9411946b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.9411946b.js.LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.9411946b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.8219094c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.8219094c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.8219094c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/media/1.e6dc44a4dac7c25f0137.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/media/2.8bd40c92b59a6bd2f83a.webm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/1.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/1.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/2.webm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -311,7 +316,7 @@
       <workItem from="1695210072658" duration="629000" />
       <workItem from="1696339645670" duration="13006000" />
       <workItem from="1696414253694" duration="695000" />
-      <workItem from="1696417393617" duration="1088000" />
+      <workItem from="1696417393617" duration="3231000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>
