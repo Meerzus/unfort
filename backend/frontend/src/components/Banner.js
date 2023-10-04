@@ -51,7 +51,15 @@ function Banner() {
             <button className='mute' onClick={muteHandler}>
                 <i id='mute-btn' className="fa-solid fa-volume-xmark"></i>
             </button>
-            <video preload="metadata" className='video' autoPlay muted={muted} controls={false} loop playsinline>
+            <video
+                preload="metadata"
+                className='video'
+                autoPlay={true}
+                muted={muted}
+                controls={false}
+                loop={true}
+                playsInline={true}
+            >
              <source src={Video} type="video/mp4"/>
              Your browser does not support HTML5 video.
             </video>
