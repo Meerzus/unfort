@@ -3,7 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/media/1.278dd9c51bda47547dc9.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/1.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/1.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/2.webm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Banner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/PlaceOrderScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/PlaceOrderScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/staticfiles/media/1.278dd9c51bda47547dc9.c744f8e920f3.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/staticfiles/media/1.278dd9c51bda47547dc9.mp4" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -307,7 +319,11 @@
       <workItem from="1696339645670" duration="13006000" />
       <workItem from="1696414253694" duration="695000" />
       <workItem from="1696417393617" duration="3830000" />
-      <workItem from="1696432908517" duration="935000" />
+      <workItem from="1696432908517" duration="1785000" />
+      <workItem from="1696497980048" duration="602000" />
+      <workItem from="1696516699594" duration="908000" />
+      <workItem from="1696524251406" duration="8088000" />
+      <workItem from="1696579691487" duration="7570000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>

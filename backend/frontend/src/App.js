@@ -33,13 +33,14 @@ import ContractScreen from "./screens/ContractScreen";
 import PrivacyScreen from "./screens/PrivacyScreen";
 
 import GoUpArrow from "./components/GoUpArrow";
+import GoToVk from "./components/GoToVK";
 
 
 function App() {
     return (
         <Router>
             <Header/>
-            <motion.main>
+            <motion.main className='mb-3'>
                 <Routes>
                     <Route path='/' element={<HomeScreen/>} exact/>
                     <Route path='/login' element={<LoginScreen/>}/>
@@ -72,8 +73,8 @@ function App() {
             {
                 (window.innerWidth > 767) && <GoUpArrow/>
             }
-            <br/>
-            <br/>
+            {/*https://vk.me/unfort_4u*/}
+            <GoToVk/>
             <Footer/>
         </Router>
     );

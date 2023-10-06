@@ -477,23 +477,27 @@ function ProductScreen() {
                     </div>
 
                     <Container>
-                        <motion.div
-                            variants={reveal}
-                            initial='hiddenVariantX'
-                            animate='revealedVariantX'
-                            transition={{
-                                ease: 'easeIn',
-                                type: 'spring',
-                                staggerChildren: .1,
-                                duration: 1,
-                                delayChildren: animationStart,
-                                delay: animationStart
-                            }}
-                        >
-                            <Link to='/' className='btn btn-light my-3'>Назад</Link>
-                        </motion.div>
 
-                        <Row>
+                        {
+                            window.innerWidth >= 910 &&
+                                <motion.div
+                                    variants={reveal}
+                                    initial='hiddenVariantX'
+                                    animate='revealedVariantX'
+                                    transition={{
+                                        ease: 'easeIn',
+                                        type: 'spring',
+                                        staggerChildren: .1,
+                                        duration: 1,
+                                        delayChildren: animationStart,
+                                        delay: animationStart
+                                    }}
+                                >
+                                    <Link to='/' className='btn btn-light mt-3'>Назад</Link>
+                                </motion.div>
+                        }
+
+                        <Row className='mt-3'>
                             <motion.div
                                 className="col-md-6 image-track"
                                 variants={reveal}

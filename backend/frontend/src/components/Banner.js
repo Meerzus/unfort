@@ -1,68 +1,55 @@
 import React, {useState, useEffect} from 'react';
 
 import {motion} from "framer-motion";
-import {animationStart} from "../utils/animation";
+import {animationStart, reveal} from "../utils/animation";
 
 import Video from "../1.mp4";
+import Video1 from "../2.mp4";
+import {Nav} from "react-bootstrap";
+import {LinkContainer} from "react-router-bootstrap";
 
 
 function Banner() {
 
-    const [height, setHeight] = useState(0)
+    const scrollHandler = () => {
+        const products = document.getElementById('products')
 
-    const [muted, setMuted] = useState(true)
-
-    const muteHandler = () => {
-        const btn = document.getElementById('mute-btn')
-
-        if (muted === true) {
-            btn.classList.remove('fa-volume-xmark')
-            btn.classList.add('fa-volume-high')
-            setMuted(false)
-        } else if (muted === false) {
-            btn.classList.remove('fa-volume-high')
-            btn.classList.add('fa-volume-xmark')
-            setMuted(true)
-        }
-    }
-
-    useEffect(() => {
-        if (window.innerWidth >= 1920) {
-            setHeight(95)
-        } else if (window.innerWidth >= 1024) {
-            setHeight(90)
-        } else if (window.innerWidth >= 910) {
-            setHeight(85)
-        } else if (window.innerWidth >= 768) {
-            setHeight(40)
-        } else {
-            setHeight(27.5)
-        }
-    }, [height])
+        products?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
         <motion.div
             layout
             initial={{height: 0}}
-            animate={{height: height + 'vh'}}
-            transition={{delay: animationStart - 1, duration: 2, ease: [1, .5, 1, 1]}}
+            animate={{height: 95 + 'vh'}}
+            transition={{delay: animationStart - 1, duration: 0, ease: [1, .5, 1, 1]}}
             className='player'
         >
-            <button className='mute' onClick={muteHandler}>
-                <i id='mute-btn' className="fa-solid fa-volume-xmark"></i>
-            </button>
             <video
                 preload="metadata"
                 className='video'
                 autoPlay={true}
-                muted={muted}
+                muted={true}
                 controls={false}
                 loop={true}
                 playsInline={true}
             >
-             <source src={Video} type="video/mp4"/>
+             <source src={window.innerWidth >= 910 ? Video : Video1} type="video/mp4"/>
              Your browser does not support HTML5 video.
             </video>
+            <motion.div
+                className='banner-btns'
+                animate={{opacity: .75, display: 'flex'}}
+                transition={{
+                    duration: 1,
+                    delay: 1
+                }}
+            >
+                <LinkContainer className="banner-btn" to='/login'>
+                    <Nav.Link>Личный кабинет</Nav.Link>
+                </LinkContainer>
+                <button className='banner-btn' onClick={scrollHandler}>Каталог</button>
+            </motion.div>
         </motion.div>
     );
 }

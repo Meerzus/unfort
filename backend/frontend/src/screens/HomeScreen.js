@@ -8,7 +8,6 @@ import Banner from "../components/Banner";
 import Filter from "../components/Filter";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import Paginate from "../components/Paginate";
 import RunningStroke from "../components/RunningStroke";
 
 import {motion, AnimatePresence} from "framer-motion";
@@ -72,10 +71,10 @@ function HomeScreen() {
             <motion.div
                 className='popup-background'
                 id='popup-background'
-                animate={{opacity: .75}}
+                animate={{opacity: .75, display: 'flex'}}
                 transition={{
                     duration: 1,
-                    delay: 2
+                    delay: 15
                 }}
                 onClick={popupHandler}
             ></motion.div>
@@ -86,7 +85,7 @@ function HomeScreen() {
                 transition={{
                     type: "spring",
                     duration: 1,
-                    delay: 2
+                    delay: 15
                 }}
             >
                 <div className='popup-card-img'></div>
@@ -117,7 +116,7 @@ function HomeScreen() {
                 setActiveFilter={setActiveFilter}
             />
             <Container>
-                <motion.div layout className="products">
+                <motion.div layout className="products" id='products'>
                     <AnimatePresence>
                         {
                             filtered.map((product) => {

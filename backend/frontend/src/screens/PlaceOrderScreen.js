@@ -35,7 +35,7 @@ function PlaceOrderScreen({history}) {
     const cupon = () => {
         setTryCoupon((document.querySelector('#coupon').value))
         if (coupon.includes(document.querySelector('#coupon').value)) {
-            setSale(20)
+            setSale(5)
         } else {
             setSale(0)
         }
@@ -48,8 +48,8 @@ function PlaceOrderScreen({history}) {
     }
 
     cart.itemsPrice = cart.cartItems.reduce((acc, item) => acc + item.qty * item.price, 0) * ((100 - sale)/100)
-    // cart.shippingPrice = cart.itemsPrice > 20000 ? 0 : 1000
-    cart.shippingPrice = 0
+    cart.shippingPrice = cart.itemsPrice > 8500 ? 0 : 1000
+    // cart.shippingPrice = 0
     cart.totalPrice = Number(cart.itemsPrice) + Number(cart.shippingPrice)
 
     const extraMenuClose = () => {
