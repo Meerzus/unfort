@@ -2,7 +2,7 @@ import React from 'react';
 
 function RunningStroke(props) {
     return (
-        <div className='running-stroke'>
+        <div className='running-stroke' id='running-stroke'>
             <div className='running-inner'>
                 <div>
                     <span>ПРИ ЗАКАЗЕ ОТ 8.500 РУБЛЕЙ - ДОСТАВКА БЕСПЛАТНАЯ</span>

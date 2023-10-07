@@ -54,6 +54,10 @@ html {
     box-sizing: border-box;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: var(--second-color);
+}
+
 h1 {
     font-size: 1.8rem;
     /*padding: 1rem 0;*/
@@ -178,6 +182,7 @@ img {
     flex-direction: column;
     position: fixed;
     z-index: 1001;
+    color: var(--second-color);
     background-color: #ffffff;
     width: 30rem;
     height: auto;
@@ -294,7 +299,7 @@ img {
     border-radius: 1rem;
 
     text-transform: uppercase;
-    font-size: 1.35rem;
+    font-size: 1rem;
 
     transition-duration: 250ms;
 
@@ -371,7 +376,7 @@ img {
 }
 
 .cart-item-title {
-    color: #232323;
+    color: var(--second-color);
     font-size: 1rem;
     font-weight: 700;
     opacity: .75;
@@ -379,8 +384,7 @@ img {
 }
 
 .cart-item-title:hover {
-    color: #232323;
-    letter-spacing: .01rem;
+    color: var(--second-color);
     opacity: 1;
 }
 
@@ -395,6 +399,7 @@ img {
 }
 
 .products {
+    color: var(--second-color);
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
@@ -683,12 +688,22 @@ td .btn-danger:hover {
 }
 
 .qty-form {
+    color: var(--second-color) !important;
     justify-content: center !important;
     align-items: center !important;
     font-weight: bold !important;
     font-size: 1rem !important;
     border: .1rem solid black !important;
     cursor: pointer;
+}
+
+.cdek-map {
+    display: flex;
+
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
 }
 
 .back-to-homepage {
@@ -943,6 +958,7 @@ li[class='active page-item active'] .page-link {
     font-family: 'Helvetica Neue', sans-serif !important;
     font-weight: normal;
     border: none !important;
+    color: var(--second-color);
 }
 
 .card-body {
@@ -1633,6 +1649,10 @@ nav {
     transition-duration: 250ms;
 }
 
+#info {
+    color: var(--second-color);
+}
+
 #go-up-btn:hover {
     scale: 1.1;
 }
@@ -1686,6 +1706,7 @@ nav {
 }
 
 .about-us {
+    color: var(--second-color);
     width: 100vw;
     height: auto;
     display: flex;
@@ -1696,6 +1717,7 @@ nav {
 }
 
 .support {
+    color: var(--second-color);
     width: 100vw;
     height: auto;
     display: flex;

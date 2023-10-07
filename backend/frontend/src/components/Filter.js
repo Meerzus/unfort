@@ -15,7 +15,7 @@ function Filter({setActiveFilter, activeFilter, setFiltered, products}) {
     }, [activeFilter])
 
     return (
-        <div className="filter-container">
+        <div className="filter-container" id='filter-container'>
             <Table striped responsive className='table-sm text-center filter-table'>
                 <tr>
                     <td>

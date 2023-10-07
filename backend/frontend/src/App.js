@@ -73,8 +73,30 @@ function App() {
             {
                 (window.innerWidth > 767) && <GoUpArrow/>
             }
-            {/*https://vk.me/unfort_4u*/}
             <GoToVk/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <Footer/>
         </Router>
     );

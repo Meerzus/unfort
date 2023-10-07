@@ -9,6 +9,8 @@ import {saveShippingAddress} from "../actions/cartActions";
 import {motion} from "framer-motion";
 import {animationStart, reveal} from "../utils/animation";
 
+import YMap from "../components/YMap";
+
 
 function ShippingScreen({history}) {
     const cart = useSelector(state => state.cart)
@@ -203,19 +205,21 @@ function ShippingScreen({history}) {
                          {cityError && <div style={{color: 'red'}}>Некорректный Адрес</div>}
                     </Form.Group>
 
-                     <Form.Group className='mb-3' controlId='fullName'>
-                         <motion.div variants={reveal}>
-                             <Form.Label>ФИО</Form.Label>
-                         </motion.div>
-                         <motion.div variants={reveal}>
-                             <Form.Control
+                    <YMap/>
+
+                    <Form.Group className='mb-3' controlId='fullName'>
+                        <motion.div variants={reveal}>
+                            <Form.Label>ФИО</Form.Label>
+                        </motion.div>
+                        <motion.div variants={reveal}>
+                            <Form.Control
                                 required
                                 type='text'
                                 placeholder='Иванов Иван Иванович'
                                 value={fullName ? fullName : ''}
                                 onChange={(e) => setFullName(e.target.value)}></Form.Control>
-                         </motion.div>
-                         {fullNameError && <div style={{color: 'red'}}>Некорректный ФИО</div>}
+                        </motion.div>
+                        {fullNameError && <div style={{color: 'red'}}>Некорректный ФИО</div>}
                     </Form.Group>
 
                     <Form.Group className='mb-3' controlId='address'>

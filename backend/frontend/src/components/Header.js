@@ -63,20 +63,20 @@ function Header() {
             <motion.div
                 initial={{opacity: 1}}
                 animate={{opacity: 1}}
-                transition={{delay: animationStart - .5, duration: 1}}
+                transition={{delay: animationStart - .5, duration: 0}}
             >
                 <motion.div variants={reveal} initial='hiddenVariantY' animate='revealedVariantY' transition={{
                     ease: 'easeIn',
                     type: 'spring',
                     staggerChildren: .25,
-                    duration: 1,
+                    duration: 0,
                     delayChildren: animationStart - .25
                 }}>
                     <header>
                         <Navbar bg="black" variant="dark" expand="lg">
-                            <button id='header-btn' onClick={extraMenuHandler}>
+                            <motion.button variants={reveal} id='header-btn' onClick={extraMenuHandler}>
                                 <span className="navbar-toggler-icon"></span>
-                            </button>
+                            </motion.button>
                             <div className='extra-menu'>
                                 <div className='extra-background' onClick={extraMenuClose}></div>
                                 <div className='extra-container'>

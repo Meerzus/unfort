@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
 
 import {motion} from "framer-motion";
 import {animationStart, reveal} from "../utils/animation";
@@ -11,8 +12,11 @@ import {LinkContainer} from "react-router-bootstrap";
 
 function Banner() {
 
+    const userLogin = useSelector(state => state.userLogin)
+    const {userInfo} = userLogin
+
     const scrollHandler = () => {
-        const products = document.getElementById('products')
+        const products = document.getElementById('running-stroke')
 
         products?.scrollIntoView({ behavior: 'smooth' });
     };
@@ -45,9 +49,15 @@ function Banner() {
                     delay: 1
                 }}
             >
-                <LinkContainer className="banner-btn" to='/login'>
-                    <Nav.Link>Личный кабинет</Nav.Link>
-                </LinkContainer>
+                {
+                    userInfo ?
+                        <LinkContainer className="banner-btn" to='/profile'>
+                            <Nav.Link>Личный кабинет</Nav.Link>
+                        </LinkContainer> :
+                        <LinkContainer className="banner-btn" to='/login'>
+                            <Nav.Link>Личный кабинет</Nav.Link>
+                        </LinkContainer>
+                }
                 <button className='banner-btn' onClick={scrollHandler}>Каталог</button>
             </motion.div>
         </motion.div>
