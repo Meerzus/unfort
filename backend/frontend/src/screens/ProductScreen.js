@@ -14,6 +14,7 @@ import Message from "../components/Message";
 import {animationStart, reveal} from "../utils/animation";
 
 import Carousel from "../components/Carousel";
+import GoUpArrow from "../components/GoUpArrow";
 
 function ProductScreen() {
     const navigate = useNavigate();
@@ -213,7 +214,18 @@ function ProductScreen() {
         }
     }
 
+    const [leftBtnLimit, setLeftBtnLimit] = useState(true)
+    const [rightBtnLimit, setRightBtnLimit] = useState(false)
+
     var trackLeft = () => {
+        const arr = document.querySelectorAll('.pics-arr-el')
+
+        for (let i in arr) {
+            if (i <= 9) {
+                arr[i].classList.remove('pics-arr-active')
+            }
+        }
+
         const track = document.getElementById("image-track");
 
         if (Number(track.dataset.percentage) < 0) {
@@ -232,6 +244,14 @@ function ProductScreen() {
     }
 
     var trackRight = () => {
+        const arr = document.querySelectorAll('.pics-arr-el')
+
+        for (let i in arr) {
+            if (i <= 9) {
+                arr[i].classList.remove('pics-arr-active')
+            }
+        }
+
         const track = document.getElementById("image-track");
 
         if (Number(track.dataset.percentage) >= trackLimit) {
@@ -285,9 +305,6 @@ function ProductScreen() {
         const {data} = await axios.get('/api/products/')
         setProducts(data)
     }
-
-    const [leftBtnLimit, setLeftBtnLimit] = useState(true)
-    const [rightBtnLimit, setRightBtnLimit] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -451,6 +468,39 @@ function ProductScreen() {
         }
     }
 
+    const picsArr = [
+        product.preview1,
+        product.preview2,
+        product.preview3,
+        product.preview4,
+        product.preview5,
+        product.preview6,
+        product.preview7,
+        product.preview8,
+        product.preview9,
+        product.preview10
+    ]
+
+    const picsArrHandler = (pic) => {
+        const arr = document.querySelectorAll('.pics-arr-el')
+
+        for (let i in arr) {
+            if (i <= 9) {
+                arr[i].classList.remove('pics-arr-active')
+            }
+        }
+
+        pic.target.classList.add('pics-arr-active')
+
+        const track = document.getElementById("image-track");
+
+        track.dataset.percentage = (-100 * Number(pic.target.getAttribute('scrollMultiplier')))
+
+        track?.animate({
+            transform: `translate(${Number(track.dataset.percentage)}%, 0%)`
+        }, { duration: 750, fill: "forwards" });
+    }
+
     return (
         <div>
             {loading && <Loader/>}
@@ -508,8 +558,8 @@ function ProductScreen() {
                                     type: 'spring',
                                     staggerChildren: .25,
                                     duration: 1,
-                                    delayChildren: animationStart,
-                                    delay: animationStart
+                                    delayChildren: animationStart - 1,
+                                    delay: animationStart - 1
                                 }}
                             >
                                 <Col id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
@@ -526,9 +576,28 @@ function ProductScreen() {
                                 </Col>
 
                                 <div className='img-track-btns'>
-                                    <button onClick={trackLeft} disabled={leftBtnLimit}><i className="fa-solid fa-arrow-left"></i></button>
-                                    <button onClick={trackRight} disabled={rightBtnLimit}><i className="fa-solid fa-arrow-right"></i></button>
+                                    <motion.button variants={reveal} onClick={trackLeft} disabled={leftBtnLimit}><i className="fa-solid fa-arrow-left"></i></motion.button>
+                                    <motion.button variants={reveal} onClick={trackRight} disabled={rightBtnLimit}><i className="fa-solid fa-arrow-right"></i></motion.button>
                                 </div>
+
+                                {
+                                    (window.innerWidth > 767) &&
+                                        <div className='pics-arr'>
+                                            {
+                                                picsArr.map((pic) =>(
+                                                    <motion.img
+                                                        variants={reveal}
+                                                        src={pic}
+                                                        id={pic}
+                                                        scrollMultiplier={picsArr.indexOf(pic)}
+                                                        className="pics-arr-el"
+                                                        draggable="false"
+                                                        onClick={picsArrHandler}
+                                                    />
+                                                ))
+                                            }
+                                        </div>
+                                }
                             </motion.div>
 
                             <Col md={6} id='prod-desc'>

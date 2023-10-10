@@ -58,9 +58,15 @@ function HomeScreen() {
             transform: "translate(-12.5vw, 100vh) scale(.5)"
         }, 250)
 
-        setTimeout(() => {popupBackground.style.display = 'none'}, 200)
+        setTimeout(() => {popupBackground.remove()}, 200)
         setTimeout(() => {popupCard.style.display = 'none'}, 200)
     }
+
+    const popupBackground = document.getElementById('popup-background')
+
+    document.body.addEventListener('load', () => {
+        popupBackground.style.display = 'flex'
+    })
 
     return loading ? (
         <Loader/>

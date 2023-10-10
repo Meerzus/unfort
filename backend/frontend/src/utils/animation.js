@@ -6,7 +6,7 @@ export const reveal = {
         y: 0,
         opacity: 1
     },
-    hiddenVariantX: {x: -100, opacity: 0},
+    hiddenVariantX: {x: -1000, opacity: 0},
     revealedVariantX: {
         x: 0,
         opacity: 1

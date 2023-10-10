@@ -83,11 +83,12 @@ function CartScreen(location, history) {
     const navigate = useNavigate();
 
     const checkOutHandler = () => {
-        if (!userInfo){
-            navigate('/login')
-        } else {
-            navigate('/shipping')
-        }
+        // if (!userInfo){
+        //     navigate('/login')
+        // } else {
+        //     navigate('/shipping')
+        // }
+        navigate('/shipping')
     }
 
     const qtyHandler = (item) => {
