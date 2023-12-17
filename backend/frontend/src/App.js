@@ -74,29 +74,6 @@ function App() {
                 (window.innerWidth > 767) && <GoUpArrow/>
             }
             <GoToVk/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
             <Footer/>
         </Router>
     );

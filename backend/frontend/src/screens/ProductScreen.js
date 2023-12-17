@@ -512,6 +512,7 @@ function ProductScreen() {
                         <button id="fullCloseBtn" className="btn btn-light my-3 el-hidden"><i className="fa-solid fa-xmark fa-2xl"></i></button>
 
                         <button id="sizeClose" className="btn btn-light my-3 el-hidden"><i className="fa-solid fa-xmark fa-2xl"></i></button>
+
                         <Image src={product.productSize} id='sizeImg' className="product-img-fullscreen el-hidden" draggable="false"/>
 
                         <Image src={product.preview1} id={product.preview1} className="product-img-fullscreen el-hidden" draggable="false"/>

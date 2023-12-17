@@ -5,10 +5,10 @@ import {Row, Col, ListGroup, Image, Form, Button, Card, Container} from "react-b
 import Message from "../components/Message";
 import {addToCart, removeFromCart} from "../actions/cartActions";
 import Size from "../components/Size";
-// import {useState} from "@types/react";
 
 import {motion} from "framer-motion";
 import {animationStart, reveal} from "../utils/animation";
+import axios from "axios";
 
 
 function CartScreen(location, history) {
@@ -17,11 +17,6 @@ function CartScreen(location, history) {
     let q = window.location.hash ? window?.location?.hash.split('?') : 1
     const qty = window.location.hash === '#/cart' ? 1 : Number(q[1].split('=')[1])
     const size = window.location.hash === '#/cart' ? '' : q[2].split('=')[1]
-    // const qty = 1
-    // const size = 1
-
-    // console.log(window.location.hash === '#/cart' ? 123 : window.location.hash)
-    // console.log(size)
 
     const dispatch = useDispatch()
 
@@ -74,6 +69,16 @@ function CartScreen(location, history) {
             dispatch(addToCart(productId, qty, size, sale))
         }
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json'
+            }
+        }
+
+        const sdekInfo = JSON.parse(localStorage.getItem('sdekInfo'))
+
+        // console.log(sdekInfo.access_token)
     }, [dispatch, productId, qty, size])
 
     const removeFromCartHandler = (id, size) => {
@@ -83,11 +88,6 @@ function CartScreen(location, history) {
     const navigate = useNavigate();
 
     const checkOutHandler = () => {
-        // if (!userInfo){
-        //     navigate('/login')
-        // } else {
-        //     navigate('/shipping')
-        // }
         navigate('/shipping')
     }
 

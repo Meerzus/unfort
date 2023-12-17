@@ -12,6 +12,7 @@ import RunningStroke from "../components/RunningStroke";
 
 import {motion, AnimatePresence} from "framer-motion";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function HomeScreen() {
     const dispatch = useDispatch()
@@ -22,6 +23,9 @@ function HomeScreen() {
 
     const [filtered, setFiltered] = useState([])
     const [activeFilter, setActiveFilter] = useState("0")
+
+    const ACCOUNT = 'SZagROHe9DGO9gX9wsQ5E3nOrRBcPnGe'
+    const PASS = 'UoMKLl8J3vQ7zIO3sYrh7pF46ZoID6ly'
 
     const extraMenuClose = () => {
         const menu = document.querySelector('.extra-menu')
@@ -39,10 +43,36 @@ function HomeScreen() {
         setTimeout(() => {backGround.style.display = 'none'}, 249)
     }
 
+    const headers = {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token, Authorization, Accept,charset,boundary,Content-Length",
+        withCredentials: true,
+    }
+
     useEffect(() => {
         extraMenuClose()
         dispatch(listProducts(keyword))
         setFiltered(products)
+
+        const sdekInfo = async () => {
+            // const {data} = await axios.post(`https://thingproxy.freeboard.io/fetch/https://api.cdek.ru/v2/oauth/token?grant_type=client_credentials&client_id=${ACCOUNT}&client_secret=${PASS}`)
+            const {data} = await axios.post(`https://api.cdek.ru/v2/oauth/token?grant_type=client_credentials&client_id=${ACCOUNT}&client_secret=${PASS}`)
+            window.localStorage.setItem('sdekInfo', JSON.stringify(data))
+        }
+
+        sdekInfo()
+
+        // axios.post(`https://api.cdek.ru/v2/oauth/token?grant_type=client_credentials&client_id=${ACCOUNT}&client_secret=${PASS}`, {
+        //     headers: {
+        //         'Access-Control-Allow-Origin': '*',
+        //         'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        //     }
+        // }).then((response) => {
+        //         window.localStorage.setItem('sdekInfo', JSON.stringify(response.data))
+        //     })
+
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [dispatch, keyword])
 

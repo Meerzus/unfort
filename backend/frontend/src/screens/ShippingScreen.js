@@ -10,15 +10,19 @@ import {motion} from "framer-motion";
 import {animationStart, reveal} from "../utils/animation";
 
 import YMap from "../components/YMap";
+import axios from "axios";
 
 
 function ShippingScreen({history}) {
     const cart = useSelector(state => state.cart)
     const {shippingAddress} = cart
 
+    const orderDetails = useSelector(state => state.orderDetails)
+    const {order} = orderDetails
+
     const dispatch = useDispatch()
 
-    const [city, setCity] = useState(shippingAddress.city)
+    const [city, setCity] = useState('Ваш город')
     const [cityError, setCityError] = useState(false)
     const [fullName, setFullName] = useState(shippingAddress.fullName)
     const [fullNameError, setFullNameError] = useState(false)
@@ -32,6 +36,7 @@ function ShippingScreen({history}) {
     const [socialsError, setSocialsError] = useState(false)
     const [infoSource, setInfoSource] = useState(shippingAddress.infoSource)
     const [infoSourceError, setInfoSourceError] = useState(false)
+    const [sdek, setSdek] = useState(false)
 
     const navigate = useNavigate();
 
@@ -137,10 +142,73 @@ function ShippingScreen({history}) {
         setTimeout(() => {backGround.style.display = 'none'}, 249)
     }
 
-    useEffect(() =>{
+    const [cdekToken, setCdekToken] = useState('')
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${JSON.parse(window.localStorage.getItem('sdekInfo')).access_token}`
+    }
+
+    // async function cdekCity() {
+    //     await axios.get(`https://api.cdek.ru/v2/location/cities/?size=3&page=0`, {headers})
+    //         .then((response) => {
+    //             setData(response)
+    //         })
+    //         .catch((error) => {
+    //             console.error(error)
+    //         })
+    // }
+
+    useEffect(() => {
         extraMenuClose()
-        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
-    }, [])
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+
+        const sdekCity = async () => {
+            // const {data} = await axios.get(`https://thingproxy.freeboard.io/fetch/https://api.edu.cdek.ru/v2/location/cities?city=${city}`, {headers})
+            const {data} = await axios.get(`https://api.edu.cdek.ru/v2/location/cities?city=${city}`, {headers})
+            console.log(data[0].city)
+            // console.log(city)
+        }
+
+        sdekCity()
+
+        // cdekCity()
+    }, [city])
+
+    const [data, setData] = useState(null);
+
+
+
+    const sdekBtn = document.getElementById('sdek-btn')
+    const pochtaBtn = document.getElementById('pochta-btn')
+    const resetBtn = document.getElementById('reset-btn')
+
+    const sdekHandler = () => {
+        setCity(city)
+        setSdek(true)
+        cart.shippingPrice = 100
+        sdekBtn?.classList.add('active')
+        pochtaBtn?.classList.remove('active')
+        resetBtn?.classList.remove('active')
+    }
+
+    const pochtaHandler = () => {
+        setSdek(false)
+
+        cart.shippingPrice = 200
+
+        sdekBtn?.classList.remove('active')
+        resetBtn?.classList.remove('active')
+        pochtaBtn?.classList.add('active')
+    }
+
+    const resetHandler = () => {
+        setSdek(false)
+        cart.shippingPrice = 0
+        sdekBtn?.classList.remove('active')
+        resetBtn?.classList.add('active')
+        pochtaBtn?.classList.remove('active')
+    }
 
     return (
         <FormContainer>
@@ -195,6 +263,7 @@ function ShippingScreen({history}) {
 
                          <motion.div variants={reveal}>
                              <Form.Control
+                                 disabled={sdek}
                                 required
                                 type='text'
                                 placeholder='г. Москва'
@@ -205,7 +274,28 @@ function ShippingScreen({history}) {
                          {cityError && <div style={{color: 'red'}}>Некорректный Адрес</div>}
                     </Form.Group>
 
-                    <YMap/>
+                    <Form.Group className='mb-3' controlId='deliveryOption'>
+                        <motion.div variants={reveal}>
+                            <Form.Label>Способ доставки</Form.Label>
+                        </motion.div>
+
+                        <motion.div className='delivery-option-container' variants={reveal}>
+                            <Button
+                                id='sdek-btn'
+                                className='size-btn btn btn-dark'
+                                onClick={sdekHandler}>СДЭК</Button>
+                            <Button
+                                id='pochta-btn'
+                                className='size-btn btn btn-dark'
+                                onClick={pochtaHandler}>ПОЧТА РОССИИ</Button>
+                            <Button
+                                id='reset-btn'
+                                className='size-btn btn btn-dark'
+                                onClick={resetHandler}>Сбросить</Button>
+                        </motion.div>
+                    </Form.Group>
+
+                    <YMap city={city} sdek={sdek} setAddress={setAddress}/>
 
                     <Form.Group className='mb-3' controlId='fullName'>
                         <motion.div variants={reveal}>

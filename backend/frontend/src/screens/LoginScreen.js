@@ -61,7 +61,7 @@ function LoginScreen({location, history}) {
     return (
         <FormContainer>
             <motion.h1
-                className='text-sm-center'
+                className='text-sm-center loginScreen'
                 variants={reveal}
                 initial='hiddenVariantY'
                 animate='revealedVariantY'

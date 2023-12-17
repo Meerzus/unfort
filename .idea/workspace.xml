@@ -3,13 +3,30 @@
   <component name="ChangeListManager">
     <list default="true" id="09823d8a-09d4-4c61-9204-b05466045c52" name="Changes" comment="Фикс багов в корзине">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/Filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/base/images/pants1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/base/images/pants2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/base/images/pants3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/base/images/pants4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.1da8e7ab.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/css/main.1da8e7ab.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.c30223e1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.c30223e1.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/build/static/js/main.c30223e1.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/components/YMap.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/components/YMap.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/CartScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/CartScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/HomeScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/LoginScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ProductScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/frontend/src/utils/animation.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/utils/animation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/screens/ShippingScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/screens/ShippingScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/frontend/src/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/staticfiles/staticfiles.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -327,7 +344,34 @@
       <workItem from="1696756114457" duration="600000" />
       <workItem from="1696792072715" duration="6800000" />
       <workItem from="1696806028892" duration="5023000" />
-      <workItem from="1696934673972" duration="5591000" />
+      <workItem from="1696934673972" duration="5683000" />
+      <workItem from="1697107913387" duration="170000" />
+      <workItem from="1697132374562" duration="700000" />
+      <workItem from="1699381090515" duration="4214000" />
+      <workItem from="1699524331743" duration="12779000" />
+      <workItem from="1699552444535" duration="1257000" />
+      <workItem from="1699619295084" duration="780000" />
+      <workItem from="1699698684602" duration="215000" />
+      <workItem from="1699709049852" duration="2193000" />
+      <workItem from="1699869343097" duration="5122000" />
+      <workItem from="1699882593125" duration="9884000" />
+      <workItem from="1699909153118" duration="9189000" />
+      <workItem from="1699966044226" duration="10999000" />
+      <workItem from="1699992805239" duration="4984000" />
+      <workItem from="1700052891289" duration="427000" />
+      <workItem from="1700304664024" duration="6433000" />
+      <workItem from="1700325001169" duration="4942000" />
+      <workItem from="1700483209083" duration="299000" />
+      <workItem from="1700908967223" duration="8316000" />
+      <workItem from="1701193684276" duration="25000" />
+      <workItem from="1701321105807" duration="1513000" />
+      <workItem from="1701497035305" duration="1540000" />
+      <workItem from="1701708407699" duration="3125000" />
+      <workItem from="1702376132646" duration="13000" />
+      <workItem from="1702581891146" duration="3892000" />
+      <workItem from="1702654173159" duration="185000" />
+      <workItem from="1702737452018" duration="596000" />
+      <workItem from="1702812691175" duration="2491000" />
     </task>
     <task id="LOCAL-00001" summary="Фикс багов в корзине">
       <created>1686739502310</created>
